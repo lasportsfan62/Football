@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>2026 Football Games</title>
+
+<style>
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+font-family:"Times New Roman",Times,serif;
+color:#222;
+overflow-x:hidden;
+background:
+linear-gradient(rgba(247,247,247,.88),rgba(247,247,247,.92)),
+url("https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=1800&q=80");
+background-size:cover;
+background-position:center;
+background-attachment:fixed
+}
+
+/* HERO */
+
+.hero{
+min-height:460px;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:40px 20px
+}
+
+.hero-content{
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(8px);
+padding:40px;
+border-radius:20px;
+border:1px solid rgba(0,0,0,.15);
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+animation:fadeIn 1.2s
+}
+
+.hero h1{
+font-size:64px;
+letter-spacing:2px;
+margin-bottom:15px;
+color:#111
+}
+
+.hero h2{
+font-size:30px;
+font-weight:normal;
+color:#444;
+margin-bottom:35px
+}
+
+/* COUNTDOWN */
+
+.countdown-title{
+font-size:22px;
+margin-bottom:15px
+}
+
+#countdown{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap
+}
+
+.time-box{
+background:white;
+border:1px solid #ddd;
+border-radius:14px;
+padding:16px;
+width:95px;
+box-shadow:0 5px 15px rgba(0,0,0,.12);
+transition:.25s
+}
+
+.time-box:hover{
+transform:translateY(-5px)
+}
+
+.number{
+font-size:38px;
+font-weight:bold;
+color:#09C90E
+}
+
+.label{
+margin-top:5px;
+font-size:14px;
+text-transform:uppercase;
+letter-spacing:1px
+}
+
+/* NFL TICKER */
+
+.ticker{
+width:100%;
+background:white;
+border-top:2px solid #ddd;
+border-bottom:2px solid #ddd;
+overflow:hidden;
+white-space:nowrap;
+padding:15px 0
+}
+
+.ticker-track{
+display:inline-block;
+padding-left:100%;
+animation:ticker 45s linear infinite;
+font-family:Arial,Helvetica,sans-serif;
+font-size:18px;
+font-weight:bold
+}
+
+.ticker-track span{
+margin-right:45px;
+color:#222
+}
+
+.live{color:#D00000}
+
+.final{color:#555}
+
+.upcoming{color:#005CB9}
+
+.team-logo{
+width:28px;
+height:28px;
+vertical-align:middle;
+margin:0 7px
+}
+
+/* MAIN CONTAINER */
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:25px 15px 50px
+}
+
+/* GAME CARDS */
+
+.card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:28px;
+border-radius:18px;
+margin-bottom:25px;
+text-decoration:none;
+color:white;
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+transition:.25s
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.02);
+box-shadow:0 22px 40px rgba(0,0,0,.35)
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:20px
+}
+
+.icon{
+font-size:48px
+}
+
+.title{
+font-size:34px;
+font-weight:bold;
+margin-bottom:8px
+}
+
+.subtitle{
+font-size:20px
+}
+
+.arrow{
+font-size:40px
+}
+
+/* CARD COLORS */
+
+.supercontest{
+background:#09C90E;
+color:#111
+}
+
+.survivor{
+background:linear-gradient(135deg,#B22222,#6E1010)
+}
+
+.fantasy{
+background:linear-gradient(135deg,#013369,#005CB9)
+}
+
+.rules{
+background:linear-gradient(135deg,#666,#333)
+}
+
+.suggestions{
+background:linear-gradient(135deg,#6A1B9A,#8E24AA)
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:45px 20px;
+font-size:18px;
+color:#555;
+border-top:1px solid #ddd
+}
+
+/* ANIMATIONS */
+
+@keyframes ticker{
+from{transform:translateX(0)}
+to{transform:translateX(-100%)}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(25px)
+}
+to{
+opacity:1;
+transform:translateY(0)
+}
+}
+
+</style>
+
+</head>
+<body>
+
+<section class="hero">
+<div class="hero-content">
+
+<h1>🏈 2026 Football Games</h1>
+<h2>Pick. Survive. Dominate.</h2>
+
+<div class="countdown-title">NFL Kickoff Countdown</div>
+
+<div id="countdown">
+
+<div class="time-box">
+<div class="number" id="days">00</div>
+<div class="label">Days</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="hours">00</div>
+<div class="label">Hours</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="minutes">00</div>
+<div class="label">Minutes</div>
+</div>
+
+<div class="time-box">
+<div class="number" id="seconds">00</div>
+<div class="label">Seconds</div>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<div class="ticker">
+<div class="ticker-track" id="liveTicker">
+Loading NFL scores...
+</div>
+</div>
+
+
+<div class="container">
+
+<a href="SuperContest.html" class="card supercontest">
+<div class="left">
+<div class="icon">🏆</div>
+<div>
+<div class="title">SuperContest</div>
+<div class="subtitle">Against The Spread Picks<br>Compete. Climb. Win.</div>
+</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+
+<a href="Survivor.html" class="card survivor">
+<div class="left">
+<div class="icon">☠️</div>
+<div>
+<div class="title">Survivor Pool</div>
+<div class="subtitle">Pick one team.<br>Survive another week.</div>
+</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+
+<a href="Fantasy.html" class="card fantasy">
+<div class="left">
+<div class="icon">🏈</div>
+<div>
+<div class="title">Fantasy Football</div>
+<div class="subtitle">Manage your roster.<br>Chase the championship.</div>
+</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+
+<a href="Rules.html" class="card rules">
+<div class="left">
+<div class="icon">📖</div>
+<div>
+<div class="title">Rules</div>
+<div class="subtitle">Everything you need to know.</div>
+</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+
+<a href="https://www.youtube.com/watch?v=kk8dFcopN1c" target="_blank" class="card suggestions">
+<div class="left">
+<div class="icon">💬</div>
+<div>
+<div class="title">Complaints + Suggestions</div>
+<div class="subtitle">Have feedback?<br>We want to hear it.</div>
+</div>
+</div>
+<div class="arrow">→</div>
+</a>
+
+</div>
+
+
+<footer>
+🏈 Football Games 2026
+<br><br>
+Hosted by David
+<br>
+Last Updated: August 2026
+</footer>
+
+
+<script>
+
+const kickoffDate=new Date("September 10, 2026 20:20:00").getTime();
+
+function updateCountdown(){
+
+const now=new Date().getTime();
+const distance=kickoffDate-now;
+
+const days=Math.floor(distance/(1000*60*60*24));
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
+const seconds=Math.floor((distance%(1000*60))/1000);
+
+document.getElementById("days").innerHTML=String(days).padStart(2,"0");
+document.getElementById("hours").innerHTML=String(hours).padStart(2,"0");
+document.getElementById("minutes").innerHTML=String(minutes).padStart(2,"0");
+document.getElementById("seconds").innerHTML=String(seconds).padStart(2,"0");
+
+if(distance<0){
+document.getElementById("countdown").innerHTML="<div class='number'>🏈</div><div>Kickoff Has Arrived!</div>";
+}
+
+}
+
+updateCountdown();
+setInterval(updateCountdown,1000);
+
+
+
+async function updateNFLTicker(){
+
+const ticker=document.getElementById("liveTicker");
+
+try{
+
+const response=await fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard");
+
+const data=await response.json();
+
+let output="";
+
+data.events.forEach(game=>{
+
+const teams=game.competitions[0].competitors;
+
+const away=teams.find(team=>team.homeAway==="away");
+const home=teams.find(team=>team.homeAway==="home");
+
+if(!away||!home)return;
+
+const status=game.status.type;
+
+let statusText="";
+
+
+if(status.state==="in"){
+
+statusText=`<span class="live">🔴 LIVE</span> ${status.shortDetail}`;
+
+}
+
+else if(status.completed){
+
+statusText=`<span class="final">FINAL</span>`;
+
+}
+
+else{
+
+const kickoff=new Date(game.date).toLocaleTimeString([],{
+hour:"numeric",
+minute:"2-digit"
+});
+
+statusText=`<span class="upcoming">${kickoff}</span>`;
+
+}
+
+
+output+=`
+
+<span>
+${statusText}
+
+<img class="team-logo"
+src="${away.team.logo}"
+alt="${away.team.displayName}">
+
+${away.score||""}
+
+&nbsp;-&nbsp;
+
+${home.score||""}
+
+<img class="team-logo"
+src="${home.team.logo}"
+alt="${home.team.displayName}">
+
+</span>
+
+`;
+
+});
+
+
+if(output===""){
+output="<span>🏈 No NFL games scheduled</span>";
+}
+
+ticker.innerHTML=output;
+
+}
+
+catch(error){
+
+console.log("NFL ticker error:",error);
+
+ticker.innerHTML="<span>🏈 NFL scores unavailable</span>";
+
+}
+
+}
+
+
+updateNFLTicker();
+
+setInterval(updateNFLTicker,60000);
+
+</script>
+
+</body>
+</html>

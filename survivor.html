@@ -243,7 +243,7 @@ Lauren
 <h2>📝 Submit Your Pick</h2>
 
 <p style="text-align:center;font-size:20px;">
-Choose your team each week and try to be the last survivor standing.
+18 Weeks. 18 Distinct Picks. Most Wins.
 </p>
 
 
@@ -260,15 +260,13 @@ Submit Picks
 
 
 
-
-
 <div class="card">
 
-<h2>📊 Current Survivor Standings</h2>
-
+<h2>🏈 Survivor Pool Tracker</h2>
 
 <p style="text-align:center;font-size:18px;">
-Live standings will appear here.
+Players survive each week by correctly picking an NFL team.
+Teams may only be selected once during the season.
 </p>
 
 
@@ -276,40 +274,16 @@ Live standings will appear here.
 
 <tr>
 
+<th>Rank</th>
 <th>Player</th>
-<th>Pick</th>
-<th>Status</th>
+<th>Wins</th>
+<th>Current Streak</th>
 
 </tr>
-
-
-<tr>
-
-<td>Example Player</td>
-<td>Kansas City Chiefs</td>
-<td>🟢 Alive</td>
-
-</tr>
-
-
-<tr>
-
-<td>Lauren</td>
-<td>Buffalo Bills</td>
-<td>🟢 Alive</td>
-
-</tr>
-
 
 </table>
 
-
 </div>
-
-
-
-
-
 
 <div class="card">
 
@@ -323,8 +297,59 @@ View Last Year's Results
 
 </a>
 
-
 </div>
+
+<script>
+
+const leaderboardURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=844197156&single=true&output=csv";
+
+
+fetch(leaderboardURL)
+
+.then(response => response.text())
+
+.then(data => {
+
+    let rows = data.split("\n");
+
+    let table = document.getElementById("survivorTable");
+
+
+    for(let i = 1; i < rows.length; i++){
+
+        let columns = rows[i].split(",");
+
+        if(columns.length < 4){
+            continue;
+        }
+
+
+        let row = table.insertRow();
+
+
+        let rank = row.insertCell(0);
+        let player = row.insertCell(1);
+        let wins = row.insertCell(2);
+        let streak = row.insertCell(3);
+
+
+        rank.innerHTML = columns[0];
+        player.innerHTML = columns[1];
+        wins.innerHTML = columns[2];
+        streak.innerHTML = columns[5];
+
+    }
+
+})
+
+.catch(error => {
+
+    console.log("Unable to load leaderboard:", error);
+
+});
+
+
+</script>
 
 </body>
 

@@ -270,7 +270,7 @@ Teams may only be selected once during the season.
 </p>
 
 
-<table>
+<table id="survivorTable">
 
 <tr>
 
@@ -309,6 +309,8 @@ fetch(leaderboardURL)
 .then(response => response.text())
 
 .then(data => {
+
+    console.log(data);
 
     let rows = data.split("\n");
 

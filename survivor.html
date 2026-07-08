@@ -315,6 +315,8 @@ fetch(leaderboardURL)
 
     console.log(data);
 
+    document.getElementById("loading").style.display = "none";
+
     let rows = data.split("\n");
 
     let table = document.getElementById("survivorTable");

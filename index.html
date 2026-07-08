@@ -91,7 +91,7 @@ transform:translateY(-5px)
 .number{
 font-size:38px;
 font-weight:bold;
-color:#09C90E
+color:#ffd700
 }
 
 .label{
@@ -99,6 +99,28 @@ margin-top:5px;
 font-size:14px;
 text-transform:uppercase;
 letter-spacing:1px
+}
+
+/* SUPER BOWL LOGO */
+
+.superbowl-logo img{
+    width:220px;
+    max-width:80%;
+    margin-bottom:20px;
+}
+
+
+/* SUPER BOWL COUNTDOWN */
+
+#superbowlCountdown{
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+#superbowlCountdown .number{
+color:#C9A227;
 }
 
 /* NFL TICKER */
@@ -196,7 +218,7 @@ font-size:40px
 
 .supercontest{
 background:#09C90E;
-color:#111
+color:#ffffff
 }
 
 .survivor{
@@ -221,7 +243,7 @@ footer{
 text-align:center;
 padding:45px 20px;
 font-size:18px;
-color:#555;
+color:#00008b;
 border-top:1px solid #ddd
 }
 
@@ -297,7 +319,7 @@ Loading NFL scores...
 <div class="icon">🏆</div>
 <div>
 <div class="title">SuperContest</div>
-<div class="subtitle">Against The Spread Picks<br>Compete. Climb. Win.</div>
+<div class="subtitle">5 Picks, ATS<br></div>
 </div>
 </div>
 <div class="arrow">→</div>
@@ -353,13 +375,46 @@ Loading NFL scores...
 
 </div>
 
+<!-- SUPER BOWL COUNTDOWN -->
+
+<section class="hero" style="min-height:300px;padding-top:20px;padding-bottom:20px;">
+    <div class="hero-content">
+
+        <div class="superbowl-logo">
+    <img src="images/superbowl-logo.png" alt="Super Bowl LXI Logo">
+</div>
+
+        <div id="superbowlCountdown">
+
+            <div class="time-box">
+                <div class="number" id="sbDays">00</div>
+                <div class="label">Days</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="sbHours">00</div>
+                <div class="label">Hours</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="sbMinutes">00</div>
+                <div class="label">Minutes</div>
+            </div>
+
+            <div class="time-box">
+                <div class="number" id="sbSeconds">00</div>
+                <div class="label">Seconds</div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
 
 <footer>
 🏈 Football Games 2026
 <br><br>
 Hosted by David
-<br>
-Last Updated: August 2026
 </footer>
 
 
@@ -391,7 +446,39 @@ document.getElementById("countdown").innerHTML="<div class='number'>🏈</div><d
 updateCountdown();
 setInterval(updateCountdown,1000);
 
+const superBowlDate = new Date("February 14, 2027 15:30:00").getTime();
 
+function updateSuperBowlCountdown(){
+
+    const now = new Date().getTime();
+    const distance = superBowlDate - now;
+
+    const days = Math.floor(distance/(1000*60*60*24));
+    const hours = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
+    const minutes = Math.floor((distance%(1000*60*60))/(1000*60));
+    const seconds = Math.floor((distance%(1000*60))/1000);
+
+    document.getElementById("sbDays").innerHTML =
+        String(days).padStart(2,"0");
+
+    document.getElementById("sbHours").innerHTML =
+        String(hours).padStart(2,"0");
+
+    document.getElementById("sbMinutes").innerHTML =
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("sbSeconds").innerHTML =
+        String(seconds).padStart(2,"0");
+
+    if(distance < 0){
+        document.getElementById("superbowlCountdown").innerHTML =
+        "<div class='number'>🏆</div><div>Super Bowl Has Arrived!</div>";
+    }
+
+}
+
+updateSuperBowlCountdown();
+setInterval(updateSuperBowlCountdown,1000);
 
 async function updateNFLTicker(){
 

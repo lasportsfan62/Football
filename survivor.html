@@ -303,7 +303,9 @@ fetch(leaderboardURL)
 
 .then(response => response.text())
 
-.then(data => {
+.then(data => 
+
+     document.getElementById("loading").style.display = "none";
 
     console.log(data);
 

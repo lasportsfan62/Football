@@ -433,7 +433,7 @@ players.forEach(function(player,index){
 
 });
 
-    const standingsColors = [
+const standingsColors = [
     "#111111",
     "#1f4e79",
     "#2e7d32",
@@ -445,8 +445,8 @@ players.forEach(function(player,index){
     "#ef6c00"
 ];
 
-constconst randomHeaderColor = headerColors[
-    Math.floor(Math.random() * headerColors.length)
+const randomHeaderColor = standingsColors[
+    Math.floor(Math.random() * standingsColors.length)
 ];
 
 document.querySelectorAll("#standingsHeader th").forEach(function(cell){

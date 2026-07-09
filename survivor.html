@@ -29,8 +29,8 @@ h1 {
     margin-bottom:25px;
 }
     
-    #standingsTitle {
-    transition: color .3s ease;
+    #standingsHeader th {
+    transition: background-color .3s ease;
 }
 
 
@@ -271,7 +271,7 @@ Loading Survivor Standings...
 
 <table id="survivorTable">
 
-<tr>
+<tr id="standingsHeader">
 
 <th>Rank</th>
 <th>Player</th>
@@ -445,11 +445,15 @@ players.forEach(function(player,index){
     "#ef6c00"
 ];
 
-const randomStandingsColor = standingsColors[
-    Math.floor(Math.random() * standingsColors.length)
+constconst randomHeaderColor = headerColors[
+    Math.floor(Math.random() * headerColors.length)
 ];
 
-document.getElementById("standingsTitle").style.color = randomStandingsColor;
+document.querySelectorAll("#standingsHeader th").forEach(function(cell){
+
+    cell.style.backgroundColor = randomHeaderColor;
+
+});
 
 </script>
 

@@ -179,6 +179,23 @@ td {
 
 }
 
+.correctPick {
+
+    background:#d4edda;
+    color:#155724;
+    font-weight:bold;
+
+}
+
+
+.incorrectPick {
+
+    background:#f8d7da;
+    color:#721c24;
+    font-weight:bold;
+
+}
+
 .table-container{
 
     width:100%;
@@ -498,51 +515,172 @@ document.querySelectorAll("#standingsHeader th").forEach(function(cell){
 
 const weeklyURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=111223448&single=true&output=csv";
 
-fetch(weeklyURL)
+const resultsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=744326031&single=true&output=csv";
 
-.then(response => response.text())
+Promise.all([
+    fetch(weeklyURL).then(response => response.text()),
+    fetch(resultsURL).then(response => response.text())
+])
 
-.then(data => {
+.then(function(data){
 
     document.getElementById("weeklyLoading").style.display = "none";
 
-    let rows = data.trim().split("\n");
+    let weeklyData = data[0];
+    let resultsData = data[1];
+
+
+    // Convert results sheet into lookup table
+
+    let resultRows = resultsData.trim().split("\n");
+
+    let results = {};
+
+
+    for(let i = 1; i < resultRows.length; i++){
+
+        let columns = resultRows[i].split(",");
+
+        if(columns.length < 3){
+            continue;
+        }
+
+
+        let week = columns[0].trim();
+        let team = columns[1].trim();
+        let outcome = columns[2].trim();
+
+
+        results[week + "|" + team] = outcome;
+
+    }
+
+
+
+    // Build weekly picks table
+
+    let rows = weeklyData.trim().split("\n");
 
     let table = document.getElementById("weeklyTable");
 
+
     rows.forEach(function(rowText,rowIndex){
+
 
         let row = table.insertRow();
 
         let columns = rowText.split(",");
 
-        columns.forEach(function(cellText){
 
-            if(rowIndex===0){
 
-    		let th = document.createElement("th");
-    		th.innerHTML = cellText.trim();
+        columns.forEach(function(cellText,columnIndex){
 
-    		th.style.backgroundColor = randomHeaderColor;
-    		th.style.color = "white";
 
-    		row.appendChild(th);
+            cellText = cellText.trim();
+
+
+
+            // Header row
+
+            if(rowIndex === 0){
+
+
+                let th = document.createElement("th");
+
+                th.innerHTML = cellText;
+
+                th.style.backgroundColor = randomHeaderColor;
+                th.style.color = "white";
+
+
+                row.appendChild(th);
+
+
             }
+
+
+
+            // Score row
+
+            else if(rowIndex === 20){
+
+
+                let td = row.insertCell();
+
+                td.innerHTML = cellText;
+
+
+            }
+
+
+
+            // Blank row
+
+            else if(rowIndex === 19){
+
+
+                let td = row.insertCell();
+
+                td.innerHTML = "";
+
+
+            }
+
+
+
+            // Weekly picks
 
             else{
 
-                let td=row.insertCell();
-                td.innerHTML=cellText.trim();
+
+                let td = row.insertCell();
+
+                td.innerHTML = cellText;
+
+
+
+                // Skip Week column
+
+                if(columnIndex > 0){
+
+
+                    let week = columns[0].trim();
+
+
+                    let result = results[week + "|" + cellText];
+
+
+
+                    if(result === "W"){
+
+                        td.classList.add("correctPick");
+
+                    }
+
+
+                    else if(result === "L"){
+
+                        td.classList.add("incorrectPick");
+
+                    }
+
+
+                }
+
 
             }
 
+
         });
+
 
     });
 
+
 })
 
-.catch(error=>{
+
+.catch(function(error){
 
     console.log("Unable to load weekly picks:",error);
 

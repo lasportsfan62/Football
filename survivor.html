@@ -492,12 +492,15 @@ fetch(weeklyURL)
 
         columns.forEach(function(cellText){
 
-            if(rowIndex===0){
+             if(rowIndex===0){
 
-                let th=document.createElement("th");
-                th.innerHTML=cellText.trim();
-                row.appendChild(th);
+    		let th = document.createElement("th");
+    		th.innerHTML = cellText.trim();
 
+    		th.style.backgroundColor = randomHeaderColor;
+    		th.style.color = "white";
+
+    		row.appendChild(th);
             }
 
             else{

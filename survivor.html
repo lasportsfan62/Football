@@ -286,17 +286,16 @@ Loading Survivor Standings...
 </table>
 
 </div>
-    
+
 <div class="card">
 
 <h2>📋 Weekly Survivor Picks</h2>
 
-<iframe 
-src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pubhtml?gid=111223448&single=true"
-width="100%"
-height="500"
-frameborder="0">
-</iframe>
+<p id="weeklyLoading" style="text-align:center;">
+Loading Weekly Picks...
+</p>
+
+<table id="weeklyTable"></table>
 
 </div>
 
@@ -468,6 +467,55 @@ const randomHeaderColor = standingsColors[
 document.querySelectorAll("#standingsHeader th").forEach(function(cell){
 
     cell.style.backgroundColor = randomHeaderColor;
+
+});
+
+const weeklyURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=111223448&single=true&output=csv";
+
+fetch(weeklyURL)
+
+.then(response => response.text())
+
+.then(data => {
+
+    document.getElementById("weeklyLoading").style.display = "none";
+
+    let rows = data.trim().split("\n");
+
+    let table = document.getElementById("weeklyTable");
+
+    rows.forEach(function(rowText,rowIndex){
+
+        let row = table.insertRow();
+
+        let columns = rowText.split(",");
+
+        columns.forEach(function(cellText){
+
+            if(rowIndex===0){
+
+                let th=document.createElement("th");
+                th.innerHTML=cellText.trim();
+                row.appendChild(th);
+
+            }
+
+            else{
+
+                let td=row.insertCell();
+                td.innerHTML=cellText.trim();
+
+            }
+
+        });
+
+    });
+
+})
+
+.catch(error=>{
+
+    console.log("Unable to load weekly picks:",error);
 
 });
 

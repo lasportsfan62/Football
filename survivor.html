@@ -28,6 +28,10 @@ h1 {
     font-size:22px;
     margin-bottom:25px;
 }
+    
+    #standingsTitle {
+    transition: color .3s ease;
+}
 
 
 /* Navigation */
@@ -259,7 +263,7 @@ Submit Picks
 
 <div class="card">
 
-<h2>🏈 Survivor Pool Standings</h2>
+<h2 id="standingsTitle">🏈 Survivor Pool Standings</h2>
 
 <p id="loading" style="text-align:center;">
 Loading Survivor Standings...
@@ -428,6 +432,24 @@ players.forEach(function(player,index){
     console.log("Unable to load leaderboard:", error);
 
 });
+
+    const standingsColors = [
+    "#111111",
+    "#1f4e79",
+    "#2e7d32",
+    "#8e24aa",
+    "#c62828",
+    "#F22CE5",
+    "#EFBF04",
+    "#C0C0C0",
+    "#ef6c00"
+];
+
+const randomStandingsColor = standingsColors[
+    Math.floor(Math.random() * standingsColors.length)
+];
+
+document.getElementById("standingsTitle").style.color = randomStandingsColor;
 
 </script>
 

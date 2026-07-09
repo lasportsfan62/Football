@@ -204,6 +204,13 @@ td {
 
 }
 
+.leaderScore {
+
+    background:#ffed9a;
+    font-weight:bold;
+    border:3px solid #EFBF04;
+
+}
 
 #weeklyTable{
 
@@ -678,6 +685,42 @@ Promise.all([
 
 
 })
+
+// Highlight highest score in Score row
+
+let scoreRow = document.querySelector("#weeklyTable tr:nth-child(21)");
+
+if(scoreRow){
+
+    let scoreCells = scoreRow.querySelectorAll("td");
+
+    let highestScore = -1;
+
+
+    scoreCells.forEach(function(cell){
+
+        let score = Number(cell.innerHTML);
+
+        if(score > highestScore){
+
+            highestScore = score;
+
+        }
+
+    });
+
+
+    scoreCells.forEach(function(cell){
+
+        if(Number(cell.innerHTML) === highestScore){
+
+            cell.classList.add("leaderScore");
+
+        }
+
+    });
+
+}
 
 
 .catch(function(error){

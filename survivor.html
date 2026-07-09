@@ -255,19 +255,11 @@ Submit Picks
 
 </a>
 
-
 </div>
-
-
 
 <div class="card">
 
-<h2>🏈 Survivor Pool Tracker</h2>
-
-<p style="text-align:center;font-size:18px;">
-Players survive each week by correctly picking an NFL team.
-Teams may only be selected once during the season.
-</p>
+<h2>🏈 Survivor Pool Standings</h2>
 
 <p id="loading" style="text-align:center;">
 Loading Survivor Standings...
@@ -315,37 +307,97 @@ fetch(leaderboardURL)
 
     console.log(data);
 
-    document.getElementById("loading").style.display = "none";
-
     let rows = data.split("\n");
 
     let table = document.getElementById("survivorTable");
 
 
-    for(let i = 1; i < rows.length; i++){
-
-        let columns = rows[i].split(",");
-
-        if(columns.length < 4){
-            continue;
-        }
+   let players = [];
 
 
-        let row = table.insertRow();
+for(let i = 1; i < rows.length; i++){
+
+    let columns = rows[i].split(",");
+
+    if(columns.length < 5){
+        continue;
+    }
+
+    players.push({
+
+        player: columns[0],
+        wins: Number(columns[1]),
+        streak: Number(columns[3]),
+        display: columns[4]
+
+    });
+
+}
 
 
-        let rank = row.insertCell(0);
-        let player = row.insertCell(1);
-        let wins = row.insertCell(2);
-        let streak = row.insertCell(3);
+// Sort by Correct Picks (highest first)
+
+players.sort(function(a,b){
+
+    return b.wins - a.wins;
+
+});
 
 
-        rank.innerHTML = columns[0];
-        player.innerHTML = columns[1];
-        wins.innerHTML = columns[2];
-        streak.innerHTML = columns[5];
+// Create table rows
+
+let previousWins = null;
+let currentRank = 0;
+
+
+players.forEach(function(player,index){
+
+    if(player.wins !== previousWins){
+
+        currentRank = index + 1;
 
     }
+
+
+    let row = table.insertRow();
+
+
+    let rank = row.insertCell(0);
+    let name = row.insertCell(1);
+    let wins = row.insertCell(2);
+    let streak = row.insertCell(3);
+
+
+    if(currentRank === 1){
+
+        rank.innerHTML = "🥇 1";
+
+    }
+    else if(currentRank === 2){
+
+        rank.innerHTML = "🥈 2";
+
+    }
+    else if(currentRank === 3){
+
+        rank.innerHTML = "🥉 3";
+
+    }
+    else{
+
+        rank.innerHTML = currentRank;
+
+    }
+
+
+    name.innerHTML = player.player;
+    wins.innerHTML = player.wins;
+    streak.innerHTML = player.display;
+
+
+    previousWins = player.wins;
+
+});
 
 })
 

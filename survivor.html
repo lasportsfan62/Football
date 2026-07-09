@@ -179,6 +179,30 @@ td {
 
 }
 
+.table-container{
+
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+#weeklyTable{
+
+    min-width:700px;
+
+}
+
+
+#weeklyTable th,
+#weeklyTable td{
+
+    padding:8px 6px;
+    font-size:16px;
+
+}
+
 iframe {
 
     border-radius:15px;
@@ -295,7 +319,9 @@ Loading Survivor Standings...
 Loading Weekly Picks...
 </p>
 
-<table id="weeklyTable"></table>
+<div class="table-container">
+    <table id="weeklyTable"></table>
+</div>
 
 </div>
 
@@ -492,7 +518,7 @@ fetch(weeklyURL)
 
         columns.forEach(function(cellText){
 
-             if(rowIndex===0){
+            if(rowIndex===0){
 
     		let th = document.createElement("th");
     		th.innerHTML = cellText.trim();

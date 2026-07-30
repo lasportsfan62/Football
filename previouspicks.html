@@ -205,7 +205,7 @@ table {
 
 <select id="weekSelect">
 
-<option>Loading Weeks...</option>
+<option>Previous Weeks</option>
 
 </select>
 
@@ -259,7 +259,169 @@ table {
 <script>
 
 
-// CSV CONNECTION WILL BE ADDED NEXT STEP
+const archiveCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=1538633472&single=true&output=csv";
+
+
+let archiveData = [];
+
+
+fetch(archiveCSV)
+
+.then(response => response.text())
+
+.then(data => {
+
+
+let rows = data.trim().split("\n");
+
+
+// remove header row
+
+rows.slice(1).forEach(rowText => {
+
+
+let columns = rowText.split(",");
+
+
+archiveData.push({
+
+    week: Number(columns[0]),
+    player: columns[1],
+    game1: columns[2],
+    game2: columns[3],
+    game3: columns[4],
+    game4: columns[5],
+    game5: columns[6]
+
+});
+
+
+});
+
+
+// create dropdown
+
+loadWeeks();
+
+
+})
+
+
+.catch(error => {
+
+console.log("Unable to load archive:", error);
+
+});
+
+
+
+
+
+function loadWeeks(){
+
+
+let weekSelect = document.getElementById("weekSelect");
+
+
+// get unique weeks
+
+let weeks = [...new Set(archiveData.map(item => item.week))];
+
+
+// newest first
+
+weeks.sort((a,b) => b-a);
+
+
+// clear dropdown
+
+weekSelect.innerHTML = "";
+
+
+
+weeks.forEach(week => {
+
+
+let option = document.createElement("option");
+
+option.value = week;
+
+option.textContent = "Week " + week;
+
+
+weekSelect.appendChild(option);
+
+
+});
+
+
+// automatically display newest week
+
+displayWeek(weeks[0]);
+
+
+// update when changed
+
+weekSelect.addEventListener("change", function(){
+
+displayWeek(this.value);
+
+});
+
+
+}
+
+
+
+
+
+function displayWeek(selectedWeek){
+
+
+let table = document.getElementById("previousPicksTable");
+
+
+// remove old rows except header
+
+while(table.rows.length > 1){
+
+table.deleteRow(1);
+
+}
+
+
+
+let weekTitle = document.getElementById("weekTitle");
+
+weekTitle.textContent = "Week " + selectedWeek + " Picks";
+
+
+
+// add matching players
+
+archiveData
+
+.filter(item => item.week == selectedWeek)
+
+.forEach(player => {
+
+
+let row = table.insertRow();
+
+
+row.insertCell().textContent = player.player;
+row.insertCell().textContent = player.game1;
+row.insertCell().textContent = player.game2;
+row.insertCell().textContent = player.game3;
+row.insertCell().textContent = player.game4;
+row.insertCell().textContent = player.game5;
+row.insertCell().textContent = "-";
+
+
+});
+
+
+}
 
 
 </script>

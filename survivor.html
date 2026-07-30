@@ -67,7 +67,7 @@ h1 {
 
 .champion {
 
-    background:#ffcd38;
+    background:#FFC000;
     border-radius:20px;
     padding:25px;
     text-align:center;
@@ -145,7 +145,7 @@ h1 {
 
 .secondary {
 
-    background:#ffcd38;
+    background:#FFC000;
     color:#A91832;
 
 }
@@ -577,9 +577,6 @@ Promise.all([
         let row = table.insertRow();
 
         let columns = rowText.split(",");
-
-
-
         columns.forEach(function(cellText,columnIndex){
 
 
@@ -601,17 +598,11 @@ Promise.all([
 
 
                 row.appendChild(th);
-
-
             }
-
-
 
             // Score row
 
             else if(rowIndex === 20){
-
-
                 let td = row.insertCell();
 
                 td.innerHTML = cellText;
@@ -629,12 +620,7 @@ Promise.all([
                 let td = row.insertCell();
 
                 td.innerHTML = "";
-
-
             }
-
-
-
             // Weekly picks
 
             else{
@@ -644,43 +630,23 @@ Promise.all([
 
                 td.innerHTML = cellText;
 
-
-
                 // Skip Week column
 
                 if(columnIndex > 0){
 
-
                     let week = columns[0].trim();
-
-
                     let result = results[week + "|" + cellText];
-
-
-
                     if(result === "W"){
-
                         td.classList.add("correctPick");
-
                     }
-
-
                     else if(result === "L"){
 
                         td.classList.add("incorrectPick");
 
                     }
-
-
                 }
-
-
             }
-
-
         });
-
-
     });
 
 let scoreRow = document.querySelector("#weeklyTable tr:nth-child(21)");
@@ -699,32 +665,21 @@ if(scoreRow){
         if(score > highestScore){
 
             highestScore = score;
-
         }
-
     });
-
-
     scoreCells.forEach(function(cell){
 
         if(Number(cell.innerHTML) === highestScore){
 
             cell.classList.add("leaderScore");
-
         }
-
     });
-
 }
 
- })
-
+})
 .catch(function(error){
-
     console.log("Unable to load weekly picks:",error);
-
 });
-
 </script>
 
 </body>

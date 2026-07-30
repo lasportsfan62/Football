@@ -261,8 +261,22 @@ table {
 
 const archiveCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=1538633472&single=true&output=csv";
 
+let resultsLookup = {};
 
 let archiveData = [];
+
+let archiveLoaded = false;
+let resultsLoaded = false;
+
+function tryLoadArchive(){
+
+    if(archiveLoaded && resultsLoaded){
+
+        loadWeeks();
+
+    }
+
+}
 
 
 fetch(archiveCSV)
@@ -301,7 +315,8 @@ archiveData.push({
 
 // create dropdown
 
-loadWeeks();
+archiveLoaded = true;
+tryLoadArchive();
 
 
 })
@@ -313,9 +328,43 @@ console.log("Unable to load archive:", error);
 
 });
 
+const resultsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=195972555&single=true&output=csv";
+
+fetch(resultsCSV)
+
+.then(response => response.text())
+
+.then(data => {
 
 
+let rows = data.trim().split("\n");
 
+
+rows.slice(1).forEach(rowText => {
+
+
+let columns = rowText.split(",");
+
+
+let week = columns[0].trim();
+let pick = columns[1].trim();
+let result = columns[2].trim();
+
+
+resultsLookup[week + "|" + pick] = result;
+
+});
+
+resultsLoaded = true;
+tryLoadArchive();
+
+})
+
+.catch(error => {
+
+console.log("Unable to load results:", error);
+
+});
 
 function loadWeeks(){
 
@@ -372,7 +421,76 @@ displayWeek(this.value);
 }
 
 
+function gradeArchivedPicks(selectedWeek){
 
+
+let table = document.getElementById("previousPicksTable");
+
+let rows = table.rows;
+
+
+for(let i = 1; i < rows.length; i++){
+
+
+let score = 0;
+
+
+for(let j = 1; j <= 5; j++){
+
+
+let cell = rows[i].cells[j];
+
+let pick = cell.textContent.trim();
+
+
+let result = resultsLookup[selectedWeek + "|" + pick];
+
+
+// remove old colors
+
+cell.classList.remove(
+"win-cell",
+"loss-cell",
+"tie-cell"
+);
+
+
+
+if(result === "W"){
+
+cell.classList.add("win-cell");
+
+score += 1;
+
+}
+
+
+else if(result === "L"){
+
+cell.classList.add("loss-cell");
+
+}
+
+
+else if(result === "T"){
+
+cell.classList.add("tie-cell");
+
+score += 0.5;
+
+}
+
+
+}
+
+
+rows[i].cells[6].textContent = score;
+
+
+}
+
+
+}
 
 
 function displayWeek(selectedWeek){
@@ -415,11 +533,12 @@ row.insertCell().textContent = player.game2;
 row.insertCell().textContent = player.game3;
 row.insertCell().textContent = player.game4;
 row.insertCell().textContent = player.game5;
-row.insertCell().textContent = "-";
+row.insertCell().textContent = "0";
 
 
 });
 
+gradeArchivedPicks(selectedWeek);
 
 }
 

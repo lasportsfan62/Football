@@ -22,6 +22,25 @@ body {
     margin:auto;
 }
 
+.submit-button{
+    display:block;
+    text-align:center;
+    background:#09C90E;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:15px;
+    border-radius:12px;
+    margin:20px auto;
+    max-width:350px;
+    font-size:18px;
+    transition:.2s;
+}
+
+.submit-button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 4px 10px rgba(0,0,0,.2);
+}
 
 /* HEADER */
 
@@ -259,6 +278,9 @@ table {
 
 </div>
 
+<a href="supercontest.html" class="submit-button">
+← Back to SuperContest
+</a>
 
 </div>
 
@@ -496,10 +518,10 @@ let scoreCell = rows[i].cells[6];
 
 scoreCell.textContent = score;
 
-// Remove any previous highlighting
+// Remove previous highlighting
 scoreCell.classList.remove("perfect-score");
 
-// Highlight 5-0 or 0-5 weeks
+// Highlight perfect or winless weeks
 if(score === 5 || score === 0){
     scoreCell.classList.add("perfect-score");
 }

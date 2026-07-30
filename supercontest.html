@@ -159,7 +159,13 @@ td {
     padding:12px;
     text-align:center;
     border-bottom:1px solid #ddd;
+    white-space:nowrap;
 
+}
+
+#standingsTable th:nth-child(2),
+#standingsTable td:nth-child(2) {
+    min-width:120px;
 }
 
 
@@ -182,7 +188,7 @@ font-size:26px;
 
 table {
 
-font-size:14px;
+font-size:13px;
 
 }
 
@@ -331,6 +337,8 @@ TBD
 
 <h2>🏆 SuperContest Standings</h2>
 
+<div class="table-container">
+
 <table id="standingsTable">
 
 <tr>
@@ -348,6 +356,7 @@ TBD
 
 </div>
 
+</div>
 
 </div>
 

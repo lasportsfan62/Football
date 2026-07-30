@@ -45,6 +45,60 @@ body {
 }
 
 
+/* NFL TICKER */
+
+.ticker{
+width:100%;
+background:white;
+border-top:2px solid #ddd;
+border-bottom:2px solid #ddd;
+overflow:hidden;
+white-space:nowrap;
+padding:15px 0;
+    margin:20px 0 25px 0;
+}
+
+.ticker-game{
+display:inline-flex;
+align-items:center;
+border-right:2px solid #ccc;
+padding-right:35px;
+margin-right:35px;
+}
+
+.ticker-track{
+display:inline-block;
+padding-left:100%;
+animation:ticker 45s linear infinite;
+font-family:Arial,Helvetica,sans-serif;
+font-size:18px;
+font-weight:bold
+}
+
+.ticker-track span{
+margin-right:45px;
+color:#222
+}
+
+.live{color:#D00000}
+
+.final{color:#555}
+
+.upcoming{color:#005CB9}
+
+.team-logo{
+width:28px;
+height:28px;
+vertical-align:middle;
+margin:0 7px
+}
+
+@keyframes ticker{
+from{transform:translateX(0)}
+to{transform:translateX(-100%)}
+}
+
+
 /* BUTTON */
 
 .submit-button {
@@ -199,6 +253,13 @@ td {
     font-weight:bold;
 }
 
+.perfect-score{
+    background:#FFD700;
+    color:#000;
+    font-weight:bold;
+    border-radius:4px;
+}
+
 
 /* MOBILE */
 
@@ -250,10 +311,10 @@ font-size:13px;
 📝 Submit Picks
 </a>
 
-<div class="live-banner">
-
-NFL LIVE BANNER GOES HERE
-
+<div class="ticker">
+    <div class="ticker-track" id="liveTicker">
+        Loading NFL scores...
+    </div>
 </div>
 
 <div class="dashboard">
@@ -601,13 +662,123 @@ score += 0.5;
 }
 
 
-rows[i].cells[6].textContent = score;
+let scoreCell = rows[i].cells[6];
 
+scoreCell.textContent = score;
+
+// Remove any previous highlighting
+scoreCell.classList.remove("perfect-score");
+
+// Highlight 5-0 or 0-5 weeks
+if(score === 5 || score === 0){
+    scoreCell.classList.add("perfect-score");
+}
 
 }
 
 
 }
+
+async function updateNFLTicker(){
+
+const ticker=document.getElementById("liveTicker");
+
+try{
+
+const response=await fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard");
+
+const data=await response.json();
+
+let output="";
+
+data.events.forEach(game=>{
+
+const teams=game.competitions[0].competitors;
+
+const away=teams.find(team=>team.homeAway==="away");
+const home=teams.find(team=>team.homeAway==="home");
+
+if(!away||!home)return;
+
+const status=game.status.type;
+
+let statusText="";
+
+
+if(status.state==="in"){
+
+statusText=`<span class="live">🔴 LIVE</span> ${status.shortDetail}`;
+
+}
+
+else if(status.completed){
+
+statusText=`<span class="final">FINAL</span>`;
+
+}
+
+else{
+
+const kickoff=new Date(game.date).toLocaleTimeString([],{
+hour:"numeric",
+minute:"2-digit"
+});
+
+statusText=`<span class="upcoming">${kickoff}</span>`;
+
+}
+
+
+output+=`
+
+<span class="ticker-game">
+
+${statusText}
+
+<img class="team-logo"
+src="${away.team.logo}"
+alt="${away.team.displayName}">
+
+${away.score||""}
+
+&nbsp;-&nbsp;
+
+${home.score||""}
+
+<img class="team-logo"
+src="${home.team.logo}"
+alt="${home.team.displayName}">
+
+</span>
+
+`;
+
+});
+
+
+if(output===""){
+output="<span>🏈 No NFL games scheduled</span>";
+}
+
+ticker.innerHTML=output;
+
+}
+
+catch(error){
+
+console.log("NFL ticker error:",error);
+
+ticker.innerHTML="<span>🏈 NFL scores unavailable</span>";
+
+}
+
+}
+
+
+updateNFLTicker();
+
+setInterval(updateNFLTicker,60000);
+
 
 </script>
 

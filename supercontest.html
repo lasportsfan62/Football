@@ -272,7 +272,7 @@ TBD
 
 <div class="table-container">
 
-<table>
+<table id="picksTable">
 
 <tr>
 
@@ -285,46 +285,6 @@ TBD
 <th>Score</th>
 
 </tr>
-
-
-<tr>
-
-<td>David</td>
-<td>DAL -8</td>
-<td>KC</td>
-<td>SF</td>
-<td>BUF</td>
-<td>PHI</td>
-<td>-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Brooke</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-
-</tr>
-
-
-<tr>
-
-<td>Danny</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-<td>-</td>
-
-</tr>
-
 
 </table>
 
@@ -450,6 +410,50 @@ console.log("Unable to load standings:", error);
 
 });
 
+const picksCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=0&single=true&output=csv";
+
+
+fetch(picksCSV)
+
+.then(response => response.text())
+
+.then(data => {
+
+
+let rows = data.trim().split("\n");
+
+let table = document.getElementById("picksTable");
+
+
+// Skip header row
+
+rows.slice(1).forEach(rowText => {
+
+
+let row = table.insertRow();
+
+let columns = rowText.split(",");
+
+
+columns.forEach(column => {
+
+let cell = row.insertCell();
+
+cell.textContent = column;
+
+});
+
+
+});
+
+
+})
+
+.catch(error => {
+
+console.log("Unable to load picks:", error);
+
+});
 
 </script>
 

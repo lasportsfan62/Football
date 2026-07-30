@@ -377,24 +377,17 @@ let rows = data.trim().split("\n");
 
 let table = document.getElementById("standingsTable");
 
-
-let rows = data.trim().split("\n");
-
-let table = document.getElementById("standingsTable");
-
-
 let players = rows.slice(1).map(rowText => {
 
     let columns = rowText.split(",");
 
     return {
 
-        player: columns[1],
-        wins: Number(columns[2]),
-        losses: Number(columns[3]),
-        pct: columns[4],
-        lastWeek: columns[5]
-
+    player: columns[0],
+    wins: Number(columns[1]),
+    losses: Number(columns[2]),
+    pct: columns[3],
+    lastWeek: columns[4]
     };
 
 });
@@ -445,8 +438,6 @@ players.forEach(player => {
     row.insertCell().textContent = player.pct;
     row.insertCell().textContent = player.lastWeek;
 
-
-});
 
 });
 

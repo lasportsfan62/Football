@@ -168,6 +168,21 @@ td {
     white-space:nowrap;
 }
 
+.win-cell {
+    background:#c8e6c9;
+    font-weight:bold;
+}
+
+.loss-cell {
+    background:#ffcdd2;
+    font-weight:bold;
+}
+
+.tie-cell {
+    background:#e0e0e0;
+    font-weight:bold;
+}
+
 
 /* MOBILE */
 
@@ -526,7 +541,7 @@ let result = window.resultsLookup[pick];
 
 if(result === "W"){
 
-cell.style.color = "#2e7d32";
+cell.classList.add("win-cell");
 
 score += 1;
 
@@ -535,19 +550,18 @@ score += 1;
 
 else if(result === "L"){
 
-cell.style.color = "#c62828";
+cell.classList.add("loss-cell");
 
 }
 
 
 else if(result === "T"){
 
-cell.style.color = "#777777";
+cell.classList.add("tie-cell");
 
 score += 0.5;
 
 }
-
 
 }
 

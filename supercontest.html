@@ -165,7 +165,7 @@ td {
 
 #standingsTable th:nth-child(2),
 #standingsTable td:nth-child(2) {
-    min-width:120px;
+    white-space:nowrap;
 }
 
 
@@ -378,26 +378,75 @@ let rows = data.trim().split("\n");
 let table = document.getElementById("standingsTable");
 
 
-// skip header row
+let rows = data.trim().split("\n");
 
-rows.slice(1).forEach(rowText => {
-
-
-let row = table.insertRow();
-
-let columns = rowText.split(",");
+let table = document.getElementById("standingsTable");
 
 
-columns.forEach(column => {
+let players = rows.slice(1).map(rowText => {
+
+    let columns = rowText.split(",");
+
+    return {
+
+        player: columns[1],
+        wins: Number(columns[2]),
+        losses: Number(columns[3]),
+        pct: columns[4],
+        lastWeek: columns[5]
+
+    };
+
+});
 
 
-let cell = row.insertCell();
+// Sort by wins only
 
-cell.textContent = column;
+players.sort((a,b) => {
+
+    return b.wins - a.wins;
+
+});
+
+
+// Assign rankings with ties
+
+let currentRank = 1;
+let previousWins = null;
+
+
+players.forEach((player,index) => {
+
+    if (player.wins !== previousWins) {
+
+        currentRank = index + 1;
+
+    }
+
+    player.rank = currentRank;
+
+    previousWins = player.wins;
 
 
 });
 
+
+// Build table
+
+players.forEach(player => {
+
+    let row = table.insertRow();
+
+
+    row.insertCell().textContent = player.rank;
+    row.insertCell().textContent = player.player;
+    row.insertCell().textContent = player.wins;
+    row.insertCell().textContent = player.losses;
+    row.insertCell().textContent = player.pct;
+    row.insertCell().textContent = player.lastWeek;
+
+
+});
 
 });
 

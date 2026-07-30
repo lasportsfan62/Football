@@ -335,11 +335,22 @@ TBD
 
 </div>
 
-
 <script>
 
 window.resultsLookup = {};
 
+let picksLoaded = false;
+let resultsLoaded = false;
+
+function tryGradePicks(){
+
+    if(picksLoaded && resultsLoaded){
+
+        gradePicks();
+
+    }
+
+}
 const standingsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=0&single=true&output=csv";
 
 
@@ -469,6 +480,9 @@ cell.classList.add("pick-cell");
 
 });
 
+picksLoaded = true;
+tryGradePicks();
+
 })
 
 .catch(error => {
@@ -504,7 +518,8 @@ window.resultsLookup[pick] = result;
 
 console.log("Weekly Results Loaded:", window.resultsLookup);
 
-gradePicks();
+resultsLoaded = true;
+tryGradePicks();
 
 })
 

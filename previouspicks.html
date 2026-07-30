@@ -153,6 +153,14 @@ td {
 
 }
 
+.perfect-score{
+    background:#FFC000;
+    color:#000;
+    font-weight:bold;
+    border-radius:4px;
+}
+
+
 
 /* MOBILE */
 
@@ -484,8 +492,17 @@ score += 0.5;
 }
 
 
-rows[i].cells[6].textContent = score;
+let scoreCell = rows[i].cells[6];
 
+scoreCell.textContent = score;
+
+// Remove any previous highlighting
+scoreCell.classList.remove("perfect-score");
+
+// Highlight 5-0 or 0-5 weeks
+if(score === 5 || score === 0){
+    scoreCell.classList.add("perfect-score");
+}
 
 }
 

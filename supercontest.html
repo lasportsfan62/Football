@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SuperContest 2026</title>
+
+<style>
+
+body {
+    font-family: Arial, sans-serif;
+    background:#f7f7f7;
+    margin:0;
+    padding:20px;
+}
+
+.container {
+    max-width:1200px;
+    margin:auto;
+}
+
+
+/* HEADER */
+
+.hero {
+    text-align:center;
+    background:#111;
+    color:white;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+}
+
+.hero h1 {
+    margin:0;
+    font-size:34px;
+}
+
+.hero p {
+    margin-top:10px;
+    font-size:18px;
+}
+
+
+/* BUTTON */
+
+.submit-button {
+
+    display:block;
+    text-align:center;
+    background:#09C90E;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    padding:15px;
+    border-radius:12px;
+    margin:20px auto;
+    max-width:350px;
+    font-size:18px;
+
+}
+
+
+/* LIVE BANNER CARD */
+
+.live-banner {
+
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    margin-bottom:25px;
+    text-align:center;
+    font-weight:bold;
+
+}
+
+
+/* DASHBOARD */
+
+.dashboard {
+
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-bottom:25px;
+
+}
+
+
+.dashboard-card {
+
+    background:white;
+    padding:20px;
+    border-radius:15px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    text-align:center;
+
+}
+
+
+.dashboard-card h3 {
+
+    margin-top:0;
+
+}
+
+
+/* STANDINGS CARD */
+
+.section-card {
+
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    margin-bottom:25px;
+
+}
+
+
+.section-card h2 {
+
+    text-align:center;
+
+}
+
+
+table {
+
+    width:100%;
+    border-collapse:collapse;
+
+}
+
+.table-container {
+
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+
+}
+
+
+th {
+
+    background:#111;
+    color:white;
+    padding:12px;
+
+}
+
+
+td {
+
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+.dashboard {
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1 {
+
+font-size:26px;
+
+}
+
+
+table {
+
+font-size:14px;
+
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<div class="hero">
+
+<h1>🏈 SuperContest 2026</h1>
+
+<p>Pick. Compete. Dominate.</p>
+
+</div>
+
+
+
+<a class="submit-button" href="#" target="_blank">
+📝 Submit Picks
+</a>
+
+<div class="live-banner">
+
+NFL LIVE BANNER GOES HERE
+
+</div>
+
+<div class="dashboard">
+
+
+<div class="dashboard-card">
+
+<h3>🏆 Last Week's Winner</h3>
+
+<p>
+TBD
+</p>
+
+</div>
+
+
+
+<div class="dashboard-card">
+
+<h3>🔥 Most Popular Picks</h3>
+
+<p>
+TBD
+</p>
+
+</div>
+
+
+
+<div class="dashboard-card">
+
+<h3>📈 Season Leader</h3>
+
+<p>
+TBD
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="section-card">
+
+<h2>🎯 This Week's Picks</h2>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+
+<th>Player</th>
+<th>Game 1</th>
+<th>Game 2</th>
+<th>Game 3</th>
+<th>Game 4</th>
+<th>Game 5</th>
+<th>Score</th>
+
+</tr>
+
+
+<tr>
+
+<td>David</td>
+<td>DAL -8</td>
+<td>KC</td>
+<td>SF</td>
+<td>BUF</td>
+<td>PHI</td>
+<td>-</td>
+
+</tr>
+
+
+<tr>
+
+<td>Brooke</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+
+</tr>
+
+
+<tr>
+
+<td>Danny</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+
+</tr>
+
+
+</table>
+
+</div>
+
+
+</div>
+
+<div class="section-card">
+
+<h2>🏆 SuperContest Standings</h2>
+
+<table id="standingsTable">
+
+<tr>
+
+<th>Rank</th>
+<th>Player</th>
+<th>Wins</th>
+<th>Losses</th>
+<th>Pct.</th>
+<th>Last Week</th>
+
+</tr>
+
+</table>
+
+</div>
+
+
+</div>
+
+
+<script>
+
+const standingsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=0&single=true&output=csv";
+
+
+fetch(standingsCSV)
+
+.then(response => response.text())
+
+.then(data => {
+
+
+let rows = data.trim().split("\n");
+
+let table = document.getElementById("standingsTable");
+
+
+// skip header row
+
+rows.slice(1).forEach(rowText => {
+
+
+let row = table.insertRow();
+
+let columns = rowText.split(",");
+
+
+columns.forEach(column => {
+
+
+let cell = row.insertCell();
+
+cell.textContent = column;
+
+
+});
+
+
+});
+
+
+})
+
+.catch(error => {
+
+console.log("Unable to load standings:", error);
+
+});
+
+
+</script>
+
+
+</body>
+</html>

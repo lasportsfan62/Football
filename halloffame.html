@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SuperContest Hall of Fame</title>
+
+<style>
+
+body{
+    font-family:Arial,sans-serif;
+    background:#f7f7f7;
+    margin:0;
+    padding:20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+/* Navigation */
+
+.nav{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.nav a{
+    text-decoration:none;
+}
+
+.nav button{
+    padding:12px 22px;
+    margin:5px;
+    border-radius:12px;
+    border:2px solid #222;
+    background:#ffffff;
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.nav button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 5px 10px rgba(0,0,0,.2);
+}
+
+/* Header */
+
+.hero{
+    text-align:center;
+    background:#FFC000;
+    color:#11111;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:25px;
+}
+
+.hero h1{
+    margin:0;
+    font-size:34px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* Cards */
+
+.section-card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 10px rgba(0,0,0,.15);
+    margin-bottom:25px;
+}
+
+.section-card h2{
+    text-align:center;
+    margin-top:0;
+}
+
+/* Tables */
+
+.table-container{
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th{
+    background:#111;
+    color:white;
+    padding:12px;
+}
+
+td{
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+    white-space:nowrap;
+}
+
+/* Mobile */
+
+@media(max-width:700px){
+
+.hero h1{
+    font-size:26px;
+}
+
+table{
+    font-size:13px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="nav">
+<a href="supercontest.html">
+<button>🏈 Return to SuperContest</button>
+</a>
+</div>
+
+<div class="container">
+
+<div class="hero">
+<h1>🏆 SuperContest Hall of Fame</h1>
+<p>Records may be broken, but Championships never fade.</p>
+</div>
+
+<div class="section-card">
+
+<h2>🏆 SuperContest Champions</h2>
+
+<div class="table-container">
+
+<table id="championsTable">
+
+<tr>
+<th>Year</th>
+<th>Champion</th>
+<th>Record</th>
+<th>Runner Up</th>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="section-card">
+
+<h2>🥇 All-Time SuperContest Placements</h2>
+
+<div class="table-container">
+
+<table id="placementsTable">
+
+<tr>
+<th>Player</th>
+<th>2020</th>
+<th>2021</th>
+<th>2022</th>
+<th>2023</th>
+<th>2024</th>
+<th>2025</th>
+</tr>
+
+</table>
+
+</div>
+
+</div>
+
+
+<script>
+
+const championsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=992295566&single=true&output=csv";
+
+const placementsCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=1666055839&single=true&output=csv";
+
+
+// Load CSV function
+
+function loadCSV(url,callback){
+
+fetch(url)
+
+.then(response=>response.text())
+
+.then(data=>{
+
+callback(data);
+
+})
+
+.catch(error=>{
+
+console.log("CSV Error:",error);
+
+});
+
+}
+
+
+// Build Champions Table
+
+loadCSV(championsCSV,function(data){
+
+let rows=data.trim().split("\n");
+
+let table=document.getElementById("championsTable");
+
+
+rows.slice(1).forEach(rowText=>{
+
+let row=table.insertRow();
+
+let columns=rowText.split(",");
+
+
+columns.forEach(cellText=>{
+
+let cell=row.insertCell();
+
+cell.innerHTML=cellText;
+
+});
+
+});
+
+});
+
+
+// Build Placements Table
+
+loadCSV(placementsCSV,function(data){
+
+let rows=data.trim().split("\n");
+
+let table=document.getElementById("placementsTable");
+
+
+rows.slice(1).forEach(rowText=>{
+
+let row=table.insertRow();
+
+let columns=rowText.split(",");
+
+
+columns.forEach((cellText,columnIndex)=>{
+
+let cell=row.insertCell();
+
+cell.innerHTML=cellText;
+
+
+// Color code championship finishes
+
+if(columnIndex > 0){
+
+let placement = cellText.trim();
+
+if(placement === "1"){
+
+cell.style.background="#FFD700";
+cell.style.fontWeight="bold";
+
+}
+
+else if(placement === "2"){
+
+cell.style.background="#C0C0C0";
+cell.style.fontWeight="bold";
+
+}
+
+}
+
+});
+
+});
+
+});
+
+</script>
+
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -222,6 +222,117 @@ font-size:20px
 font-size:40px
 }
 
+.supercontest:hover{
+box-shadow:
+0 0 18px rgba(9,201,14,.7),
+0 0 40px rgba(9,201,14,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.survivor:hover{
+box-shadow:
+0 0 18px rgba(178,34,34,.7),
+0 0 40px rgba(178,34,34,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.fantasy:hover{
+box-shadow:
+0 0 18px rgba(0,92,185,.7),
+0 0 40px rgba(0,92,185,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.suggestions:hover{
+box-shadow:
+0 0 18px rgba(142,36,170,.7),
+0 0 40px rgba(142,36,170,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:28px;
+border-radius:18px;
+margin-bottom:25px;
+text-decoration:none;
+color:white;
+box-shadow:0 12px 25px rgba(0,0,0,.25);
+transition:.35s ease;
+position:relative;
+overflow:hidden;
+isolation:isolate;
+}
+
+/* Moving light */
+.card::before{
+content:"";
+position:absolute;
+top:-60%;
+left:-130%;
+width:28%;
+height:220%;
+background:linear-gradient(
+115deg,
+transparent 0%,
+rgba(255,255,255,.15) 35%,
+rgba(255,255,255,.8) 50%,
+rgba(255,255,255,.15) 65%,
+transparent 100%
+);
+transform:rotate(20deg);
+transition:left 1.0s ease;
+pointer-events:none;
+}
+
+.card:hover::before{
+left:170%;
+}
+
+.card:hover{
+transform:translateY(-8px) scale(1.03);
+box-shadow:0 22px 40px rgba(0,0,0,.35);
+}
+
+.arrow{
+font-size:40px;
+transition:.35s;
+}
+
+.card:hover .arrow{
+transform:translateX(10px);
+}
+
+.supercontest:hover{
+box-shadow:
+0 0 18px rgba(9,201,14,.7),
+0 0 40px rgba(9,201,14,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.survivor:hover{
+box-shadow:
+0 0 18px rgba(178,34,34,.7),
+0 0 40px rgba(178,34,34,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.fantasy:hover{
+box-shadow:
+0 0 18px rgba(0,92,185,.7),
+0 0 40px rgba(0,92,185,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
+.suggestions:hover{
+box-shadow:
+0 0 18px rgba(142,36,170,.7),
+0 0 40px rgba(142,36,170,.45),
+0 22px 45px rgba(0,0,0,.35);
+}
+
 /* CARD COLORS */
 
 .supercontest{

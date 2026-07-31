@@ -352,46 +352,6 @@ font-size:13px;
     </div>
 </div>
 
-<div class="dashboard">
-
-
-<div class="dashboard-card">
-
-<h3>🏆 Last Week's Winner</h3>
-
-<p>
-TBD
-</p>
-
-</div>
-
-
-
-<div class="dashboard-card">
-
-<h3>🔥 Most Popular Picks</h3>
-
-<p>
-TBD
-</p>
-
-</div>
-
-
-
-<div class="dashboard-card">
-
-<h3>📈 Season Leader</h3>
-
-<p>
-TBD
-</p>
-
-</div>
-
-
-</div>
-
 
 <div class="section-card">
 
@@ -401,7 +361,7 @@ TBD
 
 <table id="picksTable">
 
-<tr>
+<tr id="standingsHeader">
 
 <th>Player</th>
 <th>Game 1</th>
@@ -417,8 +377,42 @@ TBD
 
 </div>
 
+</div>
+
+<div class="dashboard">
+
+<div class="dashboard-card">
+
+<h3>🏆 Last Week's Winner</h3>
+
+<p>
+TBD
+</p>
 
 </div>
+
+<div class="dashboard-card">
+
+<h3>🔥 Most Popular Picks</h3>
+
+<p>
+TBD
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h3>📈 Season Leader</h3>
+
+<p>
+TBD
+</p>
+
+</div>
+
+</div>
+
 
 <div class="section-card">
 
@@ -428,7 +422,7 @@ TBD
 
 <table id="standingsTable">
 
-<tr>
+<tr id="standingsHeader">
 
 <th>Rank</th>
 <th>Player</th>
@@ -452,6 +446,31 @@ TBD
 </div>
 
 <script>
+
+const standingsColors = [
+    "#111111",
+    "#1f4e79",
+    "#2e7d32",
+    "#8e24aa",
+    "#c62828",
+    "#F22CE5",
+    "#EFBF04",
+    "#C0C0C0",
+    "#ef6c00"
+];
+
+const randomHeaderColor = standingsColors[
+    Math.floor(Math.random() * standingsColors.length)
+
+];
+
+document.querySelectorAll("#picksHeader th").forEach(function(cell){
+    cell.style.backgroundColor = randomHeaderColor;
+});
+
+document.querySelectorAll("#standingsHeader th").forEach(function(cell){
+    cell.style.backgroundColor = randomHeaderColor;
+});
 
 window.resultsLookup = {};
 

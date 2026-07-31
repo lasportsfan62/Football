@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -14,15 +20,15 @@
 html{scroll-behavior:smooth}
 
 body{
-font-family:"Times New Roman",Times,serif;
+font-family:"Inter",sans-serif;
 color:#222;
 overflow-x:hidden;
 background:
-linear-gradient(rgba(247,247,247,.88),rgba(247,247,247,.92)),
+linear-gradient(rgba(15,22,34,.35),rgba(15,22,34,.40)),
 url("https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=1800&q=80");
 background-size:cover;
 background-position:center;
-background-attachment:fixed
+background-attachment:fixed;
 }
 
 /* HERO */
@@ -37,27 +43,45 @@ padding:40px 20px
 }
 
 .hero-content{
-background:rgba(255,255,255,.88);
-backdrop-filter:blur(8px);
-padding:40px;
-border-radius:20px;
-border:1px solid rgba(0,0,0,.15);
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-animation:fadeIn 1.2s
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(16px);
+-webkit-backdrop-filter:blur(16px);
+padding:50px 55px;
+border-radius:24px;
+border:1px solid rgba(255,255,255,.35);
+box-shadow:
+0 15px 40px rgba(0,0,0,.18),
+0 0 40px rgba(255,255,255,.15) inset;
+animation:fadeIn 1.2s;
+max-width:900px;
+width:100%;
 }
 
 .hero h1{
-font-size:64px;
-letter-spacing:2px;
-margin-bottom:15px;
-color:#111
+font-family:"Bebas Neue",sans-serif;
+font-size:78px;
+letter-spacing:3px;
+margin-bottom:10px;
+color:#111;
+line-height:.95;
 }
 
 .hero h2{
-font-size:30px;
-font-weight:normal;
-color:#444;
-margin-bottom:35px
+font-family:"Inter",sans-serif;
+font-size:28px;
+font-weight:500;
+letter-spacing:.5px;
+color:#555;
+margin-bottom:20px;
+}
+
+.hero-divider{
+width:500px;
+height:5px;
+margin:0 auto 35px;
+border-radius:20px;
+background:linear-gradient(90deg,#FFD700,#F5C542,#FFD700);
+box-shadow:0 0 15px rgba(255,215,0,.5);
 }
 
 /* COUNTDOWN */
@@ -75,30 +99,40 @@ flex-wrap:wrap
 }
 
 .time-box{
-background:white;
-border:1px solid #ddd;
-border-radius:14px;
-padding:16px;
-width:95px;
-box-shadow:0 5px 15px rgba(0,0,0,.12);
-transition:.25s
+background:rgba(255,255,255,.92);
+border:1px solid rgba(255,255,255,.4);
+border-radius:18px;
+padding:18px;
+width:100px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+transition:.3s;
 }
 
 .time-box:hover{
-transform:translateY(-5px)
+transform:translateY(-6px);
+box-shadow:
+0 0 18px rgba(255,215,0,.35),
+0 12px 28px rgba(0,0,0,.18);
 }
 
 .number{
-font-size:38px;
-font-weight:bold;
-color:#ffd700
+font-family:"Bebas Neue",sans-serif;
+font-size:50px;
+letter-spacing:2px;
+color:#FFD700;
+text-shadow:
+0 0 10px rgba(255,215,0,.45),
+0 0 25px rgba(255,215,0,.25);
 }
 
 .label{
+font-family:"Inter",sans-serif;
 margin-top:5px;
-font-size:14px;
+font-size:13px;
+font-weight:600;
 text-transform:uppercase;
-letter-spacing:1px
+letter-spacing:1.5px;
+color:#555;
 }
 
 /* SUPER BOWL LOGO */
@@ -205,17 +239,57 @@ gap:20px
 }
 
 .icon{
-font-size:48px
+width:70px;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:42px;
+transition:all .35s ease;
+flex-shrink:0;
+}
+
+.card:hover .icon{
+transform:scale(1.15) rotate(-10deg);
+filter:drop-shadow(0 0 10px rgba(255,255,255,.55));
+}
+
+.supercontest .icon{
+color:#FFE34D;
+}
+
+.survivor .icon{
+color:#FFD7D7;
+}
+
+.fantasy .icon{
+color:#9FD2FF;
+}
+
+.suggestions .icon{
+color:#E9C8FF;
 }
 
 .title{
-font-size:34px;
-font-weight:bold;
-margin-bottom:8px
+font-family:"Bebas Neue",sans-serif;
+font-size:44px;
+letter-spacing:1px;
+margin-bottom:4px;
+transition:.3s ease;
+}
+
+.card:hover .title{
+transform:translateX(8px);
 }
 
 .subtitle{
-font-size:20px
+font-size:18px;
+line-height:1.45;
+opacity:.88;
+transition:.3s;
+}
+
+.card:hover .subtitle{
+opacity:1;
 }
 
 .arrow{
@@ -292,8 +366,16 @@ left:170%;
 }
 
 .card:hover{
-transform:translateY(-8px) scale(1.03);
-box-shadow:0 22px 40px rgba(0,0,0,.35);
+transform:
+perspective(900px)
+rotateX(2deg)
+translateY(-10px)
+scale(1.02);
+}
+
+.card:active{
+transform:scale(.98);
+transition:.08s;
 }
 
 .arrow{
@@ -301,8 +383,27 @@ font-size:40px;
 transition:.35s;
 }
 
+.arrow{
+font-size:40px;
+transition:transform .3s ease;
+}
+
 .card:hover .arrow{
-transform:translateX(10px);
+transform:translateX(18px) scale(1.2);
+}
+
+.card::after{
+content:"";
+position:absolute;
+inset:0;
+border-radius:18px;
+border:2px solid rgba(255,255,255,0);
+transition:.35s;
+pointer-events:none;
+}
+
+.card:hover::after{
+border-color:rgba(255,255,255,.45);
 }
 
 .supercontest:hover{
@@ -355,11 +456,13 @@ background:linear-gradient(135deg,#6A1B9A,#8E24AA)
 /* FOOTER */
 
 footer{
+font-family:"Inter",sans-serif;
 text-align:center;
-padding:45px 20px;
-font-size:18px;
-color:#00008b;
-border-top:1px solid #ddd
+padding:50px 20px;
+font-size:16px;
+font-weight:500;
+color:#555;
+border-top:1px solid rgba(0,0,0,.15);
 }
 
 /* ANIMATIONS */
@@ -382,6 +485,8 @@ transform:translateY(0)
 
 </style>
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 <body>
 
@@ -390,6 +495,7 @@ transform:translateY(0)
 
 <h1>🏈 2026 Football Games</h1>
 <h2>Pick. Survive. Dominate.</h2>
+<div class="hero-divider"></div>
 
 <div class="countdown-title">NFL Kickoff Countdown</div>
 
@@ -431,10 +537,12 @@ Loading NFL scores...
 
 <a href="supercontest.html" class="card supercontest">
 <div class="left">
-<div class="icon">🏆</div>
+<div class="icon">
+    <i class="fa-solid fa-trophy"></i>
+</div>
 <div>
 <div class="title">SuperContest</div>
-<div class="subtitle">5 Picks<br>Against the Spread</div>
+<div class="subtitle">5 Picks<br>Against The Spread</div>
 </div>
 </div>
 <div class="arrow">→</div>
@@ -443,7 +551,9 @@ Loading NFL scores...
 
 <a href="survivor.html" class="card survivor">
 <div class="left">
-<div class="icon">☠️</div>
+<div class="icon">
+    <i class="fa-solid fa-shield-halved"></i>
+</div>
 <div>
 <div class="title">Survivor Pool</div>
 <div class="subtitle">Pick one team.<br>Survive another week.</div>
@@ -455,7 +565,9 @@ Loading NFL scores...
 
 <a href="fantasy.html" class="card fantasy">
 <div class="left">
-<div class="icon">🏈</div>
+<div class="icon">
+    <i class="fa-solid fa-football"></i>
+</div>
 <div>
 <div class="title">Fantasy Football</div>
 <div class="subtitle">Manage your roster.<br>Chase the championship.</div>
@@ -467,7 +579,9 @@ Loading NFL scores...
 
 <a href="https://www.youtube.com/watch?v=kk8dFcopN1c" target="_blank" class="card suggestions">
 <div class="left">
-<div class="icon">💬</div>
+<div class="icon">
+    <i class="fa-solid fa-comments"></i>
+</div>
 <div>
 <div class="title">Complaints + Suggestions</div>
 <div class="subtitle">Have feedback?<br>We want to hear it.</div>

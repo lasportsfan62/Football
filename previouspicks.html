@@ -256,8 +256,7 @@ table {
 
 <table id="previousPicksTable">
 
-
-<tr>
+<tr id="previousPicksHeader">
 
 <th>Player</th>
 <th>Game 1</th>
@@ -288,6 +287,26 @@ table {
 
 <script>
 
+const headerColors = [
+    "#111111",
+    "#1f4e79",
+    "#2e7d32",
+    "#8e24aa",
+    "#c62828",
+    "#F22CE5",
+    "#EFBF04",
+    "#C0C0C0",
+    "#ef6c00"
+];
+
+const randomHeaderColor =
+    headerColors[Math.floor(Math.random() * headerColors.length)];
+
+document.querySelectorAll("#previousPicksHeader th").forEach(function(cell){
+
+    cell.style.backgroundColor = randomHeaderColor;
+
+});
 
 const archiveCSV = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=1538633472&single=true&output=csv";
 

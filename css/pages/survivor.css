@@ -1,0 +1,507 @@
+
+body {
+    font-family:"Inter",Arial,sans-serif;
+    background:#f7f7f7;
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+    color:#222;
+}
+
+.section-card .subtitle {
+    text-align:center;
+    font-size:22px;
+    margin-bottom:25px;
+}
+    
+    #standingsHeader th {
+    transition: background-color .3s ease;
+}
+
+/* Buttons */
+
+.big-button {
+
+    display:block;
+    width:80%;
+    margin:15px auto;
+    padding:15px;
+    border-radius:15px;
+    border:2px solid #222;
+    background:#09C90E;
+    color:white;
+    font-size:22px;
+    font-weight:bold;
+    cursor:pointer;
+    text-align:center;
+    text-decoration:none;
+    transition:.2s;
+
+}
+
+.secondary {
+
+    background:#FFC000;
+    color:#A91832;
+
+}
+
+
+/* Table */
+
+table {
+
+    width:100%;
+    border-collapse:collapse;
+    margin-top:15px;
+
+}
+
+
+th {
+
+    background:#222;
+    color:white;
+    padding:12px;
+
+}
+
+
+td {
+
+    padding:12px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+
+}
+
+.correctPick {
+
+    background:#09C90E;
+    color:#000000;
+    font-weight:bold;
+
+}
+
+
+.incorrectPick {
+
+    background:#FF0000;
+    color:#000000;
+    font-weight:bold;
+
+}
+
+.table-container{
+
+    width:100%;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+
+}
+
+.leaderScore {
+
+    background:#ffed9a;
+    font-weight:bold;
+    border:3px solid #EFBF04;
+
+}
+
+#weeklyTable{
+
+    min-width:700px;
+
+}
+
+
+#weeklyTable th,
+#weeklyTable td{
+
+    padding:8px 6px;
+    font-size:16px;
+
+}
+
+iframe {
+
+    border-radius:15px;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:600px){
+
+body{
+    padding:10px;
+}
+
+h1{
+    font-size:30px;
+}
+
+.big-button{
+    width:95%;
+}
+
+.nav button{
+    width:90%;
+}
+
+}
+
+.hero-home{
+
+display:inline-flex;
+
+align-items:center;
+
+gap:10px;
+
+margin-bottom:00px;
+
+padding:10px 20px;
+
+border-radius:999px;
+
+background:rgba(255,255,255,.12);
+
+color:white;
+
+text-decoration:none;
+
+font-weight:600;
+
+transition:.25s;
+
+}
+
+
+.hero-home:hover{
+
+transform:translateY(-3px);
+
+background:rgba(255,255,255,.2);
+
+}
+
+
+.hero-description{
+
+font-size:1.2rem;
+
+color:rgba(255,255,255,.85);
+
+margin:25px 0;
+
+line-height:1.6;
+
+}
+
+
+.hero-buttons{
+
+display:flex;
+
+justify-content:center;
+
+gap:20px;
+
+flex-wrap:wrap;
+
+margin-top:20px;
+
+}
+
+.survivor-section-card .icon{
+
+color:#FFD700;
+
+}
+
+.survivor-champion{
+    background:rgb(255, 255, 255);
+    text-align:center;
+    padding:28px;
+    border-radius:var(--radius-md);
+    margin-bottom:25px;
+    box-shadow:var(--shadow-md);
+    border:10px solid #B22222;
+}
+
+.survivor-champion h2{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:30px;
+    letter-spacing:1px;
+    margin:0 0 12px;
+    color:#111;
+}
+
+.survivor-champion h2 i{
+    color:#B22222;
+    margin-right:8px;
+}
+
+.survivor-champion p:first-of-type{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:48px;
+    letter-spacing:2px;
+    margin:5px 0;
+    color:#B22222;
+}
+
+.survivor-champion p:last-of-type{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:16px;
+    color:#666;
+    margin:5px 0 0;
+}
+
+.section-card{
+
+display:block;
+
+padding:28px;
+
+border-radius:var(--radius-md);
+
+margin-bottom:25px;
+
+background:white;
+
+box-shadow:var(--shadow-md);
+
+}
+
+.big-button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+.section-card:hover{
+    transform:none;
+    box-shadow:var(--shadow-md);
+}
+
+.section-card::before{
+    display:none;
+}
+
+.survivor-standings-card{
+    background:white;
+}
+
+.survivor-standings-card h2{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:36px;
+    letter-spacing:1px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.survivor-standings-card h2 i{
+    color:#B22222;
+    margin-right:10px;
+}
+
+.survivor-standings-card table{
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.survivor-standings-card th{
+    font-family:"Inter",Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.survivor-standings-card td{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:17px;
+}
+
+.survivor-standings-card tbody tr{
+    transition:.2s ease;
+}
+
+.survivor-standings-card tbody tr:hover{
+    background:#f7f7f7;
+}
+
+.survivor-weekly-card{
+    background:white;
+}
+
+.survivor-weekly-card h2{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:36px;
+    letter-spacing:1px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.survivor-weekly-card h2 i{
+    color:#B22222;
+    margin-right:10px;
+}
+
+/* Weekly Survivor Picks Table */
+
+.survivor-weekly-card .table-container{
+    border-radius:14px;
+}
+
+.survivor-weekly-card #weeklyTable{
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.survivor-weekly-card #weeklyTable th{
+    font-family:"Inter",Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+    white-space:nowrap;
+}
+
+.survivor-weekly-card #weeklyTable td{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:16px;
+    font-weight:500;
+    white-space:nowrap;
+}
+
+.survivor-weekly-card #weeklyTable td:first-child,
+.survivor-weekly-card #weeklyTable th:first-child{
+    font-weight:700;
+    position:sticky;
+    left:0;
+    z-index:2;
+}
+
+.survivor-results-card{
+    background:white;
+}
+
+.survivor-results-card h2{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:36px;
+    letter-spacing:1px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.survivor-results-card h2 i{
+    color:#EFBF04;
+    margin-right:10px;
+}
+
+.survivor-hof-card{
+    background:white;
+}
+
+.survivor-hof-card h2{
+    font-family:"Bebas Neue",sans-serif;
+    font-size:36px;
+    letter-spacing:1px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.survivor-hof-card h2 i{
+    color:#EFBF04;
+    margin-right:10px;
+}
+
+.survivor-hof-card table{
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.survivor-hof-card th{
+    font-family:"Inter",Arial,sans-serif;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+.survivor-hof-card td{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:17px;
+    font-weight:600;
+}
+
+.hero-content{
+    background:linear-gradient(
+        135deg,
+        #8B1E2D,
+        #5C0F18
+    );
+}
+
+.hero h1{
+    color:white;
+}
+
+.hero h2{
+    color:rgba(255,255,255,.9);
+}
+
+.hero{
+    padding-bottom:0;
+}
+
+.survivor-section-card .left{
+    justify-content:center;
+    text-align:center;
+    flex-direction:row;
+    gap:20px;
+    width:100%;
+}
+
+.survivor-section-card{
+    border:10px solid #09C90E;
+}
+
+.hero-home{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 20px;
+    border-radius:999px;
+    background:#8B1E2D;
+    color:white;
+    border:2px solid #8B1E2D;
+    text-decoration:none;
+    font-weight:600;
+    transition:.25s;
+        
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.hero-home:hover{
+    transform:translateY(-3px);
+    background:#6E1010;
+}
+.hero-home-container{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 20px;
+}
+

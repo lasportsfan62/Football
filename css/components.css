@@ -1,0 +1,666 @@
+/* ========================================
+   FOOTBALL GAMES DESIGN SYSTEM
+   COMPONENTS
+======================================== */
+
+
+/* =========================
+   GAME CARDS
+========================= */
+
+.card{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:28px;
+
+border-radius:var(--radius-md);
+
+margin-bottom:25px;
+
+text-decoration:none;
+
+color:white;
+
+box-shadow:var(--shadow-md);
+
+transition:var(--transition);
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.card:hover{
+
+transform:
+translateY(-8px)
+scale(1.02);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+
+/* Card Shine */
+
+.card::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:80%;
+
+height:100%;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.45),
+transparent
+);
+
+transform:skewX(-25deg);
+
+transition:.8s;
+
+}
+
+
+.card:hover::before{
+
+left:130%;
+
+}
+
+
+
+/* Card Layout */
+
+.left{
+
+display:flex;
+
+align-items:center;
+
+gap:20px;
+
+}
+
+
+.icon{
+
+font-size:48px;
+
+filter:
+drop-shadow(
+0 3px 3px rgba(0,0,0,.25)
+);
+
+text-shadow:
+0 2px 8px rgba(255,255,255,.5);
+
+transition:.3s ease;
+
+}
+
+/* Card Icon Colors */
+
+.supercontest .icon{
+
+color:#FFE34D;
+
+}
+
+
+.survivor .icon{
+
+color:#FFD7D7;
+
+}
+
+
+.fantasy .icon{
+
+color:#9FD2FF;
+
+}
+
+
+.suggestions .icon{
+
+color:#E9C8FF;
+
+}
+
+
+/* Icon hover */
+
+.card:hover .icon{
+
+transform:
+scale(1.15)
+rotate(-10deg);
+
+filter:
+drop-shadow(
+0 0 12px rgba(255,255,255,.75)
+);
+
+}
+
+
+.title{
+
+font-family:"Bebas Neue",sans-serif;
+
+font-size:44px;
+
+letter-spacing:1px;
+
+margin-bottom:8px;
+
+}
+
+
+.subtitle{
+
+font-family:"Inter",Arial,sans-serif;
+
+font-size:18px;
+
+line-height:1.4;
+
+}
+
+
+.arrow{
+
+font-size:40px;
+
+transition:.3s;
+
+}
+
+
+.card:hover .arrow{
+
+transform:translateX(15px);
+
+}
+
+
+/* Card Colors */
+
+.supercontest{
+
+background:var(--green);
+
+}
+
+
+.survivor{
+
+background:linear-gradient(
+135deg,
+#B22222,
+#6E1010
+);
+
+}
+
+
+.fantasy{
+
+background:linear-gradient(
+135deg,
+#013369,
+#005CB9
+);
+
+}
+
+
+.suggestions{
+
+background:linear-gradient(
+135deg,
+#6A1B9A,
+#8E24AA
+);
+
+}
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero{
+
+min-height:460px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+padding:40px 20px;
+
+}
+
+
+.hero-content{
+
+    background:linear-gradient(
+        135deg,
+        #134975,
+        #599cda
+    );
+
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+
+    padding:50px 55px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        0 0 40px rgba(255,255,255,.05) inset;
+
+    animation:fadeIn 1.2s;
+
+    max-width:900px;
+    width:100%;
+
+}
+
+
+.hero h1{
+
+font-family:"Bebas Neue",sans-serif;
+
+font-size:72px;
+
+letter-spacing:2px;
+
+margin-bottom:15px;
+
+color:#111;
+
+}
+
+
+.hero h2{
+
+font-family:"Inter",Arial,sans-serif;
+
+font-size:30px;
+
+font-weight:400;
+
+color:#444;
+
+margin-bottom:35px;
+
+}
+
+/* Hero Gold Divider */
+
+.hero-divider{
+
+width:140px;
+
+height:5px;
+
+margin:0 auto 35px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+#FFD700,
+#F5C542,
+#FFD700
+);
+
+box-shadow:
+0 0 15px rgba(255,215,0,.5);
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+
+.countdown-title{
+
+font-family:"Bebas Neue",sans-serif;
+
+font-size:30px;
+
+letter-spacing:1px;
+
+margin-bottom:15px;
+
+}
+
+
+#countdown,
+#superbowlCountdown{
+
+display:flex;
+
+justify-content:center;
+
+gap:15px;
+
+flex-wrap:wrap;
+
+}
+
+
+.time-box{
+
+background:white;
+
+border:1px solid #ddd;
+
+border-radius:var(--radius-md);
+
+padding:16px;
+
+width:100px;
+
+box-shadow:var(--shadow-sm);
+
+transition:var(--transition);
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+}
+
+
+.time-box:hover{
+
+transform:translateY(-5px);
+
+}
+
+
+.number{
+
+font-family:"Bebas Neue",sans-serif;
+
+font-size:50px;
+
+font-weight:400;
+
+letter-spacing:2px;
+
+color:var(--gold);
+
+text-shadow:
+
+0 0 10px rgba(255,215,0,.45),
+
+0 0 25px rgba(255,215,0,.25);
+
+}
+
+.label{
+
+font-family:"Inter",Arial,sans-serif;
+
+margin-top:5px;
+
+font-size:13px;
+
+font-weight:600;
+
+text-transform:uppercase;
+
+letter-spacing:1.5px;
+
+text-align:center;
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+
+text-align:center;
+
+padding:45px 20px;
+
+font-size:18px;
+
+color:#00008b;
+
+border-top:1px solid #ddd;
+
+margin-top:50px;
+
+font-family:"Inter",Arial,sans-serif;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+
+.main-button{
+
+display:inline-flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:16px 32px;
+
+border-radius:14px;
+
+font-family:"Inter",Arial,sans-serif;
+
+font-size:18px;
+
+font-weight:700;
+
+border:none;
+
+cursor:pointer;
+
+position:relative;
+
+overflow:hidden;
+
+transition:.3s ease;
+
+box-shadow:var(--shadow-sm);
+
+}
+
+
+/* Shine sweep */
+
+.main-button::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:80%;
+
+height:100%;
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.55),
+transparent
+);
+
+transform:skewX(-25deg);
+
+transition:.7s;
+
+}
+
+
+.main-button:hover::before{
+
+left:130%;
+
+}
+
+
+.main-button:hover{
+
+transform:translateY(-4px);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+
+.main-button:active{
+
+transform:scale(.97);
+
+}
+
+/* =========================
+   NFL TICKER
+========================= */
+
+.ticker{
+
+width:100%;
+
+margin-top:20px;
+
+background:white;
+
+border-top:2px solid #ddd;
+
+border-bottom:2px solid #ddd;
+
+overflow:hidden;
+
+white-space:nowrap;
+
+padding:15px 0;
+
+}
+
+
+.ticker-game{
+
+display:inline-flex;
+
+align-items:center;
+
+border-right:2px solid #ccc;
+
+padding-right:35px;
+
+margin-right:35px;
+
+}
+
+
+.ticker-track{
+
+display:inline-block;
+
+padding-left:100%;
+
+animation:ticker 45s linear infinite;
+
+font-family:"Inter",Arial,sans-serif;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+.ticker-track span{
+
+margin-right:45px;
+
+color:#222;
+
+}
+
+
+.live{
+
+color:#D00000;
+
+}
+
+
+.final{
+
+color:#555;
+
+}
+
+
+.upcoming{
+
+color:#005CB9;
+
+}
+
+
+.team-logo{
+
+width:28px;
+
+height:28px;
+
+vertical-align:middle;
+
+margin:0 7px;
+
+}

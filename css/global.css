@@ -1,0 +1,149 @@
+/* ========================================
+   FOOTBALL GAMES DESIGN SYSTEM
+   GLOBAL CSS
+======================================== */
+
+:root{
+
+    /* Brand Colors */
+
+    --green:#09C90E;
+    --red:#B22222;
+    --blue:#005CB9;
+    --purple:#8E24AA;
+    --gold:#FFD700;
+
+    /* Neutral Colors */
+
+    --background:#F7F7F7;
+    --text:#222222;
+    --text-light:#555555;
+    --white:#FFFFFF;
+
+    /* Effects */
+
+    --shadow-sm:0 5px 15px rgba(0,0,0,.12);
+    --shadow-md:0 12px 25px rgba(0,0,0,.25);
+    --shadow-lg:0 22px 40px rgba(0,0,0,.35);
+
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:24px;
+
+    --transition:.3s ease;
+
+}
+
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+html{
+    scroll-behavior:smooth;
+}
+
+
+/* BODY */
+
+body{
+
+    font-family:"Inter",Arial,sans-serif;
+
+    color:var(--text);
+
+    overflow-x:hidden;
+
+    background:
+    linear-gradient(
+        rgba(247,247,247,.88),
+        rgba(247,247,247,.92)
+    ),
+    url("https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=1800&q=80");
+
+    background-size:cover;
+
+    background-position:center;
+
+    background-attachment:fixed;
+
+}
+
+h1,
+h2,
+h3,
+.title{
+    font-family:"Bebas Neue",sans-serif;
+    letter-spacing:1px;
+}
+
+
+/* LINKS */
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* MAIN CONTAINER */
+
+.container{
+
+    max-width:1100px;
+
+    margin:auto;
+
+    padding:25px 15px 50px;
+
+}
+/* Typography Overrides */
+
+.hero h1,
+.hero h2,
+.countdown-title,
+.title,
+.subtitle,
+.arrow{
+
+    font-family:"Inter",Arial,sans-serif;
+
+}
+
+
+.hero h1,
+.hero h2,
+.title{
+
+    font-family:"Bebas Neue",sans-serif;
+
+}
+.countdown-title{
+
+    font-family:"Bebas Neue",sans-serif;
+    font-size:28px;
+    letter-spacing:1px;
+
+}
+
+body{
+
+background:
+linear-gradient(
+rgba(255,255,255,.75),
+rgba(255,255,255,.80)
+),
+url("https://images.unsplash.com/photo-1508098682722-e99c643e7485?auto=format&fit=crop&w=1800&q=80");
+
+background-size:cover;
+
+background-position:center;
+
+background-attachment:fixed;
+
+}

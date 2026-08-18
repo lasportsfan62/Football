@@ -1,0 +1,174 @@
+/* ========================================
+   FOOTBALL GAMES DESIGN SYSTEM
+   ANIMATIONS
+======================================== */
+
+
+/* =========================
+   FADE IN
+========================= */
+
+.fade-in{
+
+animation:fadeIn 1.2s ease;
+
+}
+
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+
+
+/* =========================
+   CARD SHINE SWEEP
+========================= */
+
+.shine{
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+
+.shine::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+
+left:-120%;
+
+width:80%;
+
+height:100%;
+
+
+background:
+linear-gradient(
+120deg,
+transparent,
+rgba(255,255,255,.45),
+transparent
+);
+
+
+transform:skewX(-25deg);
+
+transition:.8s;
+
+}
+
+
+.shine:hover::before{
+
+left:130%;
+
+}
+
+
+
+/* =========================
+   LIFT EFFECT
+========================= */
+
+.lift{
+
+transition:.3s ease;
+
+}
+
+
+.lift:hover{
+
+transform:translateY(-8px);
+
+box-shadow:var(--shadow-lg);
+
+}
+
+
+
+/* =========================
+   PRESS EFFECT
+========================= */
+
+.press:active{
+
+transform:scale(.96);
+
+}
+
+
+
+/* =========================
+   GLOW EFFECT
+========================= */
+
+.glow:hover{
+
+filter:
+drop-shadow(
+0 0 12px rgba(255,215,0,.8)
+);
+
+}
+
+
+
+/* =========================
+   TICKER
+========================= */
+
+@keyframes ticker{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(-100%);
+
+}
+
+}
+
+@keyframes ticker{
+
+from{
+
+transform:translateX(0);
+
+}
+
+to{
+
+transform:translateX(-100%);
+
+}
+
+}

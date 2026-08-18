@@ -1,0 +1,206 @@
+/* ========================================
+   FOOTBALL GAMES DESIGN SYSTEM
+   MOBILE STYLES
+======================================== */
+
+
+/* =========================
+   TABLETS
+========================= */
+
+@media(max-width:900px){
+
+.hero h1{
+
+font-size:56px;
+
+}
+
+
+.hero h2{
+
+font-size:24px;
+
+}
+
+
+.card{
+
+padding:22px;
+
+}
+
+
+.title{
+
+font-size:38px;
+
+}
+
+}
+
+
+/* =========================
+   PHONES
+========================= */
+
+@media(max-width:600px){
+
+html,
+body{
+
+overflow-x:hidden;
+width:100%;
+max-width:100%;
+}
+
+
+/* Hero */
+
+.hero{
+
+min-height:auto;
+
+padding:25px 15px;
+
+}
+
+
+.hero-content{
+
+padding:25px 15px;
+
+border-radius:18px;
+
+}
+
+
+.hero h1{
+
+font-size:42px;
+
+}
+
+
+.hero h2{
+
+font-size:20px;
+
+margin-bottom:25px;
+
+}
+
+
+/* Countdown */
+
+#countdown,
+#superbowlCountdown{
+
+gap:8px;
+
+}
+
+
+.time-box{
+
+width:75px;
+
+padding:12px 8px;
+
+}
+
+
+.number{
+
+font-size:30px;
+
+}
+
+
+.label{
+
+font-size:12px;
+
+}
+
+
+/* Cards */
+
+.card{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+padding:22px;
+
+}
+
+
+.left{
+
+gap:12px;
+
+}
+
+
+.icon{
+
+font-size:38px;
+
+}
+
+
+.title{
+
+font-size:34px;
+
+}
+
+
+.subtitle{
+
+font-size:16px;
+
+}
+
+
+.arrow{
+
+align-self:flex-end;
+
+margin-top:10px;
+
+font-size:32px;
+
+}
+
+
+/* Buttons */
+
+.main-button{
+
+width:100%;
+
+font-size:16px;
+
+}
+
+
+/* Tables */
+
+.table-container{
+
+overflow-x:auto;
+
+}
+
+
+.data-table{
+
+min-width:700px;
+
+}
+
+
+}

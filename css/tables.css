@@ -1,0 +1,160 @@
+/* ========================================
+   FOOTBALL GAMES DESIGN SYSTEM
+   TABLES
+======================================== */
+
+
+/* =========================
+   TABLE CONTAINER
+========================= */
+
+.table-container{
+
+width:100%;
+
+overflow-x:auto;
+
+-webkit-overflow-scrolling:touch;
+
+margin:25px 0;
+
+}
+
+
+/* =========================
+   BASE TABLE
+========================= */
+
+.data-table{
+
+width:100%;
+
+border-collapse:collapse;
+
+background:white;
+
+border-radius:var(--radius-md);
+
+overflow:hidden;
+
+box-shadow:var(--shadow-sm);
+
+font-family:"Inter",Arial,sans-serif;
+
+}
+
+
+/* =========================
+   TABLE HEADER
+========================= */
+
+.data-table th{
+
+background:#111;
+
+color:white;
+
+padding:14px 12px;
+
+font-size:16px;
+
+font-weight:700;
+
+text-align:center;
+
+letter-spacing:.5px;
+
+}
+
+
+/* =========================
+   TABLE CELLS
+========================= */
+
+.data-table td{
+
+padding:12px;
+
+text-align:center;
+
+border-bottom:1px solid #ddd;
+
+font-size:16px;
+
+}
+
+
+/* =========================
+   ROW EFFECTS
+========================= */
+
+.data-table tbody tr{
+
+transition:.25s ease;
+
+}
+
+
+.data-table tbody tr:hover{
+
+background:#f5f5f5;
+
+transform:scale(1.01);
+
+}
+
+
+/* =========================
+   RANK COLUMN
+========================= */
+
+.rank{
+
+font-weight:bold;
+
+font-size:18px;
+
+}
+
+
+/* =========================
+   CHAMPION / LEADER ROW
+========================= */
+
+.leader-row{
+
+font-weight:bold;
+
+background:#fff4c2;
+
+}
+
+
+
+/* =========================
+   MOBILE TABLES
+========================= */
+
+@media(max-width:600px){
+
+.data-table{
+
+min-width:700px;
+
+}
+
+
+.data-table th{
+
+font-size:14px;
+
+}
+
+
+.data-table td{
+
+font-size:14px;
+
+}
+
+}

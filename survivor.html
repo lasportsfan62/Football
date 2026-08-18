@@ -1,122 +1,38 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <title>Survivor Pool</title>
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+<link rel="stylesheet" href="css/global.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/tables.css">
+<link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/pages/survivor.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-body {
-    font-family: "Times New Roman", Times, serif;
+
+<style>
+body{
+    font-family:"Inter",sans-serif;
     background:#f7f7f7;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+    margin:0;
     color:#222;
 }
 
-h1 {
-    text-align:center;
-    font-size:38px;
-    margin-bottom:5px;
-}
-
-.subtitle {
+.subtitle{
     text-align:center;
     font-size:22px;
     margin-bottom:25px;
 }
-    
-    #standingsHeader th {
-    transition: background-color .3s ease;
-}
-
-
-/* Navigation */
-
-.nav {
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.nav a {
-    text-decoration:none;
-}
-
-.nav button {
-    padding:12px 22px;
-    margin:5px;
-    border-radius:12px;
-    border:2px solid #222;
-    background:#ffffff;
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
-}
-
-.nav button:hover {
-    transform:translateY(-3px);
-    box-shadow:0px 5px 10px rgba(0,0,0,.2);
-}
-
-
-/* Champion Banner */
-
-.champion {
-
-    background:#FFC000;
-    border-radius:20px;
-    padding:25px;
-    text-align:center;
-    margin-bottom:25px;
-    box-shadow:0px 5px 15px rgba(0,0,0,.15);
-
-}
-
-.champion h2 {
-
-    margin:0;
-    font-size:30px;
-
-}
-
-.champion p {
-
-    font-size:24px;
-    margin:10px 0 0;
-
-}
-
-
-/* Cards */
-
-.card {
-
-    background:white;
-    border-radius:20px;
-    padding:25px;
-    margin-bottom:25px;
-    box-shadow:0px 4px 12px rgba(0,0,0,.12);
-
-}
-
-
-.card h2 {
-
-    text-align:center;
-    margin-top:0;
-    font-size:28px;
-
+#standingsHeader th{
+    transition:background-color .3s ease;
 }
 
 
 /* Buttons */
-
-.big-button {
-
+.big-button{
     display:block;
     width:80%;
     margin:15px auto;
@@ -131,241 +47,227 @@ h1 {
     text-align:center;
     text-decoration:none;
     transition:.2s;
-
 }
-
-
-.big-button:hover {
-
+.big-button:hover{
     transform:translateY(-3px);
     box-shadow:0px 6px 12px rgba(0,0,0,.2);
-
 }
-
-
-.secondary {
-
+.secondary{
     background:#FFC000;
     color:#A91832;
-
 }
-
-
 /* Table */
-
-table {
-
+table{
     width:100%;
-    border-collapse:collapse;
-    margin-top:15px;
-
+    border-collapse:separate;
+    border-spacing:0;
+    margin-top:20px;
 }
-
-
-th {
-
-    background:#222;
+th{
     color:white;
-    padding:12px;
-
+    padding:14px;
+    font-weight:700;
 }
-
-
-td {
-
-    padding:12px;
+td{
+    padding:14px;
     text-align:center;
-    border-bottom:1px solid #ddd;
-
+    border-bottom:1px solid #ececec;
 }
-
-.correctPick {
-
+.correctPick{
     background:#09C90E;
     color:#000000;
     font-weight:bold;
-
 }
-
-
-.incorrectPick {
-
+.incorrectPick{
     background:#FF0000;
     color:#000000;
     font-weight:bold;
-
 }
-
 .table-container{
-
     width:100%;
     overflow-x:auto;
     -webkit-overflow-scrolling:touch;
-
 }
-
-.leaderScore {
-
+.leaderScore{
     background:#ffed9a;
     font-weight:bold;
     border:3px solid #EFBF04;
-
 }
-
 #weeklyTable{
-
     min-width:700px;
-
 }
-
-
 #weeklyTable th,
 #weeklyTable td{
-
     padding:8px 6px;
     font-size:16px;
-
 }
-
-iframe {
-
+iframe{
     border-radius:15px;
-
 }
-
 
 /* Mobile */
-
 @media(max-width:600px){
-
 body{
     padding:10px;
 }
-
 h1{
     font-size:30px;
 }
-
 .big-button{
     width:95%;
 }
-
 .nav button{
     width:90%;
 }
+}
+
+/* ADD THE NEW HERO CSS HERE */
+
+.section-subtitle{
+    text-align:center;
+    color:#666;
+    margin:-10px 0 20px;
+    font-size:.95rem;
+}
+
+@media(max-width:600px){
+
+    body{
+        overflow-x:hidden;
+    }
 
 }
 
 </style>
-
 </head>
-
-
 <body>
 
-<div class="nav">
+    <div class="hero-home-container">
+    <a href="index.html" class="hero-home">
+        <i class="fa-solid fa-house"></i>
+        Return to Home Page
+    </a>
+</div>
+<section class="hero">
 
-<a href="index.html">
-<button>🏠 Return to Home Page</button>
-</a>
+<div class="hero-content">
+<h1>
+    <i class="fa-solid fa-shield-halved"></i>
+    2026 Survivor Pool
+</h1>
+
+<h2>Pick. Survive. Dominate.</h2>
+
+<div class="hero-divider"></div>
+
+<p class="hero-description">
+One pick each week.<br>
+No second chances.
+</p>
+
+<div class="hero-buttons">
 
 </div>
 
-<h1>🏈 2026 Survivor Pool</h1>
+</div>
+
+</section>
+
+<div class="ticker">
+    <div class="ticker-track" id="liveTicker">
+        Loading NFL scores...
+    </div>
+</div>
+
+<div class="container">
+    
+<div class="section-card survivor-section-card">
+
+<div class="left">
+
+<div class="icon">
+<i class="fa-solid fa-paper-plane"></i>
+</div>
+
+<div>
+
+<div class="title">
+Submit Your Pick
+</div>
 
 <div class="subtitle">
-Pick. Survive. Dominate.
+18 Weeks. 18 Teams.<br>
+One Winner.
 </div>
-
-
-
-<div class="champion">
-
-<h2>👑 LAST YEAR'S CHAMPION 👑</h2>
-
-<p>
-Lauren
-</p>
-
-<p>
-2025 Survivor Pool Winner
-</p>
 
 </div>
 
-<div class="card">
+</div>
 
-<h2>📝 Submit Your Pick</h2>
-
-<p style="text-align:center;font-size:20px;">
-18 Weeks. 18 Distinct Picks. Most Wins.
-</p>
-
-
-<a class="big-button" 
-href="https://forms.gle/1xNbpfPvYsAFEqzX8"
-target="_blank">
-
+<a class="big-button" href="https://forms.gle/1xNbpfPvYsAFEqzX8" target="_blank">
 Submit Picks
-
 </a>
 
 </div>
-
-<div class="card">
-
-<h2>🏈 Survivor Pool Standings</h2>
-
+<div class="section-card survivor-standings-card">
+<h2>
+    <i class="fa-solid fa-ranking-star"></i>
+    Survivor Standings
+</h2>
 <p id="loading" style="text-align:center;">
 Loading Survivor Standings...
 </p>
-
 <table id="survivorTable">
-
 <tr id="standingsHeader">
-
 <th>Rank</th>
 <th>Player</th>
 <th>Wins</th>
 <th>Current Streak</th>
-
 </tr>
-
 </table>
-
 </div>
-
-<div class="card">
-
-<h2>📋 Weekly Survivor Picks</h2>
-
+<div class="section-card survivor-weekly-card">
+<h2>
+    <i class="fa-solid fa-calendar-days"></i>
+    Weekly Survivor Picks
+</h2>
 <p id="weeklyLoading" style="text-align:center;">
 Loading Weekly Picks...
 </p>
-
 <div class="table-container">
-    <table id="weeklyTable"></table>
+<table id="weeklyTable"></table>
 </div>
-
 </div>
+<div class="section-card survivor-champion">
+<h2>
+    <i class="fa-solid fa-crown"></i>
+    LAST YEAR'S CHAMPION
+</h2>
+<p>
+Lauren
+</p>
+<p>
+2025 Survivor Champion
+</p>
+</div>
+<div class="section-card survivor-results-card">
 
-<div class="card">
+<h2>
+    <i class="fa-solid fa-trophy"></i>
+    Past Results
+</h2>
 
-<h2>🏆 Past Results</h2>
-
-
-<a class="big-button secondary"
-href="survivor-results.html">
-
-View Last Year's Results
-
+<a class="big-button secondary" href="survivor-results.html">
+    View Last Year's Results
 </a>
 
 </div>
+<div class="section-card survivor-hof-card">
 
-<div class="card">
-
-<h2>🏆 Survivor Hall of Fame</h2>
+<h2>
+    <i class="fa-solid fa-trophy"></i>
+    Survivor Hall of Fame
+</h2>
 
 <table>
 
@@ -382,123 +284,68 @@ View Last Year's Results
 </table>
 
 </div>
-
+</div>
 <script>
-
-const leaderboardURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=844197156&single=true&output=csv";
-
-
+const leaderboardURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=844197156&single=true&output=csv";
 fetch(leaderboardURL)
-
-.then(response => response.text())
-
-.then(data => {
-
-     document.getElementById("loading").style.display = "none";
-
+.then(response=>response.text())
+.then(data=>{
+    document.getElementById("loading").style.display="none";
     console.log(data);
-
-    let rows = data.split("\n");
-
-    let table = document.getElementById("survivorTable");
-
-
-   let players = [];
-
-
-for(let i = 1; i < rows.length; i++){
-
-    let columns = rows[i].split(",");
-
-    if(columns.length < 5){
+    
+    let rows=data.split("\n");
+let table=document.getElementById("survivorTable");
+let players=[];
+for(let i=1;i<rows.length;i++){
+    let columns=rows[i].split(",");
+    if(columns.length<5){
         continue;
     }
-
     players.push({
-
-        player: columns[0],
-        wins: Number(columns[1]),
-        streak: Number(columns[3]),
-        display: columns[4]
-
+        player:columns[0],
+        wins:Number(columns[1]),
+        streak:Number(columns[3]),
+        display:columns[4]
     });
-
 }
-
-
 // Sort by Correct Picks (highest first)
-
 players.sort(function(a,b){
-
-    return b.wins - a.wins;
-
+    return b.wins-a.wins;
 });
-
-
 // Create table rows
-
-let previousWins = null;
-let currentRank = 0;
-
-
+let previousWins=null;
+let currentRank=0;
 players.forEach(function(player,index){
-
-    if(player.wins !== previousWins){
-
-        currentRank = index + 1;
-
+    if(player.wins!==previousWins){
+        currentRank=index+1;
     }
-
-
-    let row = table.insertRow();
-
-
-    let rank = row.insertCell(0);
-    let name = row.insertCell(1);
-    let wins = row.insertCell(2);
-    let streak = row.insertCell(3);
-
-
-    if(currentRank === 1){
-
-        rank.innerHTML = "🥇 1";
-
+    let row=table.insertRow();
+    let rank=row.insertCell(0);
+    let name=row.insertCell(1);
+    let wins=row.insertCell(2);
+    let streak=row.insertCell(3);
+    if(currentRank===1){
+        rank.innerHTML="🥇 1";
     }
-    else if(currentRank === 2){
-
-        rank.innerHTML = "🥈 2";
-
+    else if(currentRank===2){
+        rank.innerHTML="🥈 2";
     }
-    else if(currentRank === 3){
-
-        rank.innerHTML = "🥉 3";
-
+    else if(currentRank===3){
+        rank.innerHTML="🥉 3";
     }
     else{
-
-        rank.innerHTML = currentRank;
-
+        rank.innerHTML=currentRank;
     }
-
-
-    name.innerHTML = player.player;
-    wins.innerHTML = player.wins;
-    streak.innerHTML = player.display;
-
-
-    previousWins = player.wins;
-
+    name.innerHTML=player.player;
+    wins.innerHTML=player.wins;
+    streak.innerHTML=player.display;
+    previousWins=player.wins;
 });
-
 })
-
-.catch(error => {
-
-    console.log("Unable to load leaderboard:", error);
-
+.catch(error=>{
+    console.log("Unable to load leaderboard:",error);
 });
-
-const standingsColors = [
+const standingsColors=[
     "#111111",
     "#1f4e79",
     "#2e7d32",
@@ -509,225 +356,195 @@ const standingsColors = [
     "#C0C0C0",
     "#ef6c00"
 ];
-
-const randomHeaderColor = standingsColors[
-    Math.floor(Math.random() * standingsColors.length)
+const randomHeaderColor=standingsColors[
+    Math.floor(Math.random()*standingsColors.length)
 ];
-
 document.querySelectorAll("#standingsHeader th").forEach(function(cell){
-
-    cell.style.backgroundColor = randomHeaderColor;
-
+    cell.style.backgroundColor=randomHeaderColor;
 });
-
-const weeklyURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=111223448&single=true&output=csv";
-
-const resultsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=744326031&single=true&output=csv";
-
+const weeklyURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=111223448&single=true&output=csv";
+const resultsURL="https://docs.google.com/spreadsheets/d/e/2PACX-1vQTHyJVbohckZCg4kbYzM7N9RILET-47rGnY_LNjZYijEDde0FxVBGIrOrdg_zSoMvjG3a-QRTVhWAb/pub?gid=744326031&single=true&output=csv";
 Promise.all([
-    fetch(weeklyURL).then(response => response.text()),
-    fetch(resultsURL).then(response => response.text())
+    fetch(weeklyURL).then(response=>response.text()),
+    fetch(resultsURL).then(response=>response.text())
 ])
-
 .then(function(data){
-
-    document.getElementById("weeklyLoading").style.display = "none";
-
-    let weeklyData = data[0];
-    let resultsData = data[1];
-
-
+    document.getElementById("weeklyLoading").style.display="none";
+    let weeklyData=data[0];
+    let resultsData=data[1];
     // Convert results sheet into lookup table
-
-    let resultRows = resultsData.trim().split("\n");
-
-    let results = {};
-
-
-    for(let i = 1; i < resultRows.length; i++){
-
-        let columns = resultRows[i].split(",");
-
-        if(columns.length < 3){
+    let resultRows=resultsData.trim().split("\n");
+    let results={};
+    for(let i=1;i<resultRows.length;i++){
+        let columns=resultRows[i].split(",");
+        if(columns.length<3){
             continue;
         }
-
-
-        let week = columns[0].trim();
-        let team = columns[1].trim();
-        let outcome = columns[2].trim();
-
-
-        results[week + "|" + team] = outcome;
-
+        let week=columns[0].trim();
+        let team=columns[1].trim();
+        let outcome=columns[2].trim();
+        results[week+"|"+team]=outcome;
     }
-
-
-
     // Build weekly picks table
-
-    let rows = weeklyData.trim().split("\n");
-
-    let table = document.getElementById("weeklyTable");
-
-
+    let rows=weeklyData.trim().split("\n");
+    let table=document.getElementById("weeklyTable");
     rows.forEach(function(rowText,rowIndex){
-
-
-        let row = table.insertRow();
-
-        let columns = rowText.split(",");
-
-
-
+        let row=table.insertRow();
+        let columns=rowText.split(",");
         columns.forEach(function(cellText,columnIndex){
-
-
-            cellText = cellText.trim();
-
-
-
+            cellText=cellText.trim();
             // Header row
-
-            if(rowIndex === 0){
-
-
-                let th = document.createElement("th");
-
-                th.innerHTML = cellText;
-
-                th.style.backgroundColor = randomHeaderColor;
-                th.style.color = "white";
-
-
+            if(rowIndex===0){
+                let th=document.createElement("th");
+                th.innerHTML=cellText;
+                th.style.backgroundColor=randomHeaderColor;
+                th.style.color="white";
                 row.appendChild(th);
-
-
             }
-
-
-
             // Score row
-
-            else if(rowIndex === 20){
-
-
-                let td = row.insertCell();
-
-                td.innerHTML = cellText;
-
-
+            else if(rowIndex===20){
+                let td=row.insertCell();
+                td.innerHTML=cellText;
             }
-
-
-
             // Blank row
-
-            else if(rowIndex === 19){
-
-
-                let td = row.insertCell();
-
-                td.innerHTML = "";
-
-
+            else if(rowIndex===19){
+                let td=row.insertCell();
+                td.innerHTML="";
             }
-
-
-
             // Weekly picks
-
             else{
-
-
-                let td = row.insertCell();
-
-                td.innerHTML = cellText;
-
-
-
+                let td=row.insertCell();
+                td.innerHTML=cellText;
                 // Skip Week column
-
-                if(columnIndex > 0){
-
-
-                    let week = columns[0].trim();
-
-
-                    let result = results[week + "|" + cellText];
-
-
-
-                    if(result === "W"){
-
+                if(columnIndex>0){
+                    let week=columns[0].trim();
+                    let result=results[week+"|"+cellText];
+                    if(result==="W"){
                         td.classList.add("correctPick");
-
                     }
-
-
-                    else if(result === "L"){
-
+                    else if(result==="L"){
                         td.classList.add("incorrectPick");
-
                     }
-
-
                 }
-
-
             }
-
-
         });
-
-
     });
-
-let scoreRow = document.querySelector("#weeklyTable tr:nth-child(21)");
-
+let scoreRow=document.querySelector("#weeklyTable tr:nth-child(21)");
 if(scoreRow){
-
-    let scoreCells = scoreRow.querySelectorAll("td");
-
-    let highestScore = -1;
-
-
+    let scoreCells=scoreRow.querySelectorAll("td");
+    let highestScore=-1;
     scoreCells.forEach(function(cell){
-
-        let score = Number(cell.innerHTML);
-
-        if(score > highestScore){
-
-            highestScore = score;
-
+        let score=Number(cell.innerHTML);
+        if(score>highestScore){
+            highestScore=score;
         }
-
     });
-
-
     scoreCells.forEach(function(cell){
-
-        if(Number(cell.innerHTML) === highestScore){
-
+        if(Number(cell.innerHTML)===highestScore){
             cell.classList.add("leaderScore");
-
         }
-
     });
+}
+})
+.catch(function(error){
+    console.log("Unable to load weekly picks:",error);
+});
+
+async function updateNFLTicker(){
+
+const ticker=document.getElementById("liveTicker");
+
+try{
+
+const response=await fetch("https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard");
+
+const data=await response.json();
+
+let output="";
+
+data.events.forEach(game=>{
+
+const teams=game.competitions[0].competitors;
+
+const away=teams.find(team=>team.homeAway==="away");
+const home=teams.find(team=>team.homeAway==="home");
+
+if(!away||!home)return;
+
+const status=game.status.type;
+
+let statusText="";
+
+if(status.state==="in"){
+
+statusText=`<span class="live">🔴 LIVE</span> ${status.shortDetail}`;
 
 }
 
+else if(status.completed){
 
-})
+statusText=`<span class="final">FINAL</span>`;
 
-.catch(function(error){
+}
 
-    console.log("Unable to load weekly picks:",error);
+else{
+
+const kickoff=new Date(game.date).toLocaleTimeString([],{
+hour:"numeric",
+minute:"2-digit"
+});
+
+statusText=`<span class="upcoming">${kickoff}</span>`;
+
+}
+
+output+=`
+
+<span class="ticker-game">
+
+${statusText}
+
+<img class="team-logo"
+src="${away.team.logo}"
+alt="${away.team.displayName}">
+
+${away.score||""}
+
+&nbsp;-&nbsp;
+
+${home.score||""}
+
+<img class="team-logo"
+src="${home.team.logo}"
+alt="${home.team.displayName}">
+
+</span>
+
+`;
 
 });
 
+if(output===""){
+output="<span>🏈 No NFL games scheduled</span>";
+}
+
+ticker.innerHTML=output;
+
+}
+
+catch(error){
+
+console.log("NFL ticker error:",error);
+
+ticker.innerHTML="<span>🏈 NFL scores unavailable</span>";
+
+}
+
+}
+
+updateNFLTicker();
+
+setInterval(updateNFLTicker,60000);
 </script>
-
 </body>
-
 </html>

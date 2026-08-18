@@ -3,10 +3,19 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>SuperContest 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/pages/supercontest.css">
+
+    <title>SuperContest 2026</title>
 
 <style>
 
@@ -50,26 +59,115 @@ body {
     box-shadow:0px 5px 10px rgba(0,0,0,.2);
 }
 
+/* =========================
+   SUPERCONTEST HERO
+========================= */
 
-/* HEADER */
+.hero{
 
-.hero {
+    min-height:300px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
     text-align:center;
-    background:#111;
+
+    padding:40px 20px;
+
+    margin-bottom:25px;
+
+}
+
+
+.hero-content{
+
+    background:
+    linear-gradient(
+        135deg,
+        #1ac514,
+        #1ba509
+    );
+
+    padding:45px 50px;
+
+    border-radius:24px;
+
+    border:1px solid rgba(255,255,255,.15);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25),
+        0 0 40px rgba(255,255,255,.05) inset;
+
+    max-width:900px;
+
+    width:100%;
+
+}
+
+
+.hero h1{
+
+    font-family:"Bebas Neue",sans-serif;
+
+    font-size:64px;
+
+    letter-spacing:2px;
+
+    margin:0 0 12px;
+
     color:white;
-    padding:25px;
-    border-radius:15px;
-    margin-bottom:20px;
+
 }
 
-.hero h1 {
-    margin:0;
-    font-size:34px;
+
+.hero h1 i{
+
+    color:#FFD700;
+
+    margin-right:10px;
+
 }
 
-.hero p {
-    margin-top:10px;
-    font-size:18px;
+
+.hero h2{
+
+    font-family:"Inter",Arial,sans-serif;
+
+    font-size:28px;
+
+    font-weight:400;
+
+    margin:0 0 30px;
+
+    color:rgba(255,255,255,.9);
+
+}
+
+
+.hero-divider{
+
+    width:140px;
+
+    height:5px;
+
+    margin:0 auto;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #FFD700,
+        #F5C542,
+        #FFD700
+    );
+
+    box-shadow:
+        0 0 15px rgba(255,215,0,.5);
+
 }
 
 
@@ -377,19 +475,39 @@ font-size:13px;
 <div class="container">
 
 
-<div class="hero">
+<section class="hero">
 
-<h1>🏈 SuperContest 2026</h1>
+    <div class="hero-content">
 
-<p>Pick. Compete. Dominate.</p>
+        <h1>
+            <i class="fa-solid fa-trophy"></i>
+            SuperContest 2026
+        </h1>
+
+        <h2>Pick. Compete. Dominate.</h2>
+
+        <div class="hero-divider"></div>
+
+    </div>
+
+</section>
+
+<div class="submit-section">
+
+    <div class="submit-title">
+        <i class="fa-solid fa-paper-plane"></i>
+        Submit Your Pick
+    </div>
+
+    <div class="submit-subtitle">
+        5 Picks. Against the Spread.
+    </div>
+
+    <a class="submit-button" href="https://forms.gle/ggRLFfsKXjJK6P6r5" target="_blank">
+        Submit Picks
+    </a>
 
 </div>
-
-
-
-<a class="submit-button" href="https://forms.gle/ggRLFfsKXjJK6P6r5" target="_blank">
-📝 Submit Picks
-</a>
 
 <div class="ticker">
     <div class="ticker-track" id="liveTicker">

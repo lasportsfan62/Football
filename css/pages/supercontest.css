@@ -414,3 +414,12 @@
     padding-bottom:0;
     padding-top:0;
 }
+
+@media (max-width:700px) {
+
+    .hero {
+        padding:0 !important;
+        min-height:auto;
+    }
+
+}

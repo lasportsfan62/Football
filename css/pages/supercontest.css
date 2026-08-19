@@ -12,39 +12,44 @@
 }
 
 .nav button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
 
-    padding: 11px 20px;
+    padding:10px 20px !important;
+    margin:5px;
 
-    border-radius: 12px;
-    border: 1px solid #d0d0d0;
+    border-radius:999px !important;
+    border:2px solid rgba(255,255,255,.25) !important;
 
-    background: #ffffff;
-    color: #222;
+    background:rgba(255,255,255,.12) !important;
+    color:white !important;
 
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:600 !important;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,.10);
+    transition:.25s !important;
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.12),
+        inset 0 1px 1px rgba(255,255,255,.15) !important;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 }
 
 .nav button:hover {
-    transform: translateY(-3px);
+    transform:translateY(-3px);
 
-    background: #f8f8f8;
+    background:rgba(255,255,255,.2) !important;
 
-    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.2) !important;
 }
 
 /* =========================
@@ -52,8 +57,8 @@
 ========================= */
 
 .nav {
-    text-align: center;
-    margin-bottom: 20px;
+    text-align:left !important;
+    margin-bottom: 5px;
 }
 
 .nav a {
@@ -61,39 +66,44 @@
 }
 
 .nav button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:flex-start;
+    gap:10px;
 
-    padding: 11px 20px;
+    padding:10px 20px !important;
+    margin:5px 0;
 
-    border-radius: 12px;
-    border: 1px solid #d0d0d0;
+    border-radius:999px !important;
+    border:2px solid rgba(255,255,255,.25) !important;
 
-    background: #ffffff !important;
-    color: #222 !important;
+    background:rgba(8, 122, 10, 0.897) !important;
+    color:white !important;
 
-    font-family: "Inter", Arial, sans-serif;
-    font-size: 15px;
-    font-weight: 600;
+    font-family:"Inter",Arial,sans-serif !important;
+    font-size:15px !important;
+    font-weight:600 !important;
 
-    cursor: pointer;
+    cursor:pointer;
 
-    box-shadow: 0 4px 10px rgba(0,0,0,.10);
+    transition:.25s !important;
 
-    transition:
-        transform .2s ease,
-        box-shadow .2s ease,
-        background .2s ease;
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.12),
+        inset 0 1px 1px rgba(255,255,255,.15) !important;
+
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
 }
 
 .nav button:hover {
-    transform: translateY(-3px);
+    transform:translateY(-3px);
 
-    background: #f8f8f8 !important;
+    background:rgba(5,95,7,.85) !important;
 
-    box-shadow: 0 8px 18px rgba(0,0,0,.18);
+    box-shadow:
+        0 8px 20px rgba(0,0,0,.18),
+        inset 0 1px 1px rgba(255,255,255,.2) !important;
 }
 
 /* =========================
@@ -189,4 +199,218 @@
     color: #666;
 
     margin-bottom: 22px;
+}
+
+/* ========================================
+   SUPERCONTEST PICKS TABLE
+======================================== */
+
+.supercontest-picks-card{
+    background:white;
+}
+
+.supercontest-picks-card h2{
+    font-family:"Inter",sans-serif;
+    font-size:36px;
+    letter-spacing:1px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.supercontest-picks-card table{
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.supercontest-picks-card th{
+    font-family:"Inter",Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+
+.supercontest-picks-card td{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:16px;
+    font-weight:500;
+}
+
+.supercontest-picks-card tbody tr{
+    transition:.2s ease;
+}
+
+.supercontest-picks-card tbody tr:hover{
+    background:#f7f7f7;
+}
+
+.supercontest-picks-card h2 i{
+    color:#FFD700;
+    margin-right:10px;
+}
+
+/* ========================================
+   SUPERCONTEST STANDINGS
+======================================== */
+
+.supercontest-standings-card{
+    background:white;
+}
+
+.supercontest-standings-card h2{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:36px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.supercontest-standings-card h2 i{
+    color:#EFBF04;
+    margin-right:10px;
+}
+
+.supercontest-standings-card table{
+    border-collapse:separate;
+    border-spacing:0;
+    overflow:hidden;
+    border-radius:14px;
+}
+
+.supercontest-standings-card th{
+    font-family:"Inter",Arial,sans-serif;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.8px;
+}
+
+.supercontest-standings-card td{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:17px;
+    font-weight:500;
+}
+
+.supercontest-standings-card tbody tr{
+    transition:.2s ease;
+}
+
+.supercontest-standings-card tbody tr:hover{
+    background:#f7f7f7;
+}
+
+/* ========================================
+   SUPERCONTEST DASHBOARD
+======================================== */
+
+.dashboard {
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-bottom:25px;
+    width:100%;
+}
+
+.dashboard-card {
+    background:white;
+    padding:20px;
+    border-radius:18px;
+    box-shadow:var(--shadow-md);
+    text-align:center;
+    border:3px solid #09C90E;
+    flex:1;
+}
+
+.dashboard-card h3{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:18px;
+    font-weight:700;
+    margin:0 0 12px;
+    color:#111;
+}
+
+.dashboard-card p{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:20px;
+    font-weight:600;
+    margin:0;
+    color:#555;
+}
+
+/* ========================================
+   SUPERCONTEST EXTRAS
+======================================== */
+
+.nav-dashboard{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin:25px 0 0;
+}
+
+.nav-card{
+    display:block;
+    background:white;
+    border:3px solid #09C90E;
+    border-radius:18px;
+    padding:22px;
+    text-align:center;
+    text-decoration:none;
+    color:#111;
+    box-shadow:var(--shadow-md);
+    transition:none;
+}
+
+.nav-card h3:first-child{
+    font-size:32px;
+    margin:0 0 10px;
+}
+
+.nav-card h3:nth-child(2){
+    font-family:"Inter",Arial,sans-serif;
+    font-size:20px;
+    font-weight:700;
+    margin:0 0 10px;
+}
+
+.nav-card p{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:15px;
+    color:#666;
+    margin:0;
+}
+
+.nav-card h3:first-child i{
+    color:#EFBF04;
+    font-size:32px;
+}
+
+/* SuperContest Extras border */
+
+.section-card:has(.nav-dashboard){
+    border:10px solid #09C90E;
+    border-radius:18px;
+}
+
+.section-card:has(.nav-dashboard) h2{
+    font-family:"Inter",Arial,sans-serif;
+    font-size:36px;
+    font-weight:700;
+    letter-spacing:.5px;
+    text-align:left;
+    margin-top:0;
+    color:#111;
+}
+
+.section-card:has(.nav-dashboard) h2 i{
+    color:#EFBF04;
+    margin-right:10px;
+}
+
+.hero {
+    padding-bottom:0;
+    padding-top:0;
 }

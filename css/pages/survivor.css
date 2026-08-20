@@ -510,3 +510,9 @@ box-shadow:var(--shadow-lg);
     max-width: 100%;
     overflow-x: auto;
 }
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}

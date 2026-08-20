@@ -2,9 +2,8 @@
 body {
     font-family:"Inter",Arial,sans-serif;
     background:#f7f7f7;
-    max-width:900px;
-    margin:auto;
-    padding:20px;
+    margin:0;
+    padding:0;
     color:#222;
 }
 
@@ -509,10 +508,4 @@ box-shadow:var(--shadow-lg);
     width: 100%;
     max-width: 100%;
     overflow-x: auto;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%;
 }

@@ -1,0 +1,790 @@
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SuperContest Pick Stats</title>
+
+<!-- Shared Design System -->
+<link rel="stylesheet" href="../css/global.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/animations.css">
+
+<!-- Pick Stats Styles -->
+<link rel="stylesheet" href="../css/pages/pickstats.css">
+
+<!-- Mobile -->
+<link rel="stylesheet" href="../css/mobile.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <section class="pickstats-hero fade-in">
+
+        <div class="pickstats-hero-content">
+
+            <div class="pickstats-icon">
+                📊
+            </div>
+
+            <h1>PICK STATS</h1>
+
+            <p>
+                The numbers behind the picks.
+            </p>
+
+            <div class="pickstats-divider"></div>
+
+            <span>
+                2026 SUPERCONTEST
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PLAYER SELECTOR
+    ========================= -->
+
+    <section class="player-selector-section">
+
+        <div class="section-heading">
+
+            <h2>SELECT A PLAYER</h2>
+
+            <p>
+                Choose a player to explore their 2026 picking profile.
+            </p>
+
+        </div>
+
+
+        <div class="player-selector">
+
+            <button class="player-card" data-player="David">
+                <span class="player-card-name">DAVID</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Brett">
+                <span class="player-card-name">BRETT</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Matt">
+                <span class="player-card-name">MATT</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Drew">
+                <span class="player-card-name">DREW</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Chris">
+                <span class="player-card-name">CHRIS</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Don">
+                <span class="player-card-name">DON</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Michael">
+                <span class="player-card-name">MICHAEL</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+            <button class="player-card" data-player="Sam">
+                <span class="player-card-name">SAM</span>
+                <span class="player-card-arrow">→</span>
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PROFILE DISPLAY
+    ========================= -->
+
+    <section class="profile-display">
+
+        <div class="profile-placeholder">
+
+            <div class="profile-placeholder-icon">
+                👤
+            </div>
+
+            <h2>SELECT A PLAYER</h2>
+
+            <p>
+                Choose a player above to view their 2026
+                SuperContest picking profile.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         RETURN HOME
+    ========================= -->
+
+    <div class="pickstats-nav">
+
+        <a href="supercontest.html">
+
+            <button class="main-button pickstats-home-button">
+                ← Back to SuperContest
+            </button>
+
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+
+const PREVIOUS_WEEKS_CSV =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=1538633472&single=true&output=csv";
+
+const RESULTS_CSV =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vSu2pSg7OEvox4uRVTT2P_XRVPSyuxq1DCuzc2kSoTPylfka-8VH1N9zFe7vLn7PUcMxL2ZYkK7H7P0/pub?gid=195972555&single=true&output=csv";
+
+
+const playerCards = document.querySelectorAll(".player-card");
+const profileDisplay = document.querySelector(".profile-display");
+
+
+/* =========================
+   LOAD CSV
+========================= */
+
+async function loadCSV(url){
+
+    const response = await fetch(url);
+
+    if(!response.ok){
+        throw new Error("Unable to load CSV");
+    }
+
+    const text = await response.text();
+
+    return parseCSV(text);
+
+}
+
+
+/* =========================
+   SIMPLE CSV PARSER
+========================= */
+
+function parseCSV(text){
+
+    const rows = text
+        .trim()
+        .split(/\r?\n/)
+        .map(row => row.split(","));
+
+    const headers = rows.shift();
+
+    return rows.map(row => {
+
+        const object = {};
+
+        headers.forEach((header, index) => {
+
+            object[header.trim()] =
+                (row[index] || "").trim();
+
+        });
+
+        return object;
+
+    });
+
+}
+
+
+/* =========================
+   CALCULATE PLAYER RECORD
+========================= */
+
+async function getPlayerRecord(player){
+
+    const [previousWeeks, results] = await Promise.all([
+
+        loadCSV(PREVIOUS_WEEKS_CSV),
+        loadCSV(RESULTS_CSV)
+
+    ]);
+
+
+let wins = 0;
+let losses = 0;
+
+let favoriteWins = 0;
+let favoriteLosses = 0;
+
+let underdogWins = 0;
+let underdogLosses = 0;
+
+let smallWins = 0;
+let smallLosses = 0;
+
+let mediumWins = 0;
+let mediumLosses = 0;
+
+let largeWins = 0;
+let largeLosses = 0;
+
+
+    previousWeeks
+        .filter(row => row.Player === player)
+        .forEach(row => {
+
+            const picks = [
+
+                row["Game 1"],
+                row["Game 2"],
+                row["Game 3"],
+                row["Game 4"],
+                row["Game 5"]
+
+            ];
+
+
+            picks.forEach(pick => {
+
+                if(!pick) return;
+
+
+                const result = results.find(
+                    row => row.Winner === pick
+                );
+
+
+                if(!result) return;
+
+
+const spreadMatch =
+    pick.match(/([+-]?\d+(?:\.\d+)?)/);
+
+const spread =
+    spreadMatch
+        ? parseFloat(spreadMatch[1])
+        : null;
+
+
+if(result.Result.toUpperCase() === "W"){
+
+    wins++;
+
+
+    /* FAVORITE / UNDERDOG */
+
+    if(spread < 0){
+
+        favoriteWins++;
+
+    }
+    else if(spread > 0){
+
+        underdogWins++;
+
+    }
+
+
+    /* SPREAD SIZE */
+
+    const spreadSize = Math.abs(spread);
+
+
+    if(spreadSize <= 3){
+
+        smallWins++;
+
+    }
+    else if(spreadSize <= 6.5){
+
+        mediumWins++;
+
+    }
+    else{
+
+        largeWins++;
+
+    }
+
+}
+
+
+else if(result.Result.toUpperCase() === "L"){
+
+    losses++;
+
+
+    /* FAVORITE / UNDERDOG */
+
+    if(spread < 0){
+
+        favoriteLosses++;
+
+    }
+    else if(spread > 0){
+
+        underdogLosses++;
+
+    }
+
+
+    /* SPREAD SIZE */
+
+    const spreadSize = Math.abs(spread);
+
+
+    if(spreadSize <= 3){
+
+        smallLosses++;
+
+    }
+    else if(spreadSize <= 6.5){
+
+        mediumLosses++;
+
+    }
+    else{
+
+        largeLosses++;
+
+    }
+
+}
+
+            });
+
+        });
+
+
+const teamCounts = {};
+
+previousWeeks
+    .filter(row => row.Player === player)
+    .forEach(row => {
+
+        const picks = [
+            row["Game 1"],
+            row["Game 2"],
+            row["Game 3"],
+            row["Game 4"],
+            row["Game 5"]
+        ];
+
+        picks.forEach(pick => {
+
+            if(!pick) return;
+
+            const team =
+                pick.trim().split(/\s+/)[0].toUpperCase();
+
+            teamCounts[team] =
+                (teamCounts[team] || 0) + 1;
+
+        });
+
+    });
+
+
+let favoriteTeam = "N/A";
+
+const teamEntries =
+    Object.entries(teamCounts);
+
+if(teamEntries.length > 0){
+
+    teamEntries.sort((a, b) => b[1] - a[1]);
+
+    favoriteTeam = teamEntries[0][0];
+
+}
+
+
+return {
+    wins,
+    losses,
+    total: wins + losses,
+    favoriteTeam,
+
+    favoriteWins,
+    favoriteLosses,
+
+    underdogWins,
+    underdogLosses,
+
+    smallWins,
+    smallLosses,
+
+    mediumWins,
+    mediumLosses,
+
+    largeWins,
+    largeLosses
+};
+
+}
+
+async function getRollingRecord(player, numberOfWeeks){
+
+    const [previousWeeks, results] = await Promise.all([
+
+        loadCSV(PREVIOUS_WEEKS_CSV),
+        loadCSV(RESULTS_CSV)
+
+    ]);
+
+
+    /* =========================
+       FIND PLAYER'S WEEKS
+    ========================= */
+
+    const playerWeeks = previousWeeks
+        .filter(row => row.Player === player)
+        .sort((a, b) =>
+            Number(b.Week) - Number(a.Week)
+        )
+        .slice(0, numberOfWeeks);
+
+
+    let wins = 0;
+    let losses = 0;
+
+
+    /* =========================
+       GRADE EACH PICK
+    ========================= */
+
+    playerWeeks.forEach(row => {
+
+        const picks = [
+
+            row["Game 1"],
+            row["Game 2"],
+            row["Game 3"],
+            row["Game 4"],
+            row["Game 5"]
+
+        ];
+
+
+        picks.forEach(pick => {
+
+            if(!pick) return;
+
+
+            const result = results.find(
+                row => row.Winner === pick
+            );
+
+
+            if(!result) return;
+
+
+            if(result.Result.toUpperCase() === "W"){
+
+                wins++;
+
+            }
+
+            else if(result.Result.toUpperCase() === "L"){
+
+                losses++;
+
+            }
+
+        });
+
+    });
+
+
+    return {
+
+        wins,
+        losses
+
+    };
+
+}
+
+
+/* =========================
+   PLAYER SELECTION
+========================= */
+
+playerCards.forEach(card => {
+
+    card.addEventListener("click", async () => {
+
+        const player = card.dataset.player;
+
+
+        profileDisplay.innerHTML = `
+
+            <div class="player-profile">
+
+                <div class="player-profile-header">
+
+                    <div class="player-profile-icon">
+                        👤
+                    </div>
+
+                    <div>
+
+                        <h2>${player.toUpperCase()}</h2>
+
+                        <p>2026 SUPERCONTEST</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="player-profile-record">
+
+                    <div class="record-number">
+                        LOADING...
+                    </div>
+
+                    <div class="record-label">
+                        OVERALL RECORD
+                    </div>
+
+                </div>
+
+
+                <div class="player-profile-stat">
+
+                    <div class="stat-number">
+                        ...
+                    </div>
+
+                    <div class="stat-label">
+                        WIN RATE
+                    </div>
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        try {
+
+const record =
+    await getPlayerRecord(player);
+
+const last3 =
+    await getRollingRecord(player, 3);
+
+const last5 =
+    await getRollingRecord(player, 5);
+
+
+            const winRate =
+                record.total > 0
+                    ? ((record.wins / record.total) * 100).toFixed(1)
+                    : "0.0";
+
+
+            profileDisplay.innerHTML = `
+
+                <div class="player-profile">
+
+                    <div class="player-profile-header">
+
+                        <div class="player-profile-icon">
+                            👤
+                        </div>
+
+                        <div>
+
+                            <h2>${player.toUpperCase()}</h2>
+
+                            <p>2026 SUPERCONTEST</p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="player-profile-record">
+
+                        <div class="record-number">
+                            ${record.wins}–${record.losses}
+                        </div>
+
+                        <div class="record-label">
+                            OVERALL RECORD
+                        </div>
+
+                    </div>
+
+
+                    <div class="player-profile-stat">
+
+                        <div class="stat-number">
+                            ${winRate}%
+                        </div>
+
+                        <div class="stat-label">
+                            WIN RATE
+                        </div>
+
+                    </div>
+
+                    <div class="player-profile-stat">
+
+    <div class="stat-number">
+        ${record.favoriteTeam}
+    </div>
+
+    <div class="stat-label">
+        FAVORITE TEAM
+    </div>
+
+</div>
+
+<div class="player-profile-stat">
+
+    <div class="stat-number">
+        ${record.favoriteWins}–${record.favoriteLosses}
+        <span style="font-size:22px; color:#777;"> / </span>
+        ${record.underdogWins}–${record.underdogLosses}
+    </div>
+
+    <div class="stat-label">
+        FAVORITES&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UNDERDOGS
+    </div>
+
+</div>
+
+<div class="player-profile-stat">
+
+    <div class="stat-number" style="font-size:34px;">
+
+        ${record.smallWins}–${record.smallLosses}
+
+        <span style="font-size:20px; color:#777;">
+            /
+        </span>
+
+        ${record.mediumWins}–${record.mediumLosses}
+
+        <span style="font-size:20px; color:#777;">
+            /
+        </span>
+
+        ${record.largeWins}–${record.largeLosses}
+
+    </div>
+
+    <div class="stat-label">
+        SMALL&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        MEDIUM&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        LARGE
+    </div>
+
+</div>
+
+<div class="player-profile-stat">
+
+    <div class="stat-number" style="font-size:34px;">
+
+        ${last3.wins}–${last3.losses}
+
+        <span style="font-size:20px; color:#777;">
+            /
+        </span>
+
+        ${last5.wins}–${last5.losses}
+
+    </div>
+
+    <div class="stat-label">
+        LAST 3 WEEKS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        LAST 5 WEEKS
+    </div>
+
+</div>
+
+                </div>
+
+            `;
+
+        }
+
+        catch(error){
+
+            console.error(error);
+
+            profileDisplay.innerHTML = `
+
+                <div class="player-profile">
+
+                    <div class="player-profile-header">
+
+                        <div class="player-profile-icon">
+                            ⚠️
+                        </div>
+
+                        <div>
+
+                            <h2>${player.toUpperCase()}</h2>
+
+                            <p>2026 SUPERCONTEST</p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="player-profile-record">
+
+                        <div class="record-number">
+                            DATA ERROR
+                        </div>
+
+                        <div class="record-label">
+                            UNABLE TO LOAD RESULTS
+                        </div>
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+
+</html>

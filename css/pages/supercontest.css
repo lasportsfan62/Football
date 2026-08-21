@@ -423,3 +423,12 @@
     }
 
 }
+
+.dashboard-card h3 i {
+    color:#f79311;
+    margin-right:6px;
+}
+
+.dashboard-card h3 .fa-crown {
+    color:#1e9b24;
+}

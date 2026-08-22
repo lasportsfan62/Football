@@ -60,10 +60,10 @@ body{
     linear-gradient(
         135deg,
         rgba(255,255,255,.88),
-        rgba(190,190,190,.62)
+        rgb(82, 12, 129)
     );
 
-    border:1px solid rgba(255,255,255,.85);
+    border:10px solid rgba(0, 0, 0, 0.85);
 
     box-shadow:
         0 18px 45px rgba(0,0,0,.16),
@@ -111,7 +111,7 @@ body{
 
     font-size:21px;
 
-    color:#555;
+    color:#ffffff;
 
     margin-bottom:22px;
 
@@ -131,9 +131,9 @@ body{
     background:
         linear-gradient(
             90deg,
-            #777,
-            var(--green),
-            #777
+            #000000,
+            var(--purple),
+            #000000
         );
 
     box-shadow:
@@ -152,7 +152,7 @@ body{
 
     letter-spacing:2px;
 
-    color:#666;
+    color:#ffffff;
 
 }
 
@@ -235,7 +235,7 @@ body{
 
     border-radius:16px;
 
-    border:1px solid rgba(120,120,120,.25);
+    border:2px solid var(--purple);
 
     background:
         linear-gradient(
@@ -307,8 +307,7 @@ body{
 
     transform:translateY(-5px);
 
-    border-color:
-        rgba(9,201,14,.45);
+    border-color:var(--purple);
 
     box-shadow:
         0 14px 28px rgba(0,0,0,.16),
@@ -362,7 +361,7 @@ body{
 
     transform:translateX(6px);
 
-    color:var(--green);
+    color:var(--purple);
 
 }
 
@@ -480,16 +479,30 @@ body{
 }
 
 
+/* =========================
+   BACK TO SUPERCONTEST
+========================= */
+
 .pickstats-home-button{
 
     background:
         linear-gradient(
             135deg,
-            #555,
-            #888
+            rgba(125,75,190,.88),
+            rgba(85,45,145,.88)
         );
 
     color:white;
+
+    border:1px solid rgba(255,255,255,.35);
+
+    box-shadow:
+        0 8px 20px rgba(70,30,120,.25),
+        inset 0 1px 0 rgba(255,255,255,.45);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
 
 }
 
@@ -499,9 +512,13 @@ body{
     background:
         linear-gradient(
             135deg,
-            #444,
-            #777
+            rgba(145,90,215,.94),
+            rgba(100,55,170,.94)
         );
+
+    box-shadow:
+        0 12px 26px rgba(70,30,120,.32),
+        inset 0 1px 0 rgba(255,255,255,.55);
 
 }
 
@@ -612,10 +629,10 @@ body{
         linear-gradient(
             135deg,
             rgba(255,255,255,.88),
-            rgba(195,195,195,.62)
+            rgba(255,255,255,.62)
         );
 
-    border:1px solid rgba(255,255,255,.85);
+    border:5px solid rgba(125,75,190,.85);
 
     box-shadow:
         0 16px 38px rgba(0,0,0,.14),
@@ -780,7 +797,7 @@ body{
 
     letter-spacing:1px;
 
-    color:var(--green);
+    color:var(--black);
 
     line-height:1;
 
@@ -1667,7 +1684,7 @@ body{
 
     letter-spacing:1px;
 
-    color:var(--green);
+    color:var(--Black);
 
     line-height:1;
 
@@ -1909,6 +1926,33 @@ body{
 
         font-size:42px;
 
+    }
+
+}
+
+/* =========================
+   MOBILE — ROW 1
+========================= */
+
+@media(max-width:700px){
+
+    .profile-row-primary{
+        gap:10px;
+    }
+
+    .profile-row-primary .record-number{
+        font-size:38px;
+        white-space:nowrap;
+    }
+
+    .profile-row-primary .stat-number{
+        font-size:36px;
+        white-space:nowrap;
+    }
+
+    .profile-row-primary .stat-label{
+        font-size:9px;
+        letter-spacing:1px;
     }
 
 }

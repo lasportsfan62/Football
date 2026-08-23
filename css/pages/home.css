@@ -14,3 +14,25 @@ max-width:80%;
 margin-bottom:20px;
 
 }
+
+/* Hero Subtitle */
+
+.hero h2{
+
+    color:#222;
+
+}
+
+/* =========================
+   MOBILE — CARD ARROWS
+========================= */
+
+@media(max-width:700px){
+
+    .card .arrow{
+        align-self:center;
+        margin-top:0;
+        margin-bottom:0;
+    }
+
+}

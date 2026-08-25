@@ -600,17 +600,21 @@ margin-right:35px;
 
 .ticker-track{
 
-display:inline-block;
+    display:inline-block;
 
-padding-left:100%;
+    padding-left:100%;
 
-animation:ticker 45s linear infinite;
+    animation:ticker 45s linear infinite;
 
-font-family:"Inter",Arial,sans-serif;
+    will-change:transform;
 
-font-size:18px;
+    transform:translate3d(0,0,0);
 
-font-weight:bold;
+    font-family:"Inter",Arial,sans-serif;
+
+    font-size:18px;
+
+    font-weight:bold;
 
 }
 

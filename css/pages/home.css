@@ -35,7 +35,7 @@ margin-bottom:20px;
 
     .card .arrow{
         position:absolute;
-        left:15px;
+        right:15px;
         top:50%;
         transform:translateY(-50%);
         margin:0;

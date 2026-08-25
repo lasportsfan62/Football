@@ -43,4 +43,8 @@ margin-bottom:20px;
         margin:0;
     }
 
+    .card:hover .arrow{
+        transform:translate(3px, -50%);
+    }
+
 }

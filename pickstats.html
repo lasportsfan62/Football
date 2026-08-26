@@ -129,6 +129,11 @@
                 <span class="player-card-name">CLAYTON</span>
                 <span class="player-card-arrow">→</span>
             </button>
+
+            <button class="player-card" data-player="LEAGUE">
+                <span class="player-card-name">★ LEAGUE</span>
+                <span class="player-card-arrow">→</span>
+            </button>
                         
         </div>
 
@@ -254,6 +259,12 @@ async function getPlayerRecord(player){
     ]);
 
 
+    const playerRows =
+        player === "LEAGUE"
+            ? previousWeeks
+            : previousWeeks.filter(row => row.Player === player);
+
+
     let wins = 0;
     let losses = 0;
 
@@ -273,169 +284,158 @@ async function getPlayerRecord(player){
     let largeLosses = 0;
 
 
-    previousWeeks
-        .filter(row => row.Player === player)
-        .forEach(row => {
+    playerRows.forEach(row => {
 
-            const week = row.Week;
+        const week = row.Week;
 
-            const picks = [
+        const picks = [
 
-                row["Game 1"],
-                row["Game 2"],
-                row["Game 3"],
-                row["Game 4"],
-                row["Game 5"]
+            row["Game 1"],
+            row["Game 2"],
+            row["Game 3"],
+            row["Game 4"],
+            row["Game 5"]
 
-            ];
+        ];
 
 
-            picks.forEach(pick => {
+        picks.forEach(pick => {
 
-                if(!pick) return;
-
-
-                const result = results.find(
-                    row =>
-                        row.Week === week &&
-                        row.Winner === pick
-                );
+            if(!pick) return;
 
 
-                if(!result) return;
+            const result = results.find(
+                resultRow =>
+                    resultRow.Week === week &&
+                    resultRow.Winner === pick
+            );
 
 
-                const spreadMatch =
-                    pick.match(/([+-]?\d+(?:\.\d+)?)/);
-
-                const spread =
-                    spreadMatch
-                        ? parseFloat(spreadMatch[1])
-                        : null;
+            if(!result) return;
 
 
-                if(result.Result.toUpperCase() === "W"){
+            const spreadMatch =
+                pick.match(/([+-]?\d+(?:\.\d+)?)/);
 
-                    wins++;
-
-
-                    /* FAVORITE / UNDERDOG */
-
-                    if(spread < 0){
-
-                        favoriteWins++;
-
-                    }
-                    else if(spread > 0){
-
-                        underdogWins++;
-
-                    }
+            const spread =
+                spreadMatch
+                    ? parseFloat(spreadMatch[1])
+                    : null;
 
 
-                    /* SPREAD SIZE */
+            if(result.Result.toUpperCase() === "W"){
 
-                    const spreadSize = Math.abs(spread);
+                wins++;
 
 
-                    if(spreadSize <= 3){
+                if(spread < 0){
 
-                        smallWins++;
+                    favoriteWins++;
 
-                    }
-                    else if(spreadSize <= 6.5){
+                }
+                else if(spread > 0){
 
-                        mediumWins++;
-
-                    }
-                    else{
-
-                        largeWins++;
-
-                    }
+                    underdogWins++;
 
                 }
 
 
-                else if(result.Result.toUpperCase() === "L"){
-
-                    losses++;
+                const spreadSize = Math.abs(spread);
 
 
-                    /* FAVORITE / UNDERDOG */
+                if(spreadSize <= 3){
 
-                    if(spread < 0){
+                    smallWins++;
 
-                        favoriteLosses++;
+                }
+                else if(spreadSize <= 6.5){
 
-                    }
-                    else if(spread > 0){
+                    mediumWins++;
 
-                        underdogLosses++;
+                }
+                else{
 
-                    }
-
-
-                    /* SPREAD SIZE */
-
-                    const spreadSize = Math.abs(spread);
-
-
-                    if(spreadSize <= 3){
-
-                        smallLosses++;
-
-                    }
-                    else if(spreadSize <= 6.5){
-
-                        mediumLosses++;
-
-                    }
-                    else{
-
-                        largeLosses++;
-
-                    }
+                    largeWins++;
 
                 }
 
-            });
+            }
+
+
+            else if(result.Result.toUpperCase() === "L"){
+
+                losses++;
+
+
+                if(spread < 0){
+
+                    favoriteLosses++;
+
+                }
+                else if(spread > 0){
+
+                    underdogLosses++;
+
+                }
+
+
+                const spreadSize = Math.abs(spread);
+
+
+                if(spreadSize <= 3){
+
+                    smallLosses++;
+
+                }
+                else if(spreadSize <= 6.5){
+
+                    mediumLosses++;
+
+                }
+                else{
+
+                    largeLosses++;
+
+                }
+
+            }
 
         });
+
+    });
 
 
     const teamCounts = {};
 
-    previousWeeks
-        .filter(row => row.Player === player)
-        .forEach(row => {
 
-            const picks = [
+    playerRows.forEach(row => {
 
-                row["Game 1"],
-                row["Game 2"],
-                row["Game 3"],
-                row["Game 4"],
-                row["Game 5"]
+        const picks = [
 
-            ];
+            row["Game 1"],
+            row["Game 2"],
+            row["Game 3"],
+            row["Game 4"],
+            row["Game 5"]
 
-
-            picks.forEach(pick => {
-
-                if(!pick) return;
+        ];
 
 
-                const team =
-                    pick.trim().split(/\s+/)[0].toUpperCase();
+        picks.forEach(pick => {
+
+            if(!pick) return;
 
 
-                teamCounts[team] =
-                    (teamCounts[team] || 0) + 1;
+            const team =
+                pick.trim().split(/\s+/)[0].toUpperCase();
 
-            });
+
+            teamCounts[team] =
+                (teamCounts[team] || 0) + 1;
 
         });
+
+    });
 
 
     let favoriteTeam = "N/A";
@@ -489,16 +489,42 @@ async function getRollingRecord(player, numberOfWeeks){
     ]);
 
 
+    let playerWeeks;
+
+
     /* =========================
-       FIND PLAYER'S WEEKS
+       FIND WEEKS
     ========================= */
 
-    const playerWeeks = previousWeeks
-        .filter(row => row.Player === player)
+    if(player === "LEAGUE"){
+
+        const weeks = [
+            ...new Set(
+                previousWeeks.map(row => row.Week)
+            )
+        ]
         .sort((a, b) =>
-            Number(b.Week) - Number(a.Week)
+            Number(b) - Number(a)
         )
         .slice(0, numberOfWeeks);
+
+
+        playerWeeks =
+            previousWeeks.filter(row =>
+                weeks.includes(row.Week)
+            );
+
+    }
+    else{
+
+        playerWeeks = previousWeeks
+            .filter(row => row.Player === player)
+            .sort((a, b) =>
+                Number(b.Week) - Number(a.Week)
+            )
+            .slice(0, numberOfWeeks);
+
+    }
 
 
     let wins = 0;
@@ -591,77 +617,81 @@ async function getWeeklyDistribution(player){
     };
 
 
-    previousWeeks
-        .filter(row => row.Player === player)
-        .forEach(row => {
-
-            const week = row.Week;
-
-            const picks = [
-
-                row["Game 1"],
-                row["Game 2"],
-                row["Game 3"],
-                row["Game 4"],
-                row["Game 5"]
-
-            ];
+    const playerRows =
+        player === "LEAGUE"
+            ? previousWeeks
+            : previousWeeks.filter(row => row.Player === player);
 
 
-            let wins = 0;
-            let losses = 0;
+    playerRows.forEach(row => {
+
+        const week = row.Week;
+
+        const picks = [
+
+            row["Game 1"],
+            row["Game 2"],
+            row["Game 3"],
+            row["Game 4"],
+            row["Game 5"]
+
+        ];
 
 
-            picks.forEach(pick => {
-
-                if(!pick) return;
-
-
-                const result = results.find(
-                    resultRow =>
-                        resultRow.Week === week &&
-                        resultRow.Winner === pick
-                );
+        let wins = 0;
+        let losses = 0;
 
 
-                if(!result) return;
+        picks.forEach(pick => {
+
+            if(!pick) return;
 
 
-                if(result.Result.toUpperCase() === "W"){
-
-                    wins++;
-
-                }
-
-                else if(result.Result.toUpperCase() === "L"){
-
-                    losses++;
-
-                }
-
-            });
+            const result = results.find(
+                resultRow =>
+                    resultRow.Week === week &&
+                    resultRow.Winner === pick
+            );
 
 
-            const totalGraded =
-                wins + losses;
+            if(!result) return;
 
 
-            /* Only count completed 5-pick weeks */
+            if(result.Result.toUpperCase() === "W"){
 
-            if(totalGraded !== 5) return;
+                wins++;
 
+            }
 
-            const weeklyRecord =
-                `${wins}–${losses}`;
+            else if(result.Result.toUpperCase() === "L"){
 
-
-            if(distribution.hasOwnProperty(weeklyRecord)){
-
-                distribution[weeklyRecord]++;
+                losses++;
 
             }
 
         });
+
+
+        const totalGraded =
+            wins + losses;
+
+
+        /* Only count completed 5-pick weeks */
+
+        if(totalGraded !== 5) return;
+
+
+        const weeklyRecord =
+            `${wins}–${losses}`;
+
+
+        if(distribution.hasOwnProperty(weeklyRecord)){
+
+            distribution[weeklyRecord]++;
+
+        }
+
+    });
 
 
     return distribution;

@@ -24,6 +24,17 @@ margin-bottom:20px;
 }
 
 /* =========================
+   FOOTER LOGO
+========================= */
+
+.footer-logo {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* =========================
    MOBILE — CARD ARROWS
 ========================= */
 
@@ -35,16 +46,10 @@ margin-bottom:20px;
 
     .card .arrow{
         position:absolute;
-        left:auto;
-        right:15px;
+        right:20px;
         top:50%;
-        bottom:auto;
         transform:translateY(-50%);
         margin:0;
-    }
-
-    .card:hover .arrow{
-        transform:translate(3px, -50%);
     }
 
 }

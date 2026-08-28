@@ -323,82 +323,85 @@ async function getPlayerRecord(player){
                     : null;
 
 
-            if(result.Result.toUpperCase() === "W"){
+const resultValue = result.Result.toUpperCase();
 
-                wins++;
+const spreadSize = Math.abs(spread);
 
+if(resultValue === "W"){
 
-                if(spread < 0){
+    wins += 1;
 
-                    favoriteWins++;
+    if(spread < 0){
+        favoriteWins += 1;
+    }
+    else if(spread > 0){
+        underdogWins += 1;
+    }
 
-                }
-                else if(spread > 0){
+    if(spreadSize <= 3){
+        smallWins += 1;
+    }
+    else if(spreadSize <= 6.5){
+        mediumWins += 1;
+    }
+    else{
+        largeWins += 1;
+    }
 
-                    underdogWins++;
+}
 
-                }
+else if(resultValue === "L"){
 
+    losses += 1;
 
-                const spreadSize = Math.abs(spread);
+    if(spread < 0){
+        favoriteLosses += 1;
+    }
+    else if(spread > 0){
+        underdogLosses += 1;
+    }
 
+    if(spreadSize <= 3){
+        smallLosses += 1;
+    }
+    else if(spreadSize <= 6.5){
+        mediumLosses += 1;
+    }
+    else{
+        largeLosses += 1;
+    }
 
-                if(spreadSize <= 3){
+}
 
-                    smallWins++;
+else if(resultValue === "T"){
 
-                }
-                else if(spreadSize <= 6.5){
+    // A tie counts as 0.5 win and 0.5 loss
+    wins += 0.5;
+    losses += 0.5;
 
-                    mediumWins++;
+    if(spread < 0){
+        favoriteWins += 0.5;
+        favoriteLosses += 0.5;
+    }
+    else if(spread > 0){
+        underdogWins += 0.5;
+        underdogLosses += 0.5;
+    }
 
-                }
-                else{
+    if(spreadSize <= 3){
+        smallWins += 0.5;
+        smallLosses += 0.5;
+    }
+    else if(spreadSize <= 6.5){
+        mediumWins += 0.5;
+        mediumLosses += 0.5;
+    }
+    else{
+        largeWins += 0.5;
+        largeLosses += 0.5;
+    }
 
-                    largeWins++;
-
-                }
-
-            }
-
-
-            else if(result.Result.toUpperCase() === "L"){
-
-                losses++;
-
-
-                if(spread < 0){
-
-                    favoriteLosses++;
-
-                }
-                else if(spread > 0){
-
-                    underdogLosses++;
-
-                }
-
-
-                const spreadSize = Math.abs(spread);
-
-
-                if(spreadSize <= 3){
-
-                    smallLosses++;
-
-                }
-                else if(spreadSize <= 6.5){
-
-                    mediumLosses++;
-
-                }
-                else{
-
-                    largeLosses++;
-
-                }
-
-            }
+}
 
         });
 
@@ -567,15 +570,22 @@ async function getRollingRecord(player, numberOfWeeks){
 
             if(result.Result.toUpperCase() === "W"){
 
-                wins++;
+    wins += 1;
 
-            }
+}
 
-            else if(result.Result.toUpperCase() === "L"){
+else if(result.Result.toUpperCase() === "L"){
 
-                losses++;
+    losses += 1;
 
-            }
+}
+
+else if(result.Result.toUpperCase() === "T"){
+
+    wins += 0.5;
+    losses += 0.5;
+
+}
 
         });
 

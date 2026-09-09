@@ -1,0 +1,1892 @@
+```css
+/* ========================================
+   FANTASY FOOTBALL PAGE
+   2026 FOOTBALL GAMES
+======================================== */
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.fantasy-page {
+
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(28, 65, 120, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(12, 42, 82, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #eef2f7 0%,
+            #f7f7f7 45%,
+            #edf1f6 100%
+        );
+
+    color: #182536;
+
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.fantasy-hero {
+
+    min-height: 360px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+}
+
+
+.fantasy-hero-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    padding: 48px 40px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 3px solid #122a46;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071a31 0%,
+            #0c2949 50%,
+            #102f52 100%
+        );
+
+    box-shadow:
+        0 22px 55px rgba(7, 25, 48, 0.28),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+
+}
+
+
+.fantasy-hero-content::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+
+    right: -80px;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.fantasy-trophy-icon {
+
+    width: 74px;
+
+    height: 74px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: #d8e0e8;
+
+    font-size: 31px;
+
+    border: 2px solid rgba(215,225,235,0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            #8d9aa7,
+            #e4e8eb 45%,
+            #8996a3
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.28),
+        inset 0 1px 2px rgba(255,255,255,0.85);
+
+}
+
+
+.fantasy-hero h1 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 72px;
+
+    line-height: 0.95;
+
+    letter-spacing: 2px;
+
+    color: #f4f7fa;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,0.3);
+
+}
+
+
+.fantasy-hero p {
+
+    margin: 18px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: #c9d5e1;
+
+}
+
+
+.fantasy-divider {
+
+    width: 90px;
+
+    height: 3px;
+
+    margin: 25px auto 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #aeb8c2,
+            transparent
+        );
+
+}
+
+
+.fantasy-season {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #aebbc8;
+
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.fantasy-section {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 30px 20px;
+
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.section-heading-icon {
+
+    width: 42px;
+
+    height: 42px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 12px;
+
+    color: #163858;
+
+    background: rgba(255,255,255,0.75);
+
+    border: 1px solid #c5d0db;
+
+    box-shadow:
+        0 5px 15px rgba(20,40,65,0.08);
+
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 38px;
+
+    letter-spacing: 1.5px;
+
+    color: #132d49;
+
+}
+
+
+.section-heading p {
+
+    margin: 6px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #68798b;
+
+}
+
+
+/* ========================================
+   STANDINGS CARD
+======================================== */
+
+.standings-card {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border: 2px solid #b9c5d1;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ========================================
+   STANDINGS HEADER
+======================================== */
+
+.standings-header {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr 145px;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a2038,
+            #123756
+        );
+
+    color: #dce5ed;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.standings-header-achievements {
+
+    text-align: center;
+
+}
+
+
+/* ========================================
+   STANDINGS ROW
+======================================== */
+
+.standings-row {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr 145px;
+
+    align-items: center;
+
+    min-height: 68px;
+
+    padding: 0 22px;
+
+    border-bottom: 1px solid #dce2e8;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.standings-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.standings-row:hover {
+
+    background: #f2f5f8;
+
+}
+
+
+.standings-row.first-place {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(197,209,220,0.35),
+            rgba(255,255,255,0.8)
+        );
+
+}
+
+
+.standings-rank {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 25px;
+
+    color: #708093;
+
+}
+
+
+.first-place .standings-rank {
+
+    color: #183a5c;
+
+}
+
+
+.standings-player-name {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: #20364d;
+
+}
+
+
+.standings-count {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: baseline;
+
+    gap: 6px;
+
+}
+
+
+.achievement-count-number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 31px;
+
+    color: #173b5e;
+
+}
+
+
+.achievement-count-label {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    color: #718195;
+
+}
+
+
+/* ========================================
+   LOADING / ERROR
+======================================== */
+
+.loading-message,
+.error-message {
+
+    min-height: 150px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #718195;
+
+}
+
+
+.error-message {
+
+    color: #8c3d3d;
+
+}
+
+
+/* ========================================
+   PLAYER SELECTOR
+======================================== */
+
+.player-selector {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* ========================================
+   PLAYER CARD
+======================================== */
+
+.player-card {
+
+    position: relative;
+
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 15px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    border: 2px solid #294966;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.95),
+            rgba(235,241,246,0.9)
+        );
+
+    box-shadow:
+        0 7px 18px rgba(22,48,75,0.09);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+
+}
+
+
+.player-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -110%;
+
+    width: 70%;
+
+    height: 100%;
+
+    transform: skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.65),
+            transparent
+        );
+
+    transition: left 0.55s ease;
+
+}
+
+
+.player-card:hover::before {
+
+    left: 140%;
+
+}
+
+
+.player-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #173d5f;
+
+    box-shadow:
+        0 12px 25px rgba(18,48,77,0.15);
+
+}
+
+
+.player-card.selected {
+
+    transform: translateY(-2px);
+
+    border-color: #0c2949;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dfe7ee,
+            #f7f9fa
+        );
+
+    box-shadow:
+        0 10px 24px rgba(10,40,67,0.18),
+        inset 0 0 0 1px rgba(255,255,255,0.8);
+
+}
+
+
+/* ========================================
+   PLAYER CARD ICON
+======================================== */
+
+.player-card-icon {
+
+    flex-shrink: 0;
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 11px;
+
+    color: #173c5c;
+
+    font-size: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9da9b4,
+            #e8ecef 48%,
+            #919da8
+        );
+
+    border: 1px solid #7e8c98;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.9);
+
+}
+
+
+.player-card-content {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.player-card-name {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 800;
+
+    color: #1a324a;
+
+}
+
+
+.player-card-count {
+
+    margin-top: 3px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    color: #718195;
+
+}
+
+
+.player-card-arrow {
+
+    flex-shrink: 0;
+
+    color: #718195;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.player-card:hover .player-card-arrow {
+
+    transform: translateX(4px);
+
+    color: #173d5f;
+
+}
+
+
+.player-card.selected .player-card-arrow {
+
+    color: #173d5f;
+
+}
+
+
+/* ========================================
+   PROFILE DISPLAY
+======================================== */
+
+.profile-display {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 10px auto 0;
+
+    padding: 0 20px;
+
+}
+
+
+.profile-display:empty {
+
+    display: none;
+
+}
+
+
+/* ========================================
+   PLAYER PROFILE
+======================================== */
+
+.player-profile {
+
+    width: 100%;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    border: 3px solid #183b5c;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.97),
+            rgba(235,241,246,0.94)
+        );
+
+    box-shadow:
+        0 20px 50px rgba(13,43,70,0.17);
+
+}
+
+
+/* ========================================
+   PROFILE DROP ANIMATION
+======================================== */
+
+.fantasy-profile-drop {
+
+    animation:
+        fantasyProfileDrop 0.45s ease both;
+
+}
+
+
+@keyframes fantasyProfileDrop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-28px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ========================================
+   PROFILE HEADER
+======================================== */
+
+.player-profile-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+}
+
+
+.player-profile-icon {
+
+    flex-shrink: 0;
+
+    width: 66px;
+
+    height: 66px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    color: #173c5b;
+
+    font-size: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8f9ba6,
+            #e8ecef 45%,
+            #8996a2
+        );
+
+    border: 1px solid #7b8995;
+
+    box-shadow:
+        0 8px 18px rgba(24,51,76,0.16),
+        inset 0 1px 2px rgba(255,255,255,0.9);
+
+}
+
+
+.player-profile-title {
+
+    flex: 1;
+
+}
+
+
+.player-profile-title h2 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 44px;
+
+    line-height: 1;
+
+    letter-spacing: 1.5px;
+
+    color: #132f4b;
+
+}
+
+
+.player-profile-title p {
+
+    margin: 5px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #718195;
+
+}
+
+
+.profile-achievement-total {
+
+    flex-shrink: 0;
+
+    min-width: 100px;
+
+    padding: 10px 15px;
+
+    text-align: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102e4c,
+            #183e60
+        );
+
+    box-shadow:
+        0 7px 16px rgba(15,43,68,0.2);
+
+}
+
+
+.total-number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 35px;
+
+    line-height: 0.95;
+
+    color: #eef3f7;
+
+}
+
+
+.total-label {
+
+    margin-top: 4px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #b9c8d5;
+
+}
+
+
+/* ========================================
+   PROFILE DIVIDER
+======================================== */
+
+.profile-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 27px 0 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #bdc8d2,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   COLLECTION HEADER
+======================================== */
+
+.achievement-collection-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 17px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: #6d7d8e;
+
+}
+
+
+/* ========================================
+   PLAQUE GRID
+======================================== */
+
+.achievement-plaque-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+}
+
+
+/* ========================================
+   ACHIEVEMENT PLAQUE
+======================================== */
+
+.achievement-plaque {
+
+    position: relative;
+
+    min-height: 165px;
+
+    overflow: hidden;
+
+    padding: 7px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #737f89 0%,
+            #d9dee2 18%,
+            #a4adb5 45%,
+            #edf0f2 68%,
+            #929da6 100%
+        );
+
+    border: 1px solid #78848e;
+
+    box-shadow:
+        0 10px 20px rgba(40,56,70,0.17),
+        inset 0 1px 1px rgba(255,255,255,0.9);
+
+    opacity: 0;
+
+    animation:
+        plaqueAppear 0.42s ease forwards;
+
+    animation-delay:
+        var(--plaque-delay);
+
+}
+
+
+@keyframes plaqueAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(16px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ========================================
+   PLAQUE SHINE
+======================================== */
+
+.plaque-shine {
+
+    position: absolute;
+
+    top: -30%;
+
+    left: -75%;
+
+    width: 45%;
+
+    height: 170%;
+
+    transform: rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.48),
+            transparent
+        );
+
+    animation:
+        plaqueGlisten 5.5s ease-in-out infinite;
+
+}
+
+
+@keyframes plaqueGlisten {
+
+    0%,
+    68% {
+
+        left: -75%;
+
+    }
+
+    86%,
+    100% {
+
+        left: 145%;
+
+    }
+
+}
+
+
+/* ========================================
+   PLAQUE INNER
+======================================== */
+
+.plaque-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+
+    min-height: 149px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px 14px;
+
+    text-align: center;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e6eaed,
+            #aeb7be 48%,
+            #dfe4e7
+        );
+
+    border: 1px solid rgba(91,103,113,0.5);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.85),
+        inset 0 -2px 4px rgba(79,91,101,0.16);
+
+}
+
+
+/* ========================================
+   PLAQUE TROPHY
+======================================== */
+
+.plaque-top {
+
+    margin-bottom: 9px;
+
+    font-size: 20px;
+
+    color: #4f5c67;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.9);
+
+}
+
+
+/* ========================================
+   PLAQUE ACHIEVEMENT
+======================================== */
+
+.plaque-achievement {
+
+    max-width: 100%;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 22px;
+
+    line-height: 1.03;
+
+    letter-spacing: 0.7px;
+
+    color: #263640;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.8);
+
+}
+
+
+/* ========================================
+   PLAQUE LINE
+======================================== */
+
+.plaque-line {
+
+    width: 45px;
+
+    height: 2px;
+
+    margin: 12px auto 9px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #64717b,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   PLAQUE WEEK
+======================================== */
+
+.plaque-week {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #596773;
+
+}
+
+
+/* ========================================
+   EMPTY PROFILE
+======================================== */
+
+.empty-achievements {
+
+    grid-column: 1 / -1;
+
+    min-height: 210px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    border: 2px dashed #bbc6cf;
+
+    background:
+        rgba(245,247,249,0.7);
+
+}
+
+
+.empty-trophy {
+
+    margin-bottom: 10px;
+
+    font-size: 34px;
+
+    color: #a0abb4;
+
+}
+
+
+.empty-achievements h3 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 27px;
+
+    letter-spacing: 1px;
+
+    color: #5d6c79;
+
+}
+
+
+.empty-achievements p {
+
+    margin: 5px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #8996a2;
+
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.fantasy-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 25px 20px 45px;
+
+}
+
+
+.fantasy-back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    border: 2px solid #294966;
+
+    background: rgba(255,255,255,0.8);
+
+    color: #193953;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.fantasy-back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+
+    box-shadow:
+        0 8px 18px rgba(20,47,72,0.12);
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.fantasy-page footer {
+
+    text-align: center;
+
+}
+
+
+.fantasy-page .footer-logo {
+
+    width: 250px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .player-selector {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .fantasy-hero {
+
+        min-height: 310px;
+
+        padding: 25px 15px;
+
+    }
+
+
+    .fantasy-hero-content {
+
+        padding: 38px 20px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .fantasy-hero h1 {
+
+        font-size: 52px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .fantasy-hero p {
+
+        font-size: 16px;
+
+    }
+
+
+    .fantasy-trophy-icon {
+
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 25px;
+
+    }
+
+
+    .fantasy-section {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .standings-header {
+
+        grid-template-columns:
+            40px 1fr 105px;
+
+        padding: 0 14px;
+
+        font-size: 9px;
+
+    }
+
+
+    .standings-row {
+
+        grid-template-columns:
+            40px 1fr 105px;
+
+        padding: 0 14px;
+
+    }
+
+
+    .standings-player-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .achievement-count-number {
+
+        font-size: 27px;
+
+    }
+
+
+    .achievement-count-label {
+
+        display: none;
+
+    }
+
+
+    .player-selector {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+    }
+
+
+    .player-card {
+
+        min-height: 68px;
+
+        padding: 11px;
+
+        gap: 9px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .player-card-icon {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 14px;
+
+        border-radius: 9px;
+
+    }
+
+
+    .player-card-name {
+
+        font-size: 13px;
+
+    }
+
+
+    .player-card-count {
+
+        font-size: 9px;
+
+    }
+
+
+    .player-card-arrow {
+
+        font-size: 11px;
+
+    }
+
+
+    .profile-display {
+
+        padding: 0 15px;
+
+    }
+
+
+    .player-profile {
+
+        padding: 22px 15px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .player-profile-header {
+
+        gap: 11px;
+
+    }
+
+
+    .player-profile-icon {
+
+        width: 52px;
+
+        height: 52px;
+
+        font-size: 22px;
+
+        border-radius: 13px;
+
+    }
+
+
+    .player-profile-title h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    .player-profile-title p {
+
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+
+    }
+
+
+    .profile-achievement-total {
+
+        min-width: 65px;
+
+        padding: 8px 9px;
+
+    }
+
+
+    .total-number {
+
+        font-size: 29px;
+
+    }
+
+
+    .total-label {
+
+        font-size: 7px;
+
+        letter-spacing: 0.6px;
+
+    }
+
+
+    .achievement-collection-header {
+
+        font-size: 8px;
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+    }
+
+
+    .achievement-plaque {
+
+        min-height: 145px;
+
+        padding: 5px;
+
+    }
+
+
+    .plaque-inner {
+
+        min-height: 133px;
+
+        padding: 15px 9px;
+
+    }
+
+
+    .plaque-top {
+
+        font-size: 17px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .plaque-achievement {
+
+        font-size: 18px;
+
+    }
+
+
+    .plaque-line {
+
+        margin: 9px auto 7px;
+
+    }
+
+
+    .plaque-week {
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 420px) {
+
+    .fantasy-hero h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .player-card {
+
+        min-height: 64px;
+
+        padding: 9px;
+
+    }
+
+
+    .player-card-icon {
+
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 12px;
+
+    }
+
+
+    .player-card-name {
+
+        font-size: 12px;
+
+    }
+
+
+    .player-card-count {
+
+        font-size: 8px;
+
+    }
+
+
+    .player-card-arrow {
+
+        display: none;
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        gap: 8px;
+
+    }
+
+
+    .achievement-plaque {
+
+        min-height: 135px;
+
+    }
+
+
+    .plaque-inner {
+
+        min-height: 123px;
+
+        padding: 12px 7px;
+
+    }
+
+
+    .plaque-achievement {
+
+        font-size: 16px;
+
+    }
+
+}
+```

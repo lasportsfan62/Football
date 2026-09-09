@@ -1,61 +1,869 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Under Construction</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
-        .container {
-            max-width: 600px;
-            padding: 40px;
-            background: #ffffff;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
-        h1 {
-            color: #ff9800;
-            margin-bottom: 20px;
-            font-size: 2.5rem;
-        }
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #666;
-            margin-bottom: 30px;
-        }
-        .spinner {
-            width: 50px;
-            height: 50px;
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid #ff9800;
-            border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin: 0 auto;
-        }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    </style>
+
+    <title>Fantasy Football | Football Games 2026</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Shared CSS -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/tables.css">
+
+    <!-- Fantasy Page CSS -->
+    <link rel="stylesheet" href="css/pages/fantasy.css">
+
+    <link rel="stylesheet" href="css/mobile.css">
+
+    <link rel="icon" type="image/png" href="./dp-logo.png">
+
 </head>
-<body>
-    <div class="container">
-        <h1>We Are Building Something New!</h1>
-        <p>Our website is currently under construction. We are working hard to give you the best experience possible. Please check back soon!</p>
-        <div class="spinner"></div>
+
+<body class="fantasy-page">
+
+<div class="page-container">
+
+    <!-- ========================================
+         HERO
+    ======================================== -->
+
+    <section class="fantasy-hero fade-in">
+
+        <div class="fantasy-hero-content">
+
+            <div class="fantasy-trophy-icon">
+                <i class="fa-solid fa-trophy"></i>
+            </div>
+
+            <h1>FANTASY FOOTBALL</h1>
+
+            <p>
+                Earn it. Display it. Own it.
+            </p>
+
+            <div class="fantasy-divider"></div>
+
+            <div class="fantasy-season">
+                2026 FANTASY FOOTBALL
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         ACHIEVEMENT STANDINGS
+    ======================================== -->
+
+    <section class="fantasy-section standings-section">
+
+        <div class="section-heading">
+
+            <div class="section-heading-icon">
+                <i class="fa-solid fa-ranking-star"></i>
+            </div>
+
+            <h2>ACHIEVEMENT STANDINGS</h2>
+
+            <p>
+                Every trophy counts.
+            </p>
+
+        </div>
+
+
+        <div class="standings-card">
+
+            <div class="standings-header">
+
+                <div class="standings-header-rank">#</div>
+                <div class="standings-header-player">PLAYER</div>
+                <div class="standings-header-achievements">ACHIEVEMENTS</div>
+
+            </div>
+
+            <div id="standingsBody">
+
+                <div class="loading-message">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    Loading achievements...
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         PLAYER SELECTOR
+    ======================================== -->
+
+    <section class="fantasy-section player-section">
+
+        <div class="section-heading">
+
+            <div class="section-heading-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <h2>CHOOSE A PLAYER</h2>
+
+            <p>
+                Select a player to view their trophy collection.
+            </p>
+
+        </div>
+
+
+        <div class="player-selector" id="playerSelector">
+
+            <!-- Player cards generated by JavaScript -->
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         PLAYER PROFILE
+    ======================================== -->
+
+    <section
+        class="profile-display"
+        id="profileDisplay"
+        aria-live="polite"
+    >
+
+        <!-- Intentionally empty until a player is selected -->
+
+    </section>
+
+
+    <!-- ========================================
+         NAVIGATION
+    ======================================== -->
+
+    <div class="fantasy-navigation">
+
+        <a href="index.html" class="fantasy-back-button">
+
+            <i class="fa-solid fa-arrow-left"></i>
+
+            Back to Football Games
+
+        </a>
+
     </div>
+
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+
+    <footer>
+
+        🏈 Football Games 2026
+
+        <br><br>
+
+        Hosted by David
+
+        <br><br>
+
+        <img
+            src="dp-logo.png"
+            alt="DP Logo"
+            class="footer-logo"
+        >
+
+    </footer>
+
+</div>
+
+
+<script>
+
+/* ========================================
+   FANTASY FOOTBALL DATA
+======================================== */
+
+const ACHIEVEMENTS_CSV =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vR99reJE_4SBXOZWNyz1-YjJ0L_rT29dolRyvh9BPFbw6mDgLBK-ayncHCMaqLYOpqWWAxh5NxpBHhA/pub?gid=0&single=true&output=csv";
+
+
+const PLAYERS = [
+    "David",
+    "Brett",
+    "Matt",
+    "Drew",
+    "Chris",
+    "Don",
+    "Tucker",
+    "Michael",
+    "Sam",
+    "George"
+];
+
+
+let achievements = [];
+
+
+/* ========================================
+   ELEMENTS
+======================================== */
+
+const standingsBody =
+    document.getElementById("standingsBody");
+
+const playerSelector =
+    document.getElementById("playerSelector");
+
+const profileDisplay =
+    document.getElementById("profileDisplay");
+
+
+/* ========================================
+   CSV PARSER
+   Handles quoted commas as well
+======================================== */
+
+function parseCSV(text) {
+
+    const rows = [];
+
+    let row = [];
+    let cell = "";
+    let insideQuotes = false;
+
+    for (let i = 0; i < text.length; i++) {
+
+        const character = text[i];
+        const nextCharacter = text[i + 1];
+
+        if (character === '"' && insideQuotes && nextCharacter === '"') {
+
+            cell += '"';
+            i++;
+
+        } else if (character === '"') {
+
+            insideQuotes = !insideQuotes;
+
+        } else if (character === "," && !insideQuotes) {
+
+            row.push(cell);
+            cell = "";
+
+        } else if (
+            (character === "\n" || character === "\r") &&
+            !insideQuotes
+        ) {
+
+            if (character === "\r" && nextCharacter === "\n") {
+                i++;
+            }
+
+            row.push(cell);
+            cell = "";
+
+            if (row.some(value => value.trim() !== "")) {
+                rows.push(row);
+            }
+
+            row = [];
+
+        } else {
+
+            cell += character;
+
+        }
+
+    }
+
+
+    if (cell !== "" || row.length > 0) {
+
+        row.push(cell);
+
+        if (row.some(value => value.trim() !== "")) {
+            rows.push(row);
+        }
+
+    }
+
+    return rows;
+}
+
+
+/* ========================================
+   HTML ESCAPE
+======================================== */
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+
+}
+
+
+/* ========================================
+   LOAD ACHIEVEMENTS
+======================================== */
+
+async function loadAchievements() {
+
+    try {
+
+        const response =
+            await fetch(ACHIEVEMENTS_CSV + "&cache=" + Date.now());
+
+        if (!response.ok) {
+            throw new Error("Unable to load CSV");
+        }
+
+        const csvText = await response.text();
+
+        const rows = parseCSV(csvText);
+
+        if (rows.length < 1) {
+            throw new Error("No data found");
+        }
+
+
+        /* --------------------------------
+           Read headers
+        -------------------------------- */
+
+        const headers = rows[0].map(header =>
+            header.trim().toLowerCase()
+        );
+
+
+        const nameIndex =
+            headers.indexOf("name");
+
+        const achievementIndex =
+            headers.indexOf("achievement");
+
+        const weekIndex =
+            headers.indexOf("week");
+
+
+        if (
+            nameIndex === -1 ||
+            achievementIndex === -1 ||
+            weekIndex === -1
+        ) {
+
+            throw new Error(
+                "CSV must contain Name, Achievement, and Week columns."
+            );
+
+        }
+
+
+        /* --------------------------------
+           Convert rows to objects
+        -------------------------------- */
+
+        achievements = rows
+            .slice(1)
+            .map(row => {
+
+                return {
+
+                    name:
+                        (row[nameIndex] || "").trim(),
+
+                    achievement:
+                        (row[achievementIndex] || "").trim(),
+
+                    week:
+                        (row[weekIndex] || "").trim()
+
+                };
+
+            })
+            .filter(item =>
+                item.name &&
+                item.achievement
+            );
+
+
+        renderStandings();
+
+        renderPlayerSelector();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Fantasy achievement loading error:",
+            error
+        );
+
+        standingsBody.innerHTML = `
+
+            <div class="error-message">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <span>
+                    Unable to load achievements.
+                </span>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ========================================
+   GET PLAYER ACHIEVEMENTS
+======================================== */
+
+function getPlayerAchievements(playerName) {
+
+    return achievements.filter(item =>
+        item.name.toLowerCase() === playerName.toLowerCase()
+    );
+
+}
+
+
+/* ========================================
+   GET PLAYER COUNT
+======================================== */
+
+function getPlayerCount(playerName) {
+
+    return getPlayerAchievements(playerName).length;
+
+}
+
+
+/* ========================================
+   RENDER STANDINGS
+======================================== */
+
+function renderStandings() {
+
+    const standings = PLAYERS
+        .map(player => {
+
+            return {
+
+                name: player,
+
+                count: getPlayerCount(player)
+
+            };
+
+        })
+        .sort((a, b) => {
+
+            if (b.count !== a.count) {
+                return b.count - a.count;
+            }
+
+            return PLAYERS.indexOf(a.name) -
+                   PLAYERS.indexOf(b.name);
+
+        });
+
+
+    standingsBody.innerHTML = "";
+
+
+    standings.forEach((player, index) => {
+
+        const row =
+            document.createElement("div");
+
+        row.className =
+            "standings-row";
+
+
+        if (index === 0 && player.count > 0) {
+
+            row.classList.add("first-place");
+
+        }
+
+
+        row.innerHTML = `
+
+            <div class="standings-rank">
+
+                ${index + 1}
+
+            </div>
+
+
+            <div class="standings-player">
+
+                <span class="standings-player-name">
+
+                    ${escapeHTML(player.name)}
+
+                </span>
+
+            </div>
+
+
+            <div class="standings-count">
+
+                <span class="achievement-count-number">
+
+                    ${player.count}
+
+                </span>
+
+                <span class="achievement-count-label">
+
+                    ${player.count === 1
+                        ? "TROPHY"
+                        : "TROPHIES"}
+
+                </span>
+
+            </div>
+
+        `;
+
+
+        standingsBody.appendChild(row);
+
+    });
+
+}
+
+
+/* ========================================
+   RENDER PLAYER SELECTOR
+======================================== */
+
+function renderPlayerSelector() {
+
+    playerSelector.innerHTML = "";
+
+
+    PLAYERS.forEach(player => {
+
+        const count =
+            getPlayerCount(player);
+
+
+        const card =
+            document.createElement("button");
+
+        card.type = "button";
+
+        card.className =
+            "player-card";
+
+
+        card.dataset.player =
+            player;
+
+
+        card.innerHTML = `
+
+            <div class="player-card-icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+
+            <div class="player-card-content">
+
+                <div class="player-card-name">
+
+                    ${escapeHTML(player)}
+
+                </div>
+
+                <div class="player-card-count">
+
+                    ${count}
+                    ${count === 1
+                        ? "Achievement"
+                        : "Achievements"}
+
+                </div>
+
+            </div>
+
+
+            <div class="player-card-arrow">
+
+                <i class="fa-solid fa-chevron-right"></i>
+
+            </div>
+
+        `;
+
+
+        card.addEventListener(
+            "click",
+            () => selectPlayer(player, card)
+        );
+
+
+        playerSelector.appendChild(card);
+
+    });
+
+}
+
+
+/* ========================================
+   SELECT PLAYER
+======================================== */
+
+function selectPlayer(playerName, selectedCard) {
+
+    document
+        .querySelectorAll(".player-card")
+        .forEach(card => {
+
+            card.classList.remove("selected");
+
+        });
+
+
+    selectedCard.classList.add("selected");
+
+
+    renderPlayerProfile(playerName);
+
+
+    setTimeout(() => {
+
+        profileDisplay.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    }, 100);
+
+}
+
+
+/* ========================================
+   RENDER PLAYER PROFILE
+======================================== */
+
+function renderPlayerProfile(playerName) {
+
+    const playerAchievements =
+        getPlayerAchievements(playerName);
+
+
+    profileDisplay.innerHTML = "";
+
+
+    const profile =
+        document.createElement("div");
+
+    profile.className =
+        "player-profile fantasy-profile-drop";
+
+
+    profile.innerHTML = `
+
+        <div class="player-profile-header">
+
+            <div class="player-profile-icon">
+
+                <i class="fa-solid fa-trophy"></i>
+
+            </div>
+
+
+            <div class="player-profile-title">
+
+                <h2>
+                    ${escapeHTML(playerName)}
+                </h2>
+
+                <p>
+                    2026 FANTASY FOOTBALL
+                </p>
+
+            </div>
+
+
+            <div class="profile-achievement-total">
+
+                <div class="total-number">
+
+                    ${playerAchievements.length}
+
+                </div>
+
+                <div class="total-label">
+
+                    ${playerAchievements.length === 1
+                        ? "ACHIEVEMENT"
+                        : "ACHIEVEMENTS"}
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="profile-divider"></div>
+
+
+        <div class="achievement-collection-header">
+
+            <span>
+                TROPHY COLLECTION
+            </span>
+
+            <span>
+                ${playerAchievements.length}
+                ${playerAchievements.length === 1
+                    ? "TROPHY"
+                    : "TROPHIES"}
+            </span>
+
+        </div>
+
+
+        <div class="achievement-plaque-grid">
+
+            ${
+                playerAchievements.length === 0
+
+                ?
+
+                `
+
+                <div class="empty-achievements">
+
+                    <div class="empty-trophy">
+
+                        <i class="fa-solid fa-trophy"></i>
+
+                    </div>
+
+                    <h3>
+                        NO TROPHIES YET
+                    </h3>
+
+                    <p>
+                        The collection is waiting to begin.
+                    </p>
+
+                </div>
+
+                `
+
+                :
+
+                playerAchievements
+                    .map((item, index) => `
+
+                        <div
+                            class="achievement-plaque"
+                            style="--plaque-delay: ${index * 0.06}s"
+                        >
+
+                            <div class="plaque-shine"></div>
+
+
+                            <div class="plaque-inner">
+
+                                <div class="plaque-top">
+
+                                    <i class="fa-solid fa-trophy"></i>
+
+                                </div>
+
+
+                                <div class="plaque-achievement">
+
+                                    ${escapeHTML(
+                                        item.achievement
+                                    )}
+
+                                </div>
+
+
+                                <div class="plaque-line"></div>
+
+
+                                <div class="plaque-week">
+
+                                    Week ${escapeHTML(
+                                        item.week
+                                    )}
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    `)
+                    .join("")
+
+            }
+
+        </div>
+
+    `;
+
+
+    profileDisplay.appendChild(profile);
+
+}
+
+
+/* ========================================
+   START
+======================================== */
+
+loadAchievements();
+
+</script>
+
 </body>
 </html>
-
+```

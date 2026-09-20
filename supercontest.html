@@ -1071,15 +1071,18 @@ function buildAutomaticStandings(){
        Determine completed previous weeks.
     */
 
-    let previousWeeks = [
+let previousWeeks = [
 
-        ...new Set(
-            archiveData
-                .map(item => item.week)
-                .filter(week => !isNaN(week))
-        )
+    ...new Set(
+        archiveData
+            .map(item => item.week)
+            .filter(week =>
+                !isNaN(week) &&
+                week < CURRENT_WEEK
+            )
+    )
 
-    ];
+];
 
 
     previousWeeks.sort((a,b) => a-b);

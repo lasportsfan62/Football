@@ -1950,11 +1950,19 @@
     }
 
 
-    .power-rankings-tooltip {
+.power-rankings-tooltip {
 
-        width: 240px;
+    width: 240px;
 
-    }
+    max-height: 180px;
+
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    pointer-events: auto;
+
+}
 
     .player-selector {
 

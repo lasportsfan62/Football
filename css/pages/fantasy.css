@@ -529,6 +529,310 @@
 
 
 /* ========================================
+   POWER RANKINGS
+======================================== */
+
+.power-rankings-card {
+
+    width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #b9c5d1;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.power-rankings-chart-wrap {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    border-radius: 14px;
+
+    scrollbar-width: thin;
+
+}
+
+
+.power-rankings-chart {
+
+    width: 100%;
+
+    min-width: 900px;
+
+}
+
+
+.power-rankings-svg {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    min-width: 900px;
+
+    overflow: visible;
+
+}
+
+
+.power-rankings-svg-background {
+
+    fill: rgba(248,250,252,0.96);
+
+}
+
+
+.power-rankings-grid-line {
+
+    stroke: #d7dee6;
+
+    stroke-width: 1;
+
+}
+
+
+.power-rankings-axis-label {
+
+    fill: #506174;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.power-rankings-week-label {
+
+    fill: #68798b;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.power-ranking-line {
+
+    fill: none;
+
+    stroke-width: 3.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 0.86;
+
+}
+
+
+.power-ranking-point {
+
+    stroke-width: 2.5;
+
+    cursor: pointer;
+
+    transition:
+        r 0.15s ease,
+        stroke-width 0.15s ease;
+
+}
+
+
+.power-ranking-point:hover,
+
+.power-ranking-point:focus {
+
+    r: 9;
+
+    stroke-width: 4;
+
+    outline: none;
+
+}
+
+
+.power-rankings-tooltip {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: none;
+
+    width: min(280px, calc(100% - 20px));
+
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    border: 1px solid #294966;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102e4c,
+            #183e60
+        );
+
+    color: #eef3f7;
+
+    box-shadow:
+        0 10px 25px rgba(10,30,50,0.25);
+
+    pointer-events: none;
+
+}
+
+
+.power-rankings-tooltip-player {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 24px;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+.power-rankings-tooltip-week {
+
+    margin-top: 1px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    color: #aebdca;
+
+}
+
+
+.power-rankings-tooltip-rank {
+
+    margin-top: 5px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+}
+
+
+.power-rankings-tooltip-message {
+
+    margin-top: 8px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid rgba(255,255,255,0.18);
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    color: #dbe5ed;
+
+}
+
+
+.power-rankings-legend {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 10px 16px;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #d6dee6;
+
+}
+
+
+.power-rankings-legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    min-width: 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #40566b;
+
+}
+
+
+.power-rankings-legend-dot {
+
+    flex-shrink: 0;
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.85);
+
+}
+
+
+/* ========================================
    PLAYER SELECTOR
 ======================================== */
 
@@ -1602,6 +1906,56 @@
     }
 
 
+    .power-rankings-card {
+
+        padding: 12px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .power-rankings-chart {
+
+        min-width: 820px;
+
+    }
+
+
+    .power-rankings-svg {
+
+        min-width: 820px;
+
+    }
+
+
+    .power-rankings-legend {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 9px 12px;
+
+        margin-top: 15px;
+
+        padding-top: 14px;
+
+    }
+
+
+    .power-rankings-legend-item {
+
+        font-size: 11px;
+
+    }
+
+
+    .power-rankings-tooltip {
+
+        width: 240px;
+
+    }
+
     .player-selector {
 
         grid-template-columns:
@@ -1810,6 +2164,27 @@
 ======================================== */
 
 @media (max-width: 420px) {
+
+    .power-rankings-chart {
+
+        min-width: 760px;
+
+    }
+
+
+    .power-rankings-svg {
+
+        min-width: 760px;
+
+    }
+
+
+    .power-rankings-legend-item {
+
+        font-size: 10px;
+
+    }
+
 
     .fantasy-hero h1 {
 

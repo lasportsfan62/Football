@@ -607,6 +607,22 @@ function buildPowerRankingPath(points) {
 
 }
 
+let powerRankingTooltipHideTimer = null;
+
+function schedulePowerRankingTooltipHide() {
+
+    clearTimeout(powerRankingTooltipHideTimer);
+
+    powerRankingTooltipHideTimer = setTimeout(() => {
+
+        if (!powerRankingsTooltip.matches(":hover")) {
+            hidePowerRankingTooltip();
+        }
+
+    }, 200);
+
+}
+
 
 function showPowerRankingTooltip(event, playerName, item) {
 
@@ -1020,9 +1036,13 @@ function renderPowerRankings() {
 
 
             point.addEventListener(
-                "mouseleave",
-                hidePowerRankingTooltip
-            );
+    "mouseleave",
+    event => {
+        if (window.innerWidth > 700) {
+            schedulePowerRankingTooltipHide();
+        }
+    }
+);
 
 
             point.addEventListener(
@@ -1048,9 +1068,25 @@ function renderPowerRankings() {
 
 
             point.addEventListener(
-                "blur",
-                hidePowerRankingTooltip
-            );
+    "blur",
+    event => {
+        if (window.innerWidth > 700) {
+            schedulePowerRankingTooltipHide();
+        }
+    }
+);
+
+            powerRankingsTooltip.addEventListener("mouseenter", () => {
+
+    clearTimeout(powerRankingTooltipHideTimer);
+
+});
+
+powerRankingsTooltip.addEventListener("mouseleave", () => {
+
+    hidePowerRankingTooltip();
+
+});
 
 
             /* ========================================

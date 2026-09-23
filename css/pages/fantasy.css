@@ -708,7 +708,11 @@
     box-shadow:
         0 10px 25px rgba(10,30,50,0.25);
 
-    pointer-events: none;
+    pointer-events: auto;
+
+    max-height: 180px;
+
+overflow-y: auto;
 
 }
 

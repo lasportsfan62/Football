@@ -209,6 +209,44 @@
 </section>
 
 <!-- ========================================
+     WEEKLY ELIMINATIONS
+======================================== -->
+
+<section class="fantasy-section weekly-eliminations-section">
+
+<div class="section-heading">
+
+<div class="section-heading-icon">
+    <i class="fa-solid fa-skull-crossbones"></i>
+</div>
+
+<h2>WEEKLY ELIMINATOR</h2>
+
+<p>
+    The lowest score of the week.
+</p>
+
+</div>
+
+<div
+    class="weekly-eliminations-card"
+    id="weeklyEliminations"
+>
+
+    <div class="loading-message">
+
+        <i class="fa-solid fa-spinner fa-spin"></i>
+
+        Loading weekly eliminations...
+
+    </div>
+
+</div>
+
+</section>
+
+
+<!-- ========================================
      POSSIBLE ACHIEVEMENTS
 ======================================== -->
 
@@ -332,6 +370,8 @@ const ACHIEVEMENTS_CSV =
 const POWER_RANKINGS_CSV =
     "https://docs.google.com/spreadsheets/d/e/2PACX-1vR99reJE_4SBXOZWNyz1-YjJ0L_rT29dolRyvh9BPFbw6mDgLBK-ayncHCMaqLYOpqWWAxh5NxpBHhA/pub?gid=1961780368&single=true&output=csv";
 
+const FOINTS_CSV =
+    "https://docs.google.com/spreadsheets/d/e/2PACX-1vR99reJE_4SBXOZWNyz1-YjJ0L_rT29dolRyvh9BPFbw6mDgLBK-ayncHCMaqLYOpqWWAxh5NxpBHhA/pub?gid=564201933&single=true&output=csv";
 
 const PLAYERS = [
     "David",
@@ -349,6 +389,7 @@ const PLAYERS = [
 
 let achievements = [];
 
+let fointsData = [];
 
 /* ========================================
    ELEMENTS
@@ -1872,11 +1913,267 @@ function renderPlayerProfile(playerName) {
 
 
 /* ========================================
+   LOAD FOINTS
+======================================== */
+
+async function loadFoints() {
+
+    try {
+
+        const response =
+            await fetch(
+                FOINTS_CSV +
+                "&cache=" +
+                Date.now()
+            );
+
+        if (!response.ok) {
+            throw new Error(
+                "Unable to load Foints CSV"
+            );
+        }
+
+        const csvText =
+            await response.text();
+
+        const rows =
+            parseCSV(csvText);
+
+        if (rows.length < 1) {
+            throw new Error(
+                "No Foints data found"
+            );
+        }
+
+
+        /* --------------------------------
+           Read headers
+        -------------------------------- */
+
+        const headers =
+            rows[0].map(header =>
+                header.trim().toLowerCase()
+            );
+
+
+        const weekIndex =
+            headers.indexOf("week");
+
+        const eliminatedIndex =
+            headers.indexOf("eliminated");
+
+        const fointsIndex =
+            headers.indexOf("foints");
+
+
+        if (
+            weekIndex === -1 ||
+            eliminatedIndex === -1 ||
+            fointsIndex === -1
+        ) {
+
+            throw new Error(
+                "Foints CSV must contain Week, Eliminated, and Foints columns."
+            );
+
+        }
+
+
+        /* --------------------------------
+           Convert rows to objects
+        -------------------------------- */
+
+        fointsData =
+            rows
+                .slice(1)
+                .map(row => {
+
+                    return {
+
+                        week:
+                            (row[weekIndex] || "")
+                                .trim(),
+
+                        eliminated:
+                            (row[eliminatedIndex] || "")
+                                .trim(),
+
+                        foints:
+                            (row[fointsIndex] || "")
+                                .trim()
+
+                    };
+
+                })
+                .filter(item =>
+                    item.week &&
+                    item.eliminated &&
+                    item.foints
+                );
+
+
+        console.log(
+            "Foints data loaded:",
+            fointsData
+        );
+
+        renderWeeklyEliminations();
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Fantasy Foints loading error:",
+            error
+        );
+
+    }
+
+}
+
+
+/* ========================================
+   GET FOINTS BY WEEK
+======================================== */
+
+function getFointsByWeek(week) {
+
+    return fointsData.find(item =>
+        item.week.toLowerCase() ===
+        String(week).toLowerCase()
+    ) || null;
+
+}
+
+/* ========================================
+   RENDER WEEKLY ELIMINATIONS
+======================================== */
+
+function renderWeeklyEliminations() {
+
+    const container =
+        document.getElementById("weeklyEliminations");
+
+
+    if (!container) {
+        return;
+    }
+
+
+    if (!fointsData.length) {
+
+        container.innerHTML = `
+
+            <div class="error-message">
+
+                <i class="fa-solid fa-triangle-exclamation"></i>
+
+                <span>
+                    No weekly elimination data found.
+                </span>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    container.innerHTML = `
+
+        <div class="tombstone-grid">
+
+            ${
+                fointsData
+                    .map(item => `
+
+                        <div class="tombstone">
+
+                            <div class="tombstone-top">
+
+                                <div class="tombstone-arch"></div>
+
+                                <div class="tombstone-week">
+
+                                    WEEK ${escapeHTML(item.week)}
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="tombstone-body">
+
+                                <div class="tombstone-skull">
+
+                                    <i class="fa-solid fa-skull"></i>
+
+                                </div>
+
+
+                                <div class="tombstone-rest">
+
+                                    R.I.P.
+
+                                </div>
+
+
+                                <div class="tombstone-player">
+
+                                    ${escapeHTML(item.eliminated)}
+
+                                </div>
+
+
+                                <div class="tombstone-divider"></div>
+
+
+                                <div class="tombstone-score">
+
+                                    ${escapeHTML(item.foints)}
+
+                                </div>
+
+
+                                <div class="tombstone-foints">
+
+                                    FOINTS
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="tombstone-base">
+
+                                <div class="tombstone-base-line"></div>
+
+                            </div>
+
+                        </div>
+
+                    `)
+                    .join("")
+
+            }
+
+        </div>
+
+    `;
+
+}
+
+
+/* ========================================
    START
 ======================================== */
 
 loadAchievements();
 loadPowerRankings();
+loadFoints();
 
 </script>
 

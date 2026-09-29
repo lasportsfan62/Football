@@ -6009,3 +6009,20 @@ padding-left: 5px;
         );
 
 }
+
+/* ========================================
+   MOBILE WEEKLY ELIMINATIONS
+======================================== */
+
+@media (max-width: 700px) {
+
+    .weekly-eliminations-section .tombstone-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr)) !important;
+
+        gap: 18px 12px;
+
+    }
+
+}

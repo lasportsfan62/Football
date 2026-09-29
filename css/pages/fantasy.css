@@ -651,6 +651,19 @@
 
 }
 
+/* Dim all lines when hovering a player */
+.power-rankings-svg.power-ranking-hover .power-ranking-line {
+    opacity: 0.16;
+}
+
+
+/* Highlight the selected player's entire line */
+.power-rankings-svg.power-ranking-hover .power-ranking-line-active {
+    opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
 
 .power-ranking-point {
 

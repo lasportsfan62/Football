@@ -918,15 +918,16 @@ function renderPowerRankings() {
                 return;
             }
 
-            svg += `
+svg += `
 
-                <path
-                    d="${buildPowerRankingPath(segment)}"
-                    class="power-ranking-line"
-                    style="stroke:${color}"
-                />
+    <path
+        d="${buildPowerRankingPath(segment)}"
+        class="power-ranking-line"
+        data-player="${escapeHTML(playerName)}"
+        style="stroke:${color}"
+    />
 
-            `;
+`;
 
         });
 
@@ -991,26 +992,39 @@ function renderPowerRankings() {
             const week =
                 point.dataset.week;
 
-            point.addEventListener(
-                "mouseenter",
-                event => {
+point.addEventListener(
+    "mouseenter",
+    event => {
 
-                    const item =
-                        getPowerRankingData(playerName)
-                            .find(entry =>
-                                getPowerRankingWeekLabel(entry.week) === week
-                            );
+        powerRankingsChart
+            .querySelectorAll(".power-ranking-line")
+            .forEach(line => {
+                line.classList.toggle(
+                    "power-ranking-line-active",
+                    line.dataset.player === playerName
+                );
+            });
 
-                    if (item) {
-                        showPowerRankingTooltip(
-                            event,
-                            playerName,
-                            item
-                        );
-                    }
+        powerRankingsChart
+            .querySelector("svg")
+            .classList.add("power-ranking-hover");
 
-                }
+        const item =
+            getPowerRankingData(playerName)
+                .find(entry =>
+                    getPowerRankingWeekLabel(entry.week) === week
+                );
+
+        if (item) {
+            showPowerRankingTooltip(
+                event,
+                playerName,
+                item
             );
+        }
+
+    }
+);
 
 
             point.addEventListener(
@@ -1035,12 +1049,24 @@ function renderPowerRankings() {
             );
 
 
-            point.addEventListener(
+point.addEventListener(
     "mouseleave",
     event => {
+
+        powerRankingsChart
+            .querySelectorAll(".power-ranking-line")
+            .forEach(line => {
+                line.classList.remove("power-ranking-line-active");
+            });
+
+        powerRankingsChart
+            .querySelector("svg")
+            .classList.remove("power-ranking-hover");
+
         if (window.innerWidth > 700) {
             schedulePowerRankingTooltipHide();
         }
+
     }
 );
 

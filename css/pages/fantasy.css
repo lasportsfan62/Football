@@ -2183,6 +2183,2191 @@ overflow-y: auto;
 
 }
 
+/* ========================================
+   FANTASY FOOTBALL PAGE
+   2026 FOOTBALL GAMES
+======================================== */
+
+
+/* ========================================
+   PAGE
+======================================== */
+
+.fantasy-page {
+
+    background:
+        radial-gradient(
+            circle at 20% 0%,
+            rgba(28, 65, 120, 0.16),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(12, 42, 82, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            180deg,
+            #eef2f7 0%,
+            #f7f7f7 45%,
+            #edf1f6 100%
+        );
+
+    color: #182536;
+
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.fantasy-hero {
+
+    min-height: 360px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 40px 20px;
+
+}
+
+
+.fantasy-hero-content {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 900px;
+
+    padding: 48px 40px;
+
+    text-align: center;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    border: 3px solid #122a46;
+
+    background:
+        linear-gradient(
+            145deg,
+            #071a31 0%,
+            #0c2949 50%,
+            #102f52 100%
+        );
+
+    box-shadow:
+        0 22px 55px rgba(7, 25, 48, 0.28),
+        inset 0 1px 0 rgba(255,255,255,0.12);
+
+}
+
+
+.fantasy-hero-content::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: -100px;
+
+    right: -80px;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.10),
+            transparent 68%
+        );
+
+    pointer-events: none;
+
+}
+
+
+.fantasy-trophy-icon {
+
+    width: 74px;
+
+    height: 74px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 50%;
+
+    color: #102f52;
+
+    font-size: 31px;
+
+    border: 2px solid rgba(215,225,235,0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            #8d9aa7,
+            #e4e8eb 45%,
+            #8996a3
+        );
+
+    box-shadow:
+        0 8px 20px rgba(0,0,0,0.28),
+        inset 0 1px 2px rgba(255,255,255,0.85);
+
+}
+
+
+.fantasy-hero h1 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 72px;
+
+    line-height: 0.95;
+
+    letter-spacing: 2px;
+
+    color: #f4f7fa;
+
+    text-shadow:
+        0 3px 12px rgba(0,0,0,0.3);
+
+}
+
+
+.fantasy-hero p {
+
+    margin: 18px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.5px;
+
+    color: #c9d5e1;
+
+}
+
+
+.fantasy-divider {
+
+    width: 90px;
+
+    height: 3px;
+
+    margin: 25px auto 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #aeb8c2,
+            transparent
+        );
+
+}
+
+
+.fantasy-season {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #aebbc8;
+
+}
+
+
+/* ========================================
+   SECTIONS
+======================================== */
+
+.fantasy-section {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 0 auto;
+
+    padding: 30px 20px;
+
+}
+
+
+.section-heading {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+}
+
+
+.section-heading-icon {
+
+    width: 80px;
+    
+    height: 80px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 12px;
+
+    color: #163858;
+
+    font-size: 50px;
+
+    background: rgba(255,255,255,0.75);
+
+    border: 1px solid #c5d0db;
+
+    box-shadow:
+        0 5px 15px rgba(20,40,65,0.08);
+}
+
+
+.section-heading h2 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 60px;
+
+    letter-spacing: 1.5px;
+
+    color: #132d49;
+
+}
+
+
+.section-heading p {
+
+    margin: 6px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 24px;
+
+    color: #68798b;
+
+}
+
+
+/* ========================================
+   STANDINGS CARD
+======================================== */
+
+.standings-card {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    border: 2px solid #b9c5d1;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ========================================
+   STANDINGS HEADER
+======================================== */
+
+.standings-header {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr 145px;
+
+    align-items: center;
+
+    min-height: 48px;
+
+    padding: 0 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0a2038,
+            #123756
+        );
+
+    color: #dce5ed;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.standings-header-achievements {
+
+    text-align: center;
+
+}
+
+
+/* ========================================
+   STANDINGS ROW
+======================================== */
+
+.standings-row {
+
+    display: grid;
+
+    grid-template-columns: 60px 1fr 145px;
+
+    align-items: center;
+
+    min-height: 68px;
+
+    padding: 0 22px;
+
+    border-bottom: 1px solid #dce2e8;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.standings-row:last-child {
+
+    border-bottom: none;
+
+}
+
+
+.standings-row:hover {
+
+    background: #f2f5f8;
+
+}
+
+
+.standings-row.first-place {
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(197,209,220,0.35),
+            rgba(255,255,255,0.8)
+        );
+
+}
+
+
+.standings-rank {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 25px;
+
+    color: #708093;
+
+}
+
+
+.first-place .standings-rank {
+
+    color: #183a5c;
+
+}
+
+
+.standings-player-name {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 700;
+
+    color: #20364d;
+
+}
+
+
+.standings-count {
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: baseline;
+
+    gap: 6px;
+
+}
+
+
+.achievement-count-number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 31px;
+
+    color: #173b5e;
+
+}
+
+
+.achievement-count-label {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+
+    color: #718195;
+
+}
+
+
+/* ========================================
+   LOADING / ERROR
+======================================== */
+
+.loading-message,
+.error-message {
+
+    min-height: 150px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 14px;
+
+    color: #718195;
+
+}
+
+
+.error-message {
+
+    color: #8c3d3d;
+
+}
+
+
+/* ========================================
+   POWER RANKINGS
+======================================== */
+
+.power-rankings-card {
+
+    width: 100%;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #b9c5d1;
+
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+.power-rankings-chart-wrap {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    overflow-y: hidden;
+
+    border-radius: 14px;
+
+    scrollbar-width: thin;
+
+}
+
+
+.power-rankings-chart {
+
+    width: 100%;
+
+    min-width: 900px;
+
+}
+
+
+.power-rankings-svg {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    min-width: 900px;
+
+    overflow: visible;
+
+}
+
+
+.power-rankings-svg-background {
+
+    fill: rgba(248,250,252,0.96);
+
+}
+
+
+.power-rankings-grid-line {
+
+    stroke: #d7dee6;
+
+    stroke-width: 1;
+
+}
+
+
+.power-rankings-axis-label {
+
+    fill: #506174;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+}
+
+
+.power-rankings-week-label {
+
+    fill: #68798b;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+}
+
+
+.power-ranking-line {
+
+    fill: none;
+
+    stroke-width: 3.5;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+    opacity: 0.86;
+
+}
+
+/* Dim all lines when hovering a player */
+.power-rankings-svg.power-ranking-hover .power-ranking-line {
+    opacity: 0.16;
+}
+
+
+/* Highlight the selected player's entire line */
+.power-rankings-svg.power-ranking-hover .power-ranking-line-active {
+    opacity: 1;
+    stroke-width: 5;
+    filter: drop-shadow(0 0 4px currentColor);
+}
+
+
+.power-ranking-point {
+
+    stroke-width: 2.5;
+
+    cursor: pointer;
+
+    transition:
+        r 0.15s ease,
+        stroke-width 0.15s ease;
+
+}
+
+
+.power-ranking-point:hover,
+
+.power-ranking-point:focus {
+
+    r: 9;
+
+    stroke-width: 4;
+
+    outline: none;
+
+}
+
+
+.power-rankings-tooltip {
+
+    position: absolute;
+
+    z-index: 20;
+
+    display: none;
+
+    width: min(280px, calc(100% - 20px));
+
+    padding: 13px 15px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    border: 1px solid #294966;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102e4c,
+            #183e60
+        );
+
+    color: #eef3f7;
+
+    box-shadow:
+        0 10px 25px rgba(10,30,50,0.25);
+
+    pointer-events: auto;
+
+    max-height: 180px;
+
+overflow-y: auto;
+
+}
+
+
+.power-rankings-tooltip-player {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 24px;
+
+    letter-spacing: 0.8px;
+
+}
+
+
+.power-rankings-tooltip-week {
+
+    margin-top: 1px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.2px;
+
+    text-transform: uppercase;
+
+    color: #aebdca;
+
+}
+
+
+.power-rankings-tooltip-rank {
+
+    margin-top: 5px;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 30px;
+
+    line-height: 1;
+
+    color: #ffffff;
+
+}
+
+
+.power-rankings-tooltip-message {
+
+    margin-top: 8px;
+
+    padding-top: 8px;
+
+    border-top: 1px solid rgba(255,255,255,0.18);
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    color: #dbe5ed;
+
+}
+
+
+.power-rankings-legend {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 10px 16px;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #d6dee6;
+
+}
+
+
+.power-rankings-legend-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    min-width: 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    color: #40566b;
+
+}
+
+
+.power-rankings-legend-dot {
+
+    flex-shrink: 0;
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    box-shadow:
+        0 0 0 2px rgba(255,255,255,0.85);
+
+}
+
+
+/* ========================================
+   PLAYER SELECTOR
+======================================== */
+
+.player-selector {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 15px;
+
+}
+
+
+/* ========================================
+   PLAYER CARD
+======================================== */
+
+.player-card {
+
+    position: relative;
+
+    min-height: 76px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 15px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    border: 2px solid #294966;
+
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.95),
+            rgba(235,241,246,0.9)
+        );
+
+    box-shadow:
+        0 7px 18px rgba(22,48,75,0.09);
+
+    transition:
+        transform 0.22s ease,
+        box-shadow 0.22s ease,
+        border-color 0.22s ease;
+
+}
+
+
+.player-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -110%;
+
+    width: 70%;
+
+    height: 100%;
+
+    transform: skewX(-20deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.65),
+            transparent
+        );
+
+    transition: left 0.55s ease;
+
+}
+
+
+.player-card:hover::before {
+
+    left: 140%;
+
+}
+
+
+.player-card:hover {
+
+    transform: translateY(-4px);
+
+    border-color: #173d5f;
+
+    box-shadow:
+        0 12px 25px rgba(18,48,77,0.15);
+
+}
+
+
+.player-card.selected {
+
+    transform: translateY(-2px);
+
+    border-color: #0c2949;
+
+    background:
+        linear-gradient(
+            145deg,
+            #dfe7ee,
+            #f7f9fa
+        );
+
+    box-shadow:
+        0 10px 24px rgba(10,40,67,0.18),
+        inset 0 0 0 1px rgba(255,255,255,0.8);
+
+}
+
+
+/* ========================================
+   PLAYER CARD ICON
+======================================== */
+
+.player-card-icon {
+
+    flex-shrink: 0;
+
+    width: 40px;
+
+    height: 40px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 11px;
+
+    color: #173c5c;
+
+    font-size: 16px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #9da9b4,
+            #e8ecef 48%,
+            #919da8
+        );
+
+    border: 1px solid #7e8c98;
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.9);
+
+}
+
+
+.player-card-content {
+
+    min-width: 0;
+
+    flex: 1;
+
+}
+
+
+.player-card-name {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 24px;
+
+    font-weight: 800;
+
+    color: #1a324a;
+
+}
+
+
+.player-card-count {
+
+    margin-top: 3px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #718195;
+
+}
+
+
+.player-card-arrow {
+
+    flex-shrink: 0;
+
+    color: #718195;
+
+    transition:
+        transform 0.2s ease,
+        color 0.2s ease;
+
+}
+
+
+.player-card:hover .player-card-arrow {
+
+    transform: translateX(4px);
+
+    color: #173d5f;
+
+}
+
+
+.player-card.selected .player-card-arrow {
+
+    color: #173d5f;
+
+}
+
+
+/* ========================================
+   PROFILE DISPLAY
+======================================== */
+
+.profile-display {
+
+    width: 100%;
+
+    max-width: 1000px;
+
+    margin: 10px auto 0;
+
+    padding: 0 20px;
+
+}
+
+
+.profile-display:empty {
+
+    display: none;
+
+}
+
+
+/* ========================================
+   PLAYER PROFILE
+======================================== */
+
+.player-profile {
+
+    width: 100%;
+
+    padding: 35px;
+
+    border-radius: 25px;
+
+    border: 3px solid #183b5c;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.97),
+            rgba(235,241,246,0.94)
+        );
+
+    box-shadow:
+        0 20px 50px rgba(13,43,70,0.17);
+
+}
+
+
+/* ========================================
+   PROFILE DROP ANIMATION
+======================================== */
+
+.fantasy-profile-drop {
+
+    animation:
+        fantasyProfileDrop 0.45s ease both;
+
+}
+
+
+@keyframes fantasyProfileDrop {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(-28px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* ========================================
+   PROFILE HEADER
+======================================== */
+
+.player-profile-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 17px;
+
+}
+
+
+.player-profile-icon {
+
+    flex-shrink: 0;
+
+    width: 66px;
+
+    height: 66px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border-radius: 16px;
+
+    color: #173c5b;
+
+    font-size: 27px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #8f9ba6,
+            #e8ecef 45%,
+            #8996a2
+        );
+
+    border: 1px solid #7b8995;
+
+    box-shadow:
+        0 8px 18px rgba(24,51,76,0.16),
+        inset 0 1px 2px rgba(255,255,255,0.9);
+
+}
+
+
+.player-profile-title {
+
+    flex: 1;
+
+}
+
+
+.player-profile-title h2 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 44px;
+
+    line-height: 1;
+
+    letter-spacing: 1.5px;
+
+    color: #132f4b;
+
+}
+
+
+.player-profile-title p {
+
+    margin: 5px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #718195;
+
+}
+
+
+.profile-achievement-total {
+
+    flex-shrink: 0;
+
+    min-width: 100px;
+
+    padding: 10px 15px;
+
+    text-align: center;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #102e4c,
+            #183e60
+        );
+
+    box-shadow:
+        0 7px 16px rgba(15,43,68,0.2);
+
+}
+
+
+.total-number {
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 35px;
+
+    line-height: 0.95;
+
+    color: #eef3f7;
+
+}
+
+
+.total-label {
+
+    margin-top: 4px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 8px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    color: #b9c8d5;
+
+}
+
+
+/* ========================================
+   PROFILE DIVIDER
+======================================== */
+
+.profile-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 27px 0 20px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #bdc8d2,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   COLLECTION HEADER
+======================================== */
+
+.achievement-collection-header {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 17px;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+
+    color: #6d7d8e;
+
+}
+
+
+/* ========================================
+   PLAQUE GRID
+======================================== */
+
+.achievement-plaque-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 18px;
+
+}
+
+
+/* ========================================
+   ACHIEVEMENT PLAQUE
+======================================== */
+
+.achievement-plaque {
+
+    position: relative;
+
+    min-height: 165px;
+
+    overflow: hidden;
+
+    padding: 7px;
+
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #737f89 0%,
+            #d9dee2 18%,
+            #a4adb5 45%,
+            #edf0f2 68%,
+            #929da6 100%
+        );
+
+    border: 1px solid #78848e;
+
+    box-shadow:
+        0 10px 20px rgba(40,56,70,0.17),
+        inset 0 1px 1px rgba(255,255,255,0.9);
+
+    opacity: 0;
+
+    animation:
+        plaqueAppear 0.42s ease forwards;
+
+    animation-delay:
+        var(--plaque-delay);
+
+}
+
+
+@keyframes plaqueAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(16px)
+            scale(0.97);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+/* ========================================
+   PLAQUE SHINE
+======================================== */
+
+.plaque-shine {
+
+    position: absolute;
+
+    top: -30%;
+
+    left: -75%;
+
+    width: 45%;
+
+    height: 170%;
+
+    transform: rotate(18deg);
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,0.48),
+            transparent
+        );
+
+    animation:
+        plaqueGlisten 5.5s ease-in-out infinite;
+
+}
+
+
+@keyframes plaqueGlisten {
+
+    0%,
+    68% {
+
+        left: -75%;
+
+    }
+
+    86%,
+    100% {
+
+        left: 145%;
+
+    }
+
+}
+
+
+/* ========================================
+   PLAQUE INNER
+======================================== */
+
+.plaque-inner {
+
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+
+    min-height: 149px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px 14px;
+
+    text-align: center;
+
+    border-radius: 9px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #e6eaed,
+            #aeb7be 48%,
+            #dfe4e7
+        );
+
+    border: 1px solid rgba(91,103,113,0.5);
+
+    box-shadow:
+        inset 0 1px 2px rgba(255,255,255,0.85),
+        inset 0 -2px 4px rgba(79,91,101,0.16);
+
+}
+
+
+/* ========================================
+   PLAQUE TROPHY
+======================================== */
+
+.plaque-top {
+
+    margin-bottom: 9px;
+
+    font-size: 20px;
+
+    color: #4f5c67;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.9);
+
+}
+
+
+/* ========================================
+   PLAQUE ACHIEVEMENT
+======================================== */
+
+.plaque-achievement {
+
+    max-width: 100%;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 22px;
+
+    line-height: 1.03;
+
+    letter-spacing: 0.7px;
+
+    color: #263640;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.8);
+
+}
+
+
+/* ========================================
+   PLAQUE LINE
+======================================== */
+
+.plaque-line {
+
+    width: 45px;
+
+    height: 2px;
+
+    margin: 12px auto 9px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #64717b,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   PLAQUE WEEK
+======================================== */
+
+.plaque-week {
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+    color: #596773;
+
+}
+
+
+/* ========================================
+   EMPTY PROFILE
+======================================== */
+
+.empty-achievements {
+
+    grid-column: 1 / -1;
+
+    min-height: 210px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    border-radius: 16px;
+
+    border: 2px dashed #bbc6cf;
+
+    background:
+        rgba(245,247,249,0.7);
+
+}
+
+
+.empty-trophy {
+
+    margin-bottom: 10px;
+
+    font-size: 34px;
+
+    color: #a0abb4;
+
+}
+
+
+.empty-achievements h3 {
+
+    margin: 0;
+
+    font-family: "Bebas Neue", sans-serif;
+
+    font-size: 27px;
+
+    letter-spacing: 1px;
+
+    color: #5d6c79;
+
+}
+
+
+.empty-achievements p {
+
+    margin: 5px 0 0;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    color: #8996a2;
+
+}
+
+
+/* ========================================
+   NAVIGATION
+======================================== */
+
+.fantasy-navigation {
+
+    display: flex;
+
+    justify-content: center;
+
+    padding: 25px 20px 45px;
+
+}
+
+
+.fantasy-back-button {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    border: 2px solid #294966;
+
+    background: rgba(255,255,255,0.8);
+
+    color: #193953;
+
+    font-family: "Inter", Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.fantasy-back-button:hover {
+
+    transform: translateY(-2px);
+
+    background: white;
+
+    box-shadow:
+        0 8px 18px rgba(20,47,72,0.12);
+
+}
+
+
+/* ========================================
+   FOOTER
+======================================== */
+
+.fantasy-page footer {
+
+    text-align: center;
+
+}
+
+
+.fantasy-page .footer-logo {
+
+    width: 250px;
+
+    height: auto;
+
+    display: block;
+
+    margin: 0 auto;
+
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 900px) {
+
+    .player-selector {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .fantasy-hero {
+
+        min-height: 310px;
+
+        padding: 25px 15px;
+
+    }
+
+
+    .fantasy-hero-content {
+
+        padding: 38px 20px;
+
+        border-radius: 22px;
+
+    }
+
+
+    .fantasy-hero h1 {
+
+        font-size: 52px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .fantasy-hero p {
+
+        font-size: 16px;
+
+    }
+
+
+    .fantasy-trophy-icon {
+
+        width: 62px;
+
+        height: 62px;
+
+        font-size: 25px;
+
+    }
+
+
+    .fantasy-section {
+
+        padding: 25px 15px;
+
+    }
+
+
+    .section-heading h2 {
+
+        font-size: 32px;
+
+    }
+
+
+    .standings-header {
+
+        grid-template-columns:
+            40px 1fr 105px;
+
+        padding: 0 14px;
+
+        font-size: 9px;
+
+    }
+
+
+    .standings-row {
+
+        grid-template-columns:
+            40px 1fr 105px;
+
+        padding: 0 14px;
+
+    }
+
+
+    .standings-player-name {
+
+        font-size: 14px;
+
+    }
+
+
+    .achievement-count-number {
+
+        font-size: 27px;
+
+    }
+
+
+    .achievement-count-label {
+
+        display: none;
+
+    }
+
+
+    .power-rankings-card {
+
+        padding: 12px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .power-rankings-chart {
+
+        min-width: 820px;
+
+    }
+
+
+    .power-rankings-svg {
+
+        min-width: 820px;
+
+    }
+
+
+    .power-rankings-legend {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 9px 12px;
+
+        margin-top: 15px;
+
+        padding-top: 14px;
+
+    }
+
+
+    .power-rankings-legend-item {
+
+        font-size: 11px;
+
+    }
+
+
+.power-rankings-tooltip {
+
+    width: 240px;
+
+    max-height: 180px;
+
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    pointer-events: auto;
+
+}
+
+    .player-selector {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+    }
+
+
+    .player-card {
+
+        min-height: 68px;
+
+        padding: 11px;
+
+        gap: 9px;
+
+        border-radius: 14px;
+
+    }
+
+
+    .player-card-icon {
+
+        width: 34px;
+
+        height: 34px;
+
+        font-size: 14px;
+
+        border-radius: 9px;
+
+    }
+
+
+    .player-card-name {
+
+        font-size: 20px;
+
+    }
+
+
+    .player-card-count {
+
+        font-size: 12px;
+
+    }
+
+
+    .player-card-arrow {
+
+        font-size: 11px;
+
+    }
+
+
+    .profile-display {
+
+        padding: 0 15px;
+
+    }
+
+
+    .player-profile {
+
+        padding: 22px 15px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .player-profile-header {
+
+        gap: 11px;
+
+    }
+
+
+    .player-profile-icon {
+
+        width: 52px;
+
+        height: 52px;
+
+        font-size: 22px;
+
+        border-radius: 13px;
+
+    }
+
+
+    .player-profile-title h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    .player-profile-title p {
+
+        font-size: 8px;
+
+        letter-spacing: 1.2px;
+
+    }
+
+
+    .profile-achievement-total {
+
+        min-width: 65px;
+
+        padding: 8px 9px;
+
+    }
+
+
+    .total-number {
+
+        font-size: 29px;
+
+    }
+
+
+    .total-label {
+
+        font-size: 7px;
+
+        letter-spacing: 0.6px;
+
+    }
+
+
+    .achievement-collection-header {
+
+        font-size: 8px;
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+    }
+
+
+    .achievement-plaque {
+
+        min-height: 145px;
+
+        padding: 5px;
+
+    }
+
+
+    .plaque-inner {
+
+        min-height: 133px;
+
+        padding: 15px 9px;
+
+    }
+
+
+    .plaque-top {
+
+        font-size: 17px;
+
+        margin-bottom: 7px;
+
+    }
+
+
+    .plaque-achievement {
+
+        font-size: 18px;
+
+    }
+
+
+    .plaque-line {
+
+        margin: 9px auto 7px;
+
+    }
+
+
+    .plaque-week {
+
+        font-size: 8px;
+
+        letter-spacing: 1px;
+
+    }
+
+}
+
 
 /* ========================================
    VERY SMALL PHONES
@@ -2472,5 +4657,1355 @@ padding-left: 5px;
     padding-left: 22px;
 
 }
+
+}
+
+    /* ========================================
+       WEEKLY ELIMINATIONS
+    ======================================== */
+
+    .weekly-eliminations-card {
+
+        padding: 20px 15px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .tombstone-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 18px 12px;
+
+    }
+
+
+    .tombstone {
+
+        padding-top: 12px;
+
+    }
+
+
+    .tombstone-top {
+
+        height: 64px;
+
+        border-radius:
+            42px 42px 0 0;
+
+    }
+
+
+    .tombstone-arch {
+
+        top: 7px;
+
+        height: 39px;
+
+    }
+
+
+    .tombstone-week {
+
+        bottom: 8px;
+
+        font-size: 8px;
+
+        letter-spacing: 1.3px;
+
+    }
+
+
+    .tombstone-body {
+
+        min-height: 175px;
+
+        padding: 14px 8px 16px;
+
+    }
+
+
+    .tombstone-skull {
+
+        width: 38px;
+
+        height: 38px;
+
+        font-size: 18px;
+
+        margin-bottom: 5px;
+
+    }
+
+
+    .tombstone-rest {
+
+        font-size: 15px;
+
+    }
+
+
+    .tombstone-player {
+
+        font-size: 23px;
+
+        letter-spacing: 1px;
+
+    }
+
+
+    .tombstone-divider {
+
+        width: 42px;
+
+        margin: 10px auto 7px;
+
+    }
+
+
+    .tombstone-score {
+
+        font-size: 30px;
+
+    }
+
+
+    .tombstone-foints {
+
+        font-size: 7px;
+
+        letter-spacing: 1.4px;
+
+    }
+
+
+    .tombstone-base {
+
+        height: 18px;
+
+        margin:
+            0 -5px;
+
+    }
+
+/* ========================================
+   WEEKLY ELIMINATIONS
+======================================== */
+
+.weekly-eliminations-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #b9c5d1;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ========================================
+   TOMBSTONE GRID
+======================================== */
+
+.tombstone-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px 22px;
+
+}
+
+
+/* ========================================
+   TOMBSTONE
+======================================== */
+
+.tombstone {
+
+    position: relative;
+
+    min-width: 0;
+
+    padding-top: 18px;
+
+    cursor: default;
+
+    filter:
+        drop-shadow(
+            0 12px 10px rgba(25,35,45,0.18)
+        );
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+}
+
+
+.tombstone:hover {
+
+    transform:
+        translateY(-7px);
+
+    filter:
+        drop-shadow(
+            0 18px 16px rgba(25,35,45,0.24)
+        );
+
+}
+
+
+/* ========================================
+   TOMBSTONE TOP
+======================================== */
+
+.tombstone-top {
+
+    position: relative;
+
+    height: 78px;
+
+    overflow: hidden;
+
+    border-radius:
+        55px 55px 0 0;
+
+    border:
+        2px solid #555f67;
+
+    border-bottom: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            #59636b 0%,
+            #aeb5ba 18%,
+            #737d85 45%,
+            #c3c8cb 68%,
+            #69737b 100%
+        );
+
+    box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.55),
+        inset 0 -3px 5px rgba(45,53,59,0.25);
+
+}
+
+
+/* ========================================
+   TOMBSTONE ARCH
+======================================== */
+
+.tombstone-arch {
+
+    position: absolute;
+
+    top: 8px;
+
+    left: 9%;
+
+    width: 82%;
+
+    height: 48px;
+
+    border-radius:
+        50% 50% 0 0;
+
+    border:
+        2px solid rgba(245,247,248,0.35);
+
+    border-bottom: none;
+
+    pointer-events: none;
+
+}
+
+
+/* ========================================
+   TOMBSTONE WEEK
+======================================== */
+
+.tombstone-week {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 11px;
+
+    text-align: center;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #303a42;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.55);
+
+}
+
+
+/* ========================================
+   TOMBSTONE BODY
+======================================== */
+
+.tombstone-body {
+
+    position: relative;
+
+    min-height: 215px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 18px 14px 20px;
+
+    box-sizing: border-box;
+
+    border-left:
+        2px solid #555f67;
+
+    border-right:
+        2px solid #555f67;
+
+    background:
+        linear-gradient(
+            145deg,
+            #69747c 0%,
+            #b9c0c4 17%,
+            #818b92 43%,
+            #cdd1d4 68%,
+            #747e86 100%
+        );
+
+    box-shadow:
+        inset 3px 0 5px rgba(255,255,255,0.22),
+        inset -3px 0 5px rgba(45,53,59,0.18);
+
+}
+
+
+/* ========================================
+   TOMBSTONE SKULL
+======================================== */
+
+.tombstone-skull {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    border-radius: 50%;
+
+    color: #3c474f;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9dde0,
+            #8e999f
+        );
+
+    border:
+        1px solid #68747c;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.7),
+        0 3px 7px rgba(35,45,52,0.15);
+
+}
+
+
+/* ========================================
+   R.I.P.
+======================================== */
+
+.tombstone-rest {
+
+    margin-top: 1px;
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    color: #3b474f;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.55);
+
+}
+
+
+/* ========================================
+   TOMBSTONE PLAYER
+======================================== */
+
+.tombstone-player {
+
+    margin-top: 5px;
+
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+
+    text-align: center;
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 31px;
+
+    line-height: 1;
+
+    letter-spacing: 1.5px;
+
+    color: #26333b;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.7);
+
+}
+
+
+/* ========================================
+   TOMBSTONE DIVIDER
+======================================== */
+
+.tombstone-divider {
+
+    width: 55px;
+
+    height: 2px;
+
+    margin: 13px auto 9px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #4d5961,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   TOMBSTONE SCORE
+======================================== */
+
+.tombstone-score {
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 38px;
+
+    line-height: 0.9;
+
+    letter-spacing: 1px;
+
+    color: #26333b;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.7);
+
+}
+
+
+/* ========================================
+   TOMBSTONE FOINTS
+======================================== */
+
+.tombstone-foints {
+
+    margin-top: 4px;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #4e5b64;
+
+}
+
+
+/* ========================================
+   TOMBSTONE BASE
+======================================== */
+
+.tombstone-base {
+
+    position: relative;
+
+    height: 22px;
+
+    margin:
+        0 -7px;
+
+    border:
+        2px solid #555f67;
+
+    border-top: none;
+
+    border-radius:
+        0 0 5px 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #747f87,
+            #aeb5ba 45%,
+            #68727a
+        );
+
+    box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.35),
+        0 4px 3px rgba(35,45,52,0.12);
+
+}
+
+
+/* ========================================
+   TOMBSTONE BASE LINE
+======================================== */
+
+.tombstone-base-line {
+
+    position: absolute;
+
+    left: 12%;
+
+    right: 12%;
+
+    top: 6px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(55,65,72,0.45),
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 420px) {
+
+    .power-rankings-chart {
+
+        min-width: 760px;
+
+    }
+
+
+    .power-rankings-svg {
+
+        min-width: 760px;
+
+    }
+
+
+    .power-rankings-legend-item {
+
+        font-size: 10px;
+
+    }
+
+
+    .fantasy-hero h1 {
+
+        font-size: 45px;
+
+    }
+
+
+    .player-card {
+
+        min-height: 64px;
+
+        padding: 9px;
+
+    }
+
+
+    .player-card-icon {
+
+        width: 30px;
+
+        height: 30px;
+
+        font-size: 12px;
+
+    }
+
+
+    .player-card-name {
+
+        font-size: 12px;
+
+    }
+
+
+    .player-card-count {
+
+        font-size: 8px;
+
+    }
+
+
+    .player-card-arrow {
+
+        display: none;
+
+    }
+
+
+    .achievement-plaque-grid {
+
+        gap: 8px;
+
+    }
+
+
+    .achievement-plaque {
+
+        min-height: 135px;
+
+    }
+
+
+    .plaque-inner {
+
+        min-height: 123px;
+
+        padding: 12px 7px;
+
+    }
+
+
+    .plaque-achievement {
+
+        font-size: 16px;
+
+    }
+
+}
+
+/* ========================================
+   PROFILE PLACEHOLDER
+======================================== */
+
+.profile-placeholder {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 55px 30px;
+    text-align: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,0.96),
+            rgba(245,247,250,0.94)
+        );
+
+    border: 2px solid rgba(18, 35, 64, 0.14);
+    border-radius: 22px;
+
+    box-shadow:
+        0 14px 35px rgba(10, 25, 50, 0.10),
+        inset 0 1px 0 rgba(255,255,255,0.9);
+
+    animation: fantasyPlaceholderFade 0.5s ease both;
+}
+
+.profile-placeholder-icon {
+    width: 64px;
+    height: 64px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: linear-gradient(
+        145deg,
+        #e5e7eb,
+        #c7cbd1
+    );
+
+    color: #172a46;
+
+    font-size: 25px;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.8),
+        0 6px 14px rgba(10,25,50,0.12);
+}
+
+.profile-placeholder h2 {
+    margin: 0 0 10px;
+
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+
+    color: #172a46;
+}
+
+.profile-placeholder p {
+    max-width: 500px;
+    margin: 0 auto;
+
+    font-family: "Inter", Arial, sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.6;
+
+    color: #667085;
+}
+
+@keyframes fantasyPlaceholderFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .profile-placeholder {
+        padding: 45px 22px;
+        border-radius: 18px;
+    }
+
+    .profile-placeholder h2 {
+        font-size: 1.7rem;
+    }
+
+    .profile-placeholder p {
+        font-size: 0.88rem;
+    }
+
+    .profile-placeholder-icon {
+        width: 58px;
+        height: 58px;
+        font-size: 22px;
+    }
+}
+
+/* ========================================
+POSSIBLE ACHIEVEMENTS LIST
+======================================== */
+
+.possible-achievements-card {
+
+width: 100%;
+
+padding: 25px 30px;
+
+border: 2px solid #b9c5d1;
+
+border-radius: 20px;
+
+background: rgba(255,255,255,0.82);
+
+box-shadow: 0 14px 35px rgba(19,45,73,0.12);
+
+backdrop-filter: blur(10px);
+
+box-sizing: border-box;
+
+}
+
+.possible-achievements-list {
+
+margin: 0;
+
+padding-left: 25px;
+
+display: grid;
+
+grid-template-columns: repeat(2, 1fr);
+
+column-gap: 45px;
+
+row-gap: 10px;
+
+font-family: "Inter", Arial, sans-serif;
+
+font-size: 14px;
+
+line-height: 1.5;
+
+color: #34495e;
+
+}
+
+.possible-achievements-list li {
+
+padding-left: 5px;
+
+}
+
+@media (max-width: 700px) {
+
+.possible-achievements-card {
+
+    padding: 20px 18px;
+
+}
+
+.possible-achievements-list {
+
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    font-size: 13px;
+
+    padding-left: 22px;
+
+}
+
+}
+
+
+
+/* ========================================
+   WEEKLY ELIMINATIONS
+======================================== */
+
+.weekly-eliminations-card {
+
+    width: 100%;
+
+    padding: 30px;
+
+    box-sizing: border-box;
+
+    border: 2px solid #b9c5d1;
+
+    border-radius: 20px;
+
+    background:
+        rgba(255,255,255,0.82);
+
+    box-shadow:
+        0 14px 35px rgba(19,45,73,0.12);
+
+    backdrop-filter: blur(10px);
+
+}
+
+
+/* ========================================
+   TOMBSTONE GRID
+======================================== */
+
+.tombstone-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 28px 22px;
+
+}
+
+
+/* ========================================
+   TOMBSTONE
+======================================== */
+
+.tombstone {
+
+    position: relative;
+
+    min-width: 0;
+
+    padding-top: 18px;
+
+    cursor: default;
+
+    filter:
+        drop-shadow(
+            0 12px 10px rgba(25,35,45,0.18)
+        );
+
+    transition:
+        transform 0.25s ease,
+        filter 0.25s ease;
+
+}
+
+
+.tombstone:hover {
+
+    transform:
+        translateY(-7px);
+
+    filter:
+        drop-shadow(
+            0 18px 16px rgba(25,35,45,0.24)
+        );
+
+}
+
+
+/* ========================================
+   TOMBSTONE TOP
+======================================== */
+
+.tombstone-top {
+
+    position: relative;
+
+    height: 78px;
+
+    overflow: hidden;
+
+    border-radius:
+        55px 55px 0 0;
+
+    border:
+        2px solid #555f67;
+
+    border-bottom: none;
+
+    background:
+        linear-gradient(
+            145deg,
+            #59636b 0%,
+            #aeb5ba 18%,
+            #737d85 45%,
+            #c3c8cb 68%,
+            #69737b 100%
+        );
+
+    box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.55),
+        inset 0 -3px 5px rgba(45,53,59,0.25);
+
+}
+
+
+/* ========================================
+   TOMBSTONE ARCH
+======================================== */
+
+.tombstone-arch {
+
+    position: absolute;
+
+    top: 8px;
+
+    left: 9%;
+
+    width: 82%;
+
+    height: 48px;
+
+    border-radius:
+        50% 50% 0 0;
+
+    border:
+        2px solid rgba(245,247,248,0.35);
+
+    border-bottom: none;
+
+    pointer-events: none;
+
+}
+
+
+/* ========================================
+   TOMBSTONE WEEK
+======================================== */
+
+.tombstone-week {
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 11px;
+
+    text-align: center;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #303a42;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.55);
+
+}
+
+
+/* ========================================
+   TOMBSTONE BODY
+======================================== */
+
+.tombstone-body {
+
+    position: relative;
+
+    min-height: 215px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 18px 14px 20px;
+
+    box-sizing: border-box;
+
+    border-left:
+        2px solid #555f67;
+
+    border-right:
+        2px solid #555f67;
+
+    background:
+        linear-gradient(
+            145deg,
+            #69747c 0%,
+            #b9c0c4 17%,
+            #818b92 43%,
+            #cdd1d4 68%,
+            #747e86 100%
+        );
+
+    box-shadow:
+        inset 3px 0 5px rgba(255,255,255,0.22),
+        inset -3px 0 5px rgba(45,53,59,0.18);
+
+}
+
+
+/* ========================================
+   TOMBSTONE SKULL
+======================================== */
+
+.tombstone-skull {
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    margin-bottom: 7px;
+
+    border-radius: 50%;
+
+    color: #3c474f;
+
+    font-size: 23px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #d9dde0,
+            #8e999f
+        );
+
+    border:
+        1px solid #68747c;
+
+    box-shadow:
+        inset 0 2px 3px rgba(255,255,255,0.7),
+        0 3px 7px rgba(35,45,52,0.15);
+
+}
+
+
+/* ========================================
+   R.I.P.
+======================================== */
+
+.tombstone-rest {
+
+    margin-top: 1px;
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 19px;
+
+    line-height: 1;
+
+    letter-spacing: 2px;
+
+    color: #3b474f;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.55);
+
+}
+
+
+/* ========================================
+   TOMBSTONE PLAYER
+======================================== */
+
+.tombstone-player {
+
+    margin-top: 5px;
+
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+
+    text-align: center;
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 31px;
+
+    line-height: 1;
+
+    letter-spacing: 1.5px;
+
+    color: #26333b;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.7);
+
+}
+
+
+/* ========================================
+   TOMBSTONE DIVIDER
+======================================== */
+
+.tombstone-divider {
+
+    width: 55px;
+
+    height: 2px;
+
+    margin: 13px auto 9px;
+
+    border-radius: 5px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #4d5961,
+            transparent
+        );
+
+}
+
+
+/* ========================================
+   TOMBSTONE SCORE
+======================================== */
+
+.tombstone-score {
+
+    font-family:
+        "Bebas Neue",
+        sans-serif;
+
+    font-size: 38px;
+
+    line-height: 0.9;
+
+    letter-spacing: 1px;
+
+    color: #26333b;
+
+    text-shadow:
+        0 1px 1px rgba(255,255,255,0.7);
+
+}
+
+
+/* ========================================
+   TOMBSTONE FOINTS
+======================================== */
+
+.tombstone-foints {
+
+    margin-top: 4px;
+
+    font-family:
+        "Inter",
+        Arial,
+        sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+    color: #4e5b64;
+
+}
+
+
+/* ========================================
+   TOMBSTONE BASE
+======================================== */
+
+.tombstone-base {
+
+    position: relative;
+
+    height: 22px;
+
+    margin:
+        0 -7px;
+
+    border:
+        2px solid #555f67;
+
+    border-top: none;
+
+    border-radius:
+        0 0 5px 5px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #747f87,
+            #aeb5ba 45%,
+            #68727a
+        );
+
+    box-shadow:
+        inset 0 2px 2px rgba(255,255,255,0.35),
+        0 4px 3px rgba(35,45,52,0.12);
+
+}
+
+
+/* ========================================
+   TOMBSTONE BASE LINE
+======================================== */
+
+.tombstone-base-line {
+
+    position: absolute;
+
+    left: 12%;
+
+    right: 12%;
+
+    top: 6px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(55,65,72,0.45),
+            transparent
+        );
 
 }

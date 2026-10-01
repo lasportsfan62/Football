@@ -492,43 +492,61 @@ async function getRollingRecord(player, numberOfWeeks){
     ]);
 
 
-    let playerWeeks;
+    let playerRows;
 
 
     /* =========================
-       FIND WEEKS
+       GET PLAYER ROWS
     ========================= */
 
     if(player === "LEAGUE"){
 
-        const weeks = [
-            ...new Set(
-                previousWeeks.map(row => row.Week)
-            )
-        ]
-        .sort((a, b) =>
-            Number(b) - Number(a)
-        )
-        .slice(0, numberOfWeeks);
-
-
-        playerWeeks =
-            previousWeeks.filter(row =>
-                weeks.includes(row.Week)
-            );
+        playerRows = previousWeeks.filter(row =>
+            row.Week &&
+            !isNaN(Number(row.Week))
+        );
 
     }
     else{
 
-        playerWeeks = previousWeeks
-            .filter(row => row.Player === player)
-            .sort((a, b) =>
-                Number(b.Week) - Number(a.Week)
-            )
-            .slice(0, numberOfWeeks);
+        playerRows = previousWeeks.filter(row =>
+    row.Player === player &&
+    row.Week &&
+    !isNaN(Number(row.Week)) &&
+    (
+        row["Game 1"] ||
+        row["Game 2"] ||
+        row["Game 3"] ||
+        row["Game 4"] ||
+        row["Game 5"]
+    )
+);
 
     }
 
+
+    /* =========================
+       FIND MOST RECENT WEEKS
+    ========================= */
+
+    const recentWeeks = [
+        ...new Set(
+            playerRows.map(row => row.Week.trim())
+        )
+    ]
+    .sort((a, b) =>
+        Number(b) - Number(a)
+    )
+    .slice(0, numberOfWeeks);
+
+
+    /* =========================
+       GET ROWS FOR THOSE WEEKS
+    ========================= */
+
+    playerRows = playerRows.filter(row =>
+        recentWeeks.includes(row.Week.trim())
+    );
 
     let wins = 0;
     let losses = 0;
@@ -538,9 +556,10 @@ async function getRollingRecord(player, numberOfWeeks){
        GRADE EACH PICK
     ========================= */
 
-    playerWeeks.forEach(row => {
+    playerRows.forEach(row => {
 
-        const week = row.Week;
+        const week = row.Week.trim();
+
 
         const picks = [
 
@@ -558,34 +577,40 @@ async function getRollingRecord(player, numberOfWeeks){
             if(!pick) return;
 
 
+            const cleanPick = pick.trim();
+
+
             const result = results.find(
                 resultRow =>
-                    resultRow.Week === week &&
-                    resultRow.Winner === pick
+                    resultRow.Week.trim() === week &&
+                    resultRow.Winner.trim() === cleanPick
             );
-
 
             if(!result) return;
 
 
-            if(result.Result.toUpperCase() === "W"){
+            const resultValue =
+                result.Result.trim().toUpperCase();
 
-    wins += 1;
 
-}
+            if(resultValue === "W"){
 
-else if(result.Result.toUpperCase() === "L"){
+                wins += 1;
 
-    losses += 1;
+            }
 
-}
+            else if(resultValue === "L"){
 
-else if(result.Result.toUpperCase() === "T"){
+                losses += 1;
 
-    wins += 0.5;
-    losses += 0.5;
+            }
 
-}
+            else if(resultValue === "T"){
+
+                wins += 0.5;
+                losses += 0.5;
+
+            }
 
         });
 

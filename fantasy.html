@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
 
-<meta charset="UTF-8"> 
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Fantasy Football | Football Games 2026</title>
@@ -1456,7 +1456,19 @@ function getPlayerAchievements(playerName) {
 
 function getPlayerCount(playerName) {
 
-    return getPlayerAchievements(playerName).length;
+    return getPlayerAchievements(playerName)
+        .reduce((total, item) => {
+
+            if (
+                item.achievement.toLowerCase() ===
+                "tie matchup"
+            ) {
+                return total + 3;
+            }
+
+            return total + 1;
+
+        }, 0);
 
 }
 

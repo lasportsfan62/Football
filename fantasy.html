@@ -496,6 +496,13 @@ function getPowerRankingWeekLabel(week) {
 
 }
 
+function isPowerRankingImageURL(value) {
+    const trimmedValue = (value || "").trim();
+
+    return /^https?:\/\/\S+\.(jpg|jpeg|png|gif|webp|avif)(\?[^\s]*)?$/i
+        .test(trimmedValue);
+}
+
 
 function getPowerRankingData(playerName) {
 
@@ -643,13 +650,31 @@ function showPowerRankingTooltip(event, playerName, item) {
             }
         </div>
 
-        ${
+                ${
             item.message
-                ? `
-                    <div class="power-rankings-tooltip-message">
-                        ${escapeHTML(item.message)}
-                    </div>
-                  `
+                ? isPowerRankingImageURL(item.message)
+                    ? `
+                        <div class="power-rankings-tooltip-message">
+                            <img
+                                src="${escapeHTML(item.message)}"
+                                alt="${escapeHTML(playerName)} power rankings"
+                                style="
+                                    display: block;
+                                    max-width: 100%;
+                                    width: 260px;
+                                    max-height: 220px;
+                                    object-fit: contain;
+                                    border-radius: 8px;
+                                    margin: 10px auto 0;
+                                "
+                            >
+                        </div>
+                      `
+                    : `
+                        <div class="power-rankings-tooltip-message">
+                            ${escapeHTML(item.message)}
+                        </div>
+                      `
                 : ""
         }
 

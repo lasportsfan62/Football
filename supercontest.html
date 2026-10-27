@@ -1108,17 +1108,19 @@ let previousWeeks = [
                picks have a result.
             */
 
-            if(result.graded === 5){
+            
+if(result.graded === 5){
 
-                standings[player.player].wins += result.wins;
+    standings[player.player].wins += result.wins + (result.ties * 0.5);
 
-                standings[player.player].losses += result.losses;
+    standings[player.player].losses += result.losses + (result.ties * 0.5);
 
-                standings[player.player].ties += result.ties;
+    standings[player.player].ties += result.ties;
 
-                standings[player.player].weeks[week] = result;
+    standings[player.player].weeks[week] = result;
 
-            }
+}
+
 
         });
 
@@ -1141,18 +1143,18 @@ currentPicks.forEach(player => {
 
     let result = gradeWeek(player,currentWeek);
 
+if(result.graded > 0){
 
-    if(result.graded > 0){
+    standings[player.player].wins += result.wins + (result.ties * 0.5);
 
-        standings[player.player].wins += result.wins;
+    standings[player.player].losses += result.losses + (result.ties * 0.5);
 
-        standings[player.player].losses += result.losses;
+    standings[player.player].ties += result.ties;
 
-        standings[player.player].ties += result.ties;
+    standings[player.player].weeks[currentWeek] = result;
 
-        standings[player.player].weeks[currentWeek] = result;
+}
 
-    }
 
 });
 
